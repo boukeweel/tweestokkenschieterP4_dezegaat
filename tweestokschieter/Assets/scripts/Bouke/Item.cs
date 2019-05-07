@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    /*
     Player player;
     private void Start()
     {
-         
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -21,5 +20,4 @@ public class Item : MonoBehaviour
     {
         player.Armorpickup();
     }
-    */
 }
