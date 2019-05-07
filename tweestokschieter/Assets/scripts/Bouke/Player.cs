@@ -25,7 +25,7 @@ public class Player : HealthSystem
     {
 
 
-        rig.MovePosition(transform.position + input() * Time.deltaTime);
+        rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
 
 
 
