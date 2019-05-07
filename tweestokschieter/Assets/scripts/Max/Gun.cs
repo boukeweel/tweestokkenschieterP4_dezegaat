@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Instantiate(Bullet, transform.position + (transform.forward * (5)), transform.rotation);
+            Instantiate(Bullet, transform.position + (transform.forward * (10)), transform.rotation);
         }
     }
 }
