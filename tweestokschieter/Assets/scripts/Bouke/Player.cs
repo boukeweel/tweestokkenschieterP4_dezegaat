@@ -11,7 +11,7 @@ public class Player : HealthSystem
     public int healf = 100;
     public int armor = 0;
 
-    public Rigidbody rig;
+    private Rigidbody rig;
 
     private void Start()
     {
