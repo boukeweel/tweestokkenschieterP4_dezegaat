@@ -11,11 +11,11 @@ public class Player : HealthSystem
     public int healf = 100;
     public int armor = 0;
 
-    //public Rigidbody rig;
-    
+    public Rigidbody rig;
+
     private void Start()
     {
-        //rig = GetComponent<Rigidbody>();
+        rig = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()

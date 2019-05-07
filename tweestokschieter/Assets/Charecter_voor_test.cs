@@ -21,6 +21,7 @@ public class Charecter_voor_test : MonoBehaviour
         moveposition = transform.TransformDirection(moveposition);
         moveposition *= speed;
 
+        //transform.Rotate(0, Input.GetAxis("Horizontal"), 0);
         moveposition.y -= grafity * Time.deltaTime;
         controller.Move(moveposition * Time.deltaTime);
 
