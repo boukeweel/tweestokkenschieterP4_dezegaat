@@ -10,11 +10,6 @@ public class OpenDoor : MonoBehaviour
     public Animator animator;
     public int IsOpen;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -23,14 +18,13 @@ public class OpenDoor : MonoBehaviour
             Open();
         }
 
-        if (IsOpen == 1)
-        {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Close();
+                if(IsOpen == 1)
+                {
+                    Close();
+                }
             }
-
-        }
     }
 
     void Open()
@@ -51,10 +45,10 @@ public class OpenDoor : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask))
         {
-                    if (IsOpen == 0)
-                    {
-                        animator.SetBool("active", false);
-                    }
+              if (IsOpen == 0)
+              {
+                animator.SetBool("acive", false);
+              }
         }
     }
 

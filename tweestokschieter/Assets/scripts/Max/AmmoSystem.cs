@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AmmoSystem : MonoBehaviour
 {
     public float ammo;
     public float magSize = 125;
     public GameObject bullet;
+
+    public TextMeshProUGUI ammotext;
+    public TextMeshProUGUI magsizetext;
 
     void Update()
     {
@@ -25,6 +29,9 @@ public class AmmoSystem : MonoBehaviour
                 ReloadSystem();
             }
         }
+
+        ammotext.text = ammo.ToString();
+        magsizetext.text = magSize.ToString();
 
     }
 
