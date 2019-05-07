@@ -5,10 +5,7 @@ using UnityEngine;
 public class Player : HealthSystem
 {
 
-    public KeyCode Rechts;
-    public KeyCode Down;
-    public KeyCode left;
-    public KeyCode up;
+    
     public int speed;
 
     public int healf = 100;
