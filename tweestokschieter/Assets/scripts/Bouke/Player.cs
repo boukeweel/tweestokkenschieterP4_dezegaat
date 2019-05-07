@@ -13,27 +13,26 @@ public class Player : MonoBehaviour
 
     public int healf = 100;
     public int armor = 0;
-    
-    private void Update()
-    {
-        if (Input.GetKey(Rechts))
-        {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
-        }
-        else if (Input.GetKey(left))
-        {
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
-        }
-        if (Input.GetKey(up))
-        {
-            transform.Translate(0, 0, speed * Time.deltaTime);
-        }
-        else if (Input.GetKey(Down))
-        {
-            transform.Translate(0, 0, -speed * Time.deltaTime);
-        }
 
-        
+    public Rigidbody rig;
+    
+    private void Start()
+    {
+        rig = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+
+
+        rig.MovePosition(transform.position + input() * Time.deltaTime);
+
+
+
+    }
+    public Vector3 input()
+    {
+        return new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
     
     public void Gedamegs()
