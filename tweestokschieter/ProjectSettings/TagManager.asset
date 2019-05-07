@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Damges
   - Armor
+  - HealthPickup
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,8 @@ public class Player : HealthSystem
     public int armor = 0;
 
     public Rigidbody rig;
-    
+    float timer_test = 0.1f;
+    int ding = 1;
     private void Start()
     {
         rig = GetComponent<Rigidbody>();
@@ -50,12 +51,5 @@ public class Player : HealthSystem
     public void Armorpickup()
     {
         armor += 50;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Healfpickup"))
-        {
-            health += 20;
-        }
     }
 }
