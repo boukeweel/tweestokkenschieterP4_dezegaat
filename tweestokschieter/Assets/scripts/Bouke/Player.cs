@@ -5,14 +5,17 @@ using UnityEngine;
 public class Player : HealthSystem
 {
 
-    
+    public KeyCode Rechts;
+    public KeyCode Down;
+    public KeyCode left;
+    public KeyCode up;
     public int speed;
 
     public int healf = 100;
     public int armor = 0;
 
-    private Rigidbody rig;
-
+    public Rigidbody rig;
+    
     private void Start()
     {
         rig = GetComponent<Rigidbody>();
@@ -22,7 +25,7 @@ public class Player : HealthSystem
     {
 
 
-        transform.Translate(input() * Time.deltaTime * speed);
+        rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
 
 
 
