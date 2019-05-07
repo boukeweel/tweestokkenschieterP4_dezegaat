@@ -12,24 +12,23 @@ public class AmmoSystem : MonoBehaviour
     {
         ammo = Mathf.Clamp(ammo, 0, 25f);
 
-        ShootGun();
-
-        ReloadGun();
-
-    }
-
-    private void ReloadGun()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
+        if(ammo != 0)
         {
-            if (magSize < magSize)
+            ShootGun();
+        }
+
+        Debug.Log(ammo);
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            if (ammo < magSize)
             {
                 ReloadSystem();
             }
         }
+
     }
 
-    private void ReloadSystem()
+    public void ReloadSystem()
     {
         for (float i = ammo; i < magSize; i++)
         {
@@ -45,6 +44,7 @@ public class AmmoSystem : MonoBehaviour
         {
             Instantiate(bullet, transform.position, transform.rotation);
             ammo--;
+
         }
     }
 }
