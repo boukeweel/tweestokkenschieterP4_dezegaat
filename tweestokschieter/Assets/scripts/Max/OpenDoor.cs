@@ -8,7 +8,7 @@ public class OpenDoor : MonoBehaviour
     public float range;
     public LayerMask layerMask;
     public Animator animator;
-    public int IsOpen = 1;
+    public int IsOpen;
 
     void Start()
     {
@@ -23,7 +23,14 @@ public class OpenDoor : MonoBehaviour
             Open();
         }
 
+        if (IsOpen == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Close();
+            }
 
+        }
     }
 
     void Open()
@@ -41,19 +48,13 @@ public class OpenDoor : MonoBehaviour
 
     void Close()
     {
-        if(IsOpen == 1)
+        RaycastHit hit;
+        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask))
         {
-            if(Input.GetKeyDown(KeyCode.F))
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask))
-                {
                     if (IsOpen == 0)
                     {
                         animator.SetBool("active", false);
                     }
-                }
-            }
         }
     }
 
