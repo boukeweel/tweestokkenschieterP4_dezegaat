@@ -5,10 +5,7 @@ using UnityEngine;
 public class Player : HealthSystem
 {
 
-    public KeyCode Rechts;
-    public KeyCode Down;
-    public KeyCode left;
-    public KeyCode up;
+   
     public int speed;
 
     public int healf = 100;
@@ -53,5 +50,12 @@ public class Player : HealthSystem
     public void Armorpickup()
     {
         armor += 50;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Healfpickup"))
+        {
+            health += 20;
+        }
     }
 }
