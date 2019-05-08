@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
  
     public void ShootGun()
     {
-        if(XCI.GetButtonDown(XboxButton.RightBumper))
+        if(XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
         {
             Instantiate(Bullet, transform.position, transform.rotation);
         }
