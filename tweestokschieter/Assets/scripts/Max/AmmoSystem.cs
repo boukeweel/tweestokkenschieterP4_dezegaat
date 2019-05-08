@@ -49,7 +49,7 @@ public class AmmoSystem : MonoBehaviour
 
     public void ShootGun()
     {
-        if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
+        if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
         {
             Instantiate(bullet, transform.position, transform.rotation);
             ammo--;
