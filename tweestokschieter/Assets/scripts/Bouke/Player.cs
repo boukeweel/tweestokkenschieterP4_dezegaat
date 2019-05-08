@@ -13,8 +13,7 @@ public class Player : HealthSystem
     public int armor = 0;
 
     private Rigidbody rig;
-    float timer_test = 0.1f;
-    int ding = 1;
+   
     private void Start()
     {
         rig = GetComponent<Rigidbody>();
@@ -22,7 +21,7 @@ public class Player : HealthSystem
 
     private void FixedUpdate()
     {
-
+        
 
         rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
 

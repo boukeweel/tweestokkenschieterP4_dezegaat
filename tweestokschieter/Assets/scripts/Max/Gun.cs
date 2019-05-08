@@ -10,8 +10,10 @@ public class Gun : MonoBehaviour
  
     public void ShootGun()
     {
-        if(XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
+        if(XCI.GetButtonDown(XboxButton.X, XboxController.First))
         {
+            print("werkt");
+
             Instantiate(Bullet, transform.position, transform.rotation);
         }
     }

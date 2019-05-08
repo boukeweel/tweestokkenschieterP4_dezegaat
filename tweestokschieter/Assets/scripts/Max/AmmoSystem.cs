@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using XboxCtrlrInput;
+
 
 public class AmmoSystem : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class AmmoSystem : MonoBehaviour
         }
 
         Debug.Log(ammo);
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
         {
             if (ammo < magSize)
             {
@@ -47,7 +49,7 @@ public class AmmoSystem : MonoBehaviour
 
     public void ShootGun()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
         {
             Instantiate(bullet, transform.position, transform.rotation);
             ammo--;
