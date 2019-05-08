@@ -246,7 +246,6 @@ MonoBehaviour:
   magSize: 125
   bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
   ammotext: {fileID: 0}
-  magsizetext: {fileID: 0}
 --- !u!114 &448862192
 MonoBehaviour:
   m_ObjectHideFlags: 0

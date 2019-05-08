@@ -12,11 +12,16 @@ public class HealthSystem : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, 100);
 
-        health = health - Damage;
+        health -= Damage;
         if(health <= 0)
         {
             Time.timeScale = 0;
             UI.SetActive(true);
         }
+    }
+    public void addhealth(int Healthget)
+    {
+        health = Mathf.Clamp(health, 0, 100);
+        health += Healthget;
     }
 }
