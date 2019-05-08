@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using XboxCtrlrInput;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (XCI.GetButtonDown(XboxButton.Start,XboxController.First))
         {
             if (isPaused)
             {
@@ -22,7 +23,7 @@ public class PauseMenu : MonoBehaviour
             }
 
         }
-    }
+    } 
 
     void paused()
     {

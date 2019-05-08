@@ -8,11 +8,11 @@ using XboxCtrlrInput;
 public class AmmoSystem : MonoBehaviour
 {
     public float ammo;
-    public float magSize = 125;
+    public float magSize;
     public GameObject bullet;
 
     public TextMeshProUGUI ammotext;
-    public TextMeshProUGUI magsizetext;
+    //public TextMeshProUGUI magsizetext;
 
     void Update()
     {
@@ -33,7 +33,7 @@ public class AmmoSystem : MonoBehaviour
         }
 
         ammotext.text = ammo.ToString();
-        magsizetext.text = magSize.ToString();
+        //magsizetext.text = magSize.ToString();
 
     }
 

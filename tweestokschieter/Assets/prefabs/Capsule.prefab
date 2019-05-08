@@ -122,7 +122,6 @@ MonoBehaviour:
   magSize: 125
   bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
   ammotext: {fileID: 0}
-  magsizetext: {fileID: 0}
 --- !u!1 &262309912745051555
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +134,7 @@ GameObject:
   - component: {fileID: 262309912745051559}
   - component: {fileID: 262309912745051558}
   - component: {fileID: 262309912745051553}
+  - component: {fileID: 3854879141894975744}
   - component: {fileID: 262309912745051556}
   - component: {fileID: 2347453764671673039}
   - component: {fileID: 262309912745051557}
@@ -219,6 +219,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3854879141894975744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262309912745051555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57acf4edcd10fb048b60e70731740bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &262309912745051556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   Damage: 0
+  UI: {fileID: 0}
   speed: 5
   healf: 100
   armor: 0
@@ -255,6 +268,8 @@ MonoBehaviour:
     m_Bits: 256
   animator: {fileID: 0}
   IsOpen: 1
+  Keycard: {fileID: 0}
+  KeycardPickedUp: 0
 --- !u!54 &262309912745051557
 Rigidbody:
   m_ObjectHideFlags: 0
