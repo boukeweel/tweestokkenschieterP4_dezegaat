@@ -19,7 +19,7 @@ public class HealthSystem : MonoBehaviour
         {
             Armor -= Damage;
         }
-        if(Armor < 0)
+        else if(Armor < 0)
         {
             health -= Damage;
         }
@@ -39,6 +39,6 @@ public class HealthSystem : MonoBehaviour
     {
         
         Armor += armorget;
-        Armor = Mathf.Clamp(health, 0, 100);
+        Armor = Mathf.Clamp(Armor, 0, 100);
     }
 }
