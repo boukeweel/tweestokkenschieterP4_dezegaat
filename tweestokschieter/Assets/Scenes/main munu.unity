@@ -526,7 +526,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 239736214}
-  - component: {fileID: 239736215}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -554,22 +553,6 @@ Transform:
   m_Father: {fileID: 1555619728}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &239736215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239736213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dc243bad428e2049898121b74cd64b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainmenu: {fileID: 239736213}
-  credits: {fileID: 567500781}
-  options: {fileID: 599277725}
-  controls: {fileID: 606185098}
 --- !u!1 &274748358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,10 +1059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc243bad428e2049898121b74cd64b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainmenu: {fileID: 0}
-  credits: {fileID: 0}
-  options: {fileID: 0}
-  controls: {fileID: 0}
+  mainmenu: {fileID: 239736213}
+  credits: {fileID: 567500781}
+  options: {fileID: 599277725}
+  controls: {fileID: 606185098}
 --- !u!4 &479850845
 Transform:
   m_ObjectHideFlags: 0
