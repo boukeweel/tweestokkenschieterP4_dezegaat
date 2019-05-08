@@ -56,13 +56,6 @@ public class Player : HealthSystem
     {
         return new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
-    
-    
-    public void Armorpickup()
-    {
-        armor += 50;
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("enemy"))

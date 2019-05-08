@@ -7,12 +7,12 @@ using XboxCtrlrInput;
 
 public class AmmoSystem : MonoBehaviour
 {
-    public float ammo;
-    public float magSize;
-    public GameObject bullet;
+    [SerializeField]private float ammo;
+    [SerializeField] private float magSize;
+    [SerializeField] private GameObject bullet;
 
-    public TextMeshProUGUI ammotext;
-    //public TextMeshProUGUI magsizetext;
+    [SerializeField] private TextMeshProUGUI ammotext;
+    public TextMeshProUGUI magsizetext;
 
     void Update()
     {
@@ -33,10 +33,10 @@ public class AmmoSystem : MonoBehaviour
         }
 
         ammotext.text = ammo.ToString();
-        //magsizetext.text = magSize.ToString();
+        magsizetext.text = magSize.ToString();
 
     }
-
+    
     public void ReloadSystem()
     {
         for (float i = ammo; i < magSize; i++)
@@ -55,5 +55,9 @@ public class AmmoSystem : MonoBehaviour
             ammo--;
 
         }
+    }
+    public void AddAmmo(int AmmoAmount)
+    {
+        magSize += AmmoAmount;
     }
 }
