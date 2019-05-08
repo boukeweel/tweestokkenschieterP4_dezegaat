@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XboxCtrlrInput;
 
 public class Player : HealthSystem
 {
@@ -25,7 +26,7 @@ public class Player : HealthSystem
 
         rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
 
-        Vector3 PlayerDirection = Vector3.right * Input.GetAxisRaw("RHorizontal") + Vector3.forward * -Input.GetAxisRaw("RVirtcal");
+        Vector3 PlayerDirection = Vector3.right * XCI.GetAxisRaw(XboxAxis.RightStickX, XboxController.First) + Vector3.forward * XCI.GetAxisRaw(XboxAxis.RightStickY, XboxController.First);
         if(PlayerDirection.sqrMagnitude > 0.0f)
         {
             transform.rotation = Quaternion.LookRotation(PlayerDirection, Vector3.up);
