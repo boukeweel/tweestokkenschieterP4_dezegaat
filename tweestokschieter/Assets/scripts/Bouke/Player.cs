@@ -5,17 +5,15 @@ using UnityEngine;
 public class Player : HealthSystem
 {
 
-    public KeyCode Rechts;
-    public KeyCode Down;
-    public KeyCode left;
-    public KeyCode up;
+   
     public int speed;
 
     public int healf = 100;
     public int armor = 0;
 
-    public Rigidbody rig;
-    
+    private Rigidbody rig;
+    float timer_test = 0.1f;
+    int ding = 1;
     private void Start()
     {
         rig = GetComponent<Rigidbody>();
@@ -27,6 +25,12 @@ public class Player : HealthSystem
 
         rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
 
+        Vector3 PlayerDirection = Vector3.right * Input.GetAxisRaw("RHorizontal") + Vector3.forward * -Input.GetAxisRaw("RVirtcal");
+        if(PlayerDirection.sqrMagnitude > 0.0f)
+        {
+            transform.rotation = Quaternion.LookRotation(PlayerDirection, Vector3.up);
+        }
+        Debug.Log(PlayerDirection);
 
 
     }
