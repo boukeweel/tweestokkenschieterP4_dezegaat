@@ -69,5 +69,9 @@ public class Player : HealthSystem
         {
             Health();
         }
+        if (collision.collider.CompareTag("HealthPickup"))
+        {
+            addhealth(20);
+        }
     }
 }
