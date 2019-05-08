@@ -31,12 +31,14 @@ public class HealthSystem : MonoBehaviour
     }
     public void Addhealth(int Healthget)
     {
-        health = Mathf.Clamp(health, 0, 100);
+        
         health += Healthget;
+        health = Mathf.Clamp(health, 0, 100);
     }
     public void Addarmor(int armorget)
     {
-        Armor = Mathf.Clamp(health, 0, 100);
+        
         Armor += armorget;
+        Armor = Mathf.Clamp(health, 0, 100);
     }
 }
