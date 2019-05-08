@@ -12,7 +12,6 @@ public class Gun : MonoBehaviour
         if(XCI.GetButtonDown(XboxButton.X, XboxController.First))
         {
             print("werkt");
-
             Instantiate(Bullet, transform.position, transform.rotation);
         }
     }

@@ -8,6 +8,7 @@ TagManager:
   - Armor
   - HealthPickup
   - enemy
+  - ArmorPickup
   layers:
   - Default
   - TransparentFX

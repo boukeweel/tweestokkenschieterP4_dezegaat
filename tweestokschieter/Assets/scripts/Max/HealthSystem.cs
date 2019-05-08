@@ -36,7 +36,7 @@ public class HealthSystem : MonoBehaviour
     }
     public void Addarmor(int armorget)
     {
-        health = Mathf.Clamp(health, 0, 100);
+        Armor = Mathf.Clamp(health, 0, 100);
         Armor += armorget;
     }
 }

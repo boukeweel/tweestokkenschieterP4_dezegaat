@@ -71,7 +71,11 @@ public class Player : HealthSystem
         }
         if (collision.collider.CompareTag("HealthPickup"))
         {
-            addhealth(20);
+            Addhealth(10);
+        }
+        if (collision.collider.CompareTag("ArmorPickup"))
+        {
+            Addarmor(10);
         }
     }
 }
