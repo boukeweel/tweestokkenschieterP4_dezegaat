@@ -58,4 +58,12 @@ public class Player : HealthSystem
     {
         armor += 50;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("enemy"))
+        {
+            Health();
+        }
+    }
 }
