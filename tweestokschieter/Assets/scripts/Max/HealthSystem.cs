@@ -6,15 +6,17 @@ public class HealthSystem : MonoBehaviour
 {
     public float health;
     public float Damage;
+    public GameObject UI;
 
     public void Health()
     {
         health = Mathf.Clamp(health, 0, 100);
 
-        Damage = Damage - health;
+        health = health - Damage;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Time.timeScale = 0;
+            UI.SetActive(true);
         }
     }
 }

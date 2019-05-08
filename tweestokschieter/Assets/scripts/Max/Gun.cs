@@ -7,7 +7,6 @@ public class Gun : MonoBehaviour
 {
     public GameObject Bullet;
 
- 
     public void ShootGun()
     {
         if(XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
