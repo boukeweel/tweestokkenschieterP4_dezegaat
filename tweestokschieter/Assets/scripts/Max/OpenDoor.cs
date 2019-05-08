@@ -1,28 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XboxCtrlrInput;
 
-public class OpenDoor : MonoBehaviour
+public class OpenDoor : KeycardPickup
 {
     public GameObject Player;
     public float range;
     public LayerMask layerMask;
     public Animator animator;
     public int IsOpen = 1;
-
-    void Start()
-    {
-
-    }
+    
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if(keyCardPickedUp == true)
         {
-            IsOpen = 0;
-            Open();
+            if (XCI.GetButtonDown(XboxButton.Y, XboxController.First))
+            {
+                IsOpen = 0;
+                Open();
+            }
         }
-
 
     }
 
@@ -58,4 +57,5 @@ public class OpenDoor : MonoBehaviour
     }
 
    
+
 }

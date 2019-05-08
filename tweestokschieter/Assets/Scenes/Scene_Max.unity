@@ -1027,10 +1027,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 25
-  magSize: 125
+  magSize: 10000
   bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
   ammotext: {fileID: 272411066}
-  magsizetext: {fileID: 1402896873}
 --- !u!1 &623808689
 GameObject:
   m_ObjectHideFlags: 0
