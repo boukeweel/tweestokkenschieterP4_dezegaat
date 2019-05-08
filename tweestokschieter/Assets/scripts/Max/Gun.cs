@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XboxCtrlrInput;
 
 public class Gun : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Gun : MonoBehaviour
  
     public void ShootGun()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(XCI.GetButtonDown(XboxButton.RightBumper))
         {
             Instantiate(Bullet, transform.position, transform.rotation);
         }
