@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (XCI.GetButtonDown(XboxButton.Start,XboxController.First))
+        if (XCI.GetButtonDown(XboxButton.Start, XboxController.First) || Input.GetKeyDown(KeyCode.Escape)) 
         {
             if (isPaused)
             {
