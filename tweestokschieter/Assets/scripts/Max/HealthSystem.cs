@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     public float health;
-    public float Damage;
+    public float Damage = 20;
     public float Armor;
     public GameObject UI;
 
@@ -14,15 +14,17 @@ public class HealthSystem : MonoBehaviour
         health = Mathf.Clamp(health, 0, 100);
         Armor = Mathf.Clamp(Armor, 0, 100);
 
-        
-        if(Armor > 0)
-        {
-            Armor -= Damage;
-        }
-        else if(Armor < 0)
+        if(Armor == 0)
         {
             health -= Damage;
+            
         }
+        if (Armor > 0)
+        {
+            Armor -= Damage;
+            
+        }
+        
         if(health <= 0)
         {
             Time.timeScale = 0;
