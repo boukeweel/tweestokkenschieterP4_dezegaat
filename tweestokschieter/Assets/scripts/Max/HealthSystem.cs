@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    public float health;
+    public float health = 100;
     public float Damage = 20;
-    public float Armor;
+    public float Armor = 0;
     public GameObject UI;
 
     public void Health()
