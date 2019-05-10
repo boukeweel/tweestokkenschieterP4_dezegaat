@@ -35,7 +35,7 @@ public class Player : HealthSystem
             {
                 transform.rotation = Quaternion.LookRotation(PlayerDirection, Vector3.up);
             }
-            Debug.Log(PlayerDirection);
+            
         }
         if (Usingcontroler.Equals(false))
         {
