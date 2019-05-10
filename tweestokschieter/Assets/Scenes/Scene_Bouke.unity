@@ -207,6 +207,16 @@ PrefabInstance:
       propertyPath: Damage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 262309912745051556, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: FillHealthBar
+      value: 
+      objectReference: {fileID: 181211932}
+    - target: {fileID: 262309912745051556, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: FillArmorbar
+      value: 
+      objectReference: {fileID: 1091789129}
     m_RemovedComponents:
     - {fileID: 3522974424199858974, guid: 73833ffc2d2542f419db14698d177983, type: 3}
     - {fileID: 262309911556659040, guid: 73833ffc2d2542f419db14698d177983, type: 3}
@@ -510,7 +520,7 @@ GameObject:
   - component: {fileID: 868845603}
   - component: {fileID: 868845602}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: AmmoTotaal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1435,7 +1445,7 @@ GameObject:
   - component: {fileID: 1851696718}
   - component: {fileID: 1851696717}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: AmmoINclip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

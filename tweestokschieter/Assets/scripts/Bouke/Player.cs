@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
+using UnityEngine.UI;
 
 public class Player : HealthSystem
 {
@@ -9,12 +10,13 @@ public class Player : HealthSystem
    
     public int speed;
 
-    public int healf = 100;
-    public int armor = 0;
+    
 
     public bool Usingcontroler = true;
 
     private Rigidbody rig;
+
+    public Image FillHealthBar, FillArmorbar;
    
     private void Start()
     {
@@ -48,8 +50,9 @@ public class Player : HealthSystem
             }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
-        
 
+        FillHealthBar.fillAmount = (health / 100);
+        FillArmorbar.fillAmount = (Armor / 100);
 
     }
     public Vector3 input()
