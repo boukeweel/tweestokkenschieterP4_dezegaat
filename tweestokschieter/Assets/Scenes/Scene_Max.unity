@@ -1725,7 +1725,7 @@ GameObject:
   - component: {fileID: 1029498572}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: enemy
+  m_TagString: keycard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1796,8 +1796,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029498571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.75, y: 1.31, z: -2.93}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.59, y: 1.31, z: -6.68}
+  m_LocalScale: {x: 0.7, y: 1, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -2164,6 +2164,11 @@ PrefabInstance:
       propertyPath: Usingcontroler
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3854879141894975744, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: Keycard
+      value: 
+      objectReference: {fileID: 1029498571}
     m_RemovedComponents:
     - {fileID: 5913350216970423681, guid: 73833ffc2d2542f419db14698d177983, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 73833ffc2d2542f419db14698d177983, type: 3}
