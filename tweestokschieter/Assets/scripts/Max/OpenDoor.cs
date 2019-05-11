@@ -16,7 +16,7 @@ public class OpenDoor : KeycardPickup
     {
         if(keyCardPickedUp == true)
         {
-            if (XCI.GetButtonDown(XboxButton.Y, XboxController.First))
+            if (XCI.GetButtonDown(XboxButton.Y, XboxController.First) || Input.GetKeyDown(KeyCode.F))
             {
                 IsOpen = 0;
                 Open();
