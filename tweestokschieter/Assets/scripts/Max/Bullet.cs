@@ -11,4 +11,12 @@ public class Bullet : MonoBehaviour
         transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
         Destroy(gameObject, 10);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
