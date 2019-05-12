@@ -16,6 +16,18 @@ public class EnemySight1 : MonoBehaviour
 
     private bool isInFov = false;
 
+    [SerializeField] private GameObject[] points;
+
+    [SerializeField] private float Speed;
+
+    [SerializeField] private bool IsPatroling = true;
+
+    public AnimationCurve curve;
+
+    public AnimationCurve curve2;
+
+
+
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
@@ -46,7 +58,7 @@ public class EnemySight1 : MonoBehaviour
 
     public static bool inFov(Transform CheckingObject, Transform target, float maxAngle, float maxRadius)
     {
-        Collider[] overlaps = new Collider[10];
+        Collider[] overlaps = new Collider[20];
         int count = Physics.OverlapSphereNonAlloc(CheckingObject.position, maxRadius, overlaps);
 
         for (int i = 0; i < count + 1; i++)
@@ -88,7 +100,23 @@ public class EnemySight1 : MonoBehaviour
 
         if(isInFov == true)
         {
+            IsPatroling = false;
             nav.SetDestination(Player.position);
         }
+        else
+        {
+            IsPatroling = true;
+            EnemyPath();
+        }
+    }
+
+    public void EnemyPath()
+    {
+        transform.position = Vector3.Lerp(points[0].transform.position, points[1].transform.position, curve.Evaluate(Speed));
+        if(gameObject.transform.position == points[1].transform.position)
+        {
+            transform.position = Vector3.Lerp(points[1].transform.position, points[2].transform.position, curve2.Evaluate(Speed));
+        }
+        Speed += Time.deltaTime;
     }
 }

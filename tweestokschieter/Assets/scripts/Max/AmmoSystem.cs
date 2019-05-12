@@ -30,7 +30,6 @@ public class AmmoSystem : MonoBehaviour
         {
             if (ammo < magSize)
             {
-                ReloadTimer.text = reloadTime.ToString();
                 StartCoroutine(reloader());
             }
         }
@@ -56,7 +55,7 @@ public class AmmoSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
             ammo--;
 
         }
@@ -66,16 +65,7 @@ public class AmmoSystem : MonoBehaviour
         magSize += AmmoAmount;
     }
 
-    public IEnumerator StartCountdown(float countdownValue = 10)
-    {
-        reloadTime = countdownValue;
-        while (reloadTime > 0)
-        {
-            Debug.Log("Countdown: " + reloadTime);
-            yield return new WaitForSeconds(1.0f);
-            reloadTime--;
-        }
-    }
+ 
 
     IEnumerator reloader()
     {

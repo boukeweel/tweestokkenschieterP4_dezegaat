@@ -43,4 +43,14 @@ public class HealthSystem : MonoBehaviour
         Armor += armorget;
         Armor = Mathf.Clamp(Armor, 0, 100);
     }
+
+    public void EnemyHealth()
+    {
+        health = Mathf.Clamp(health, 0, 100);
+        health -= Damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
