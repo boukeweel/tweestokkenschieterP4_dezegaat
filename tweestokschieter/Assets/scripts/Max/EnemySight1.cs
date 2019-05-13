@@ -96,14 +96,14 @@ public class EnemySight1 : MonoBehaviour
 
         if (isInFov == true)
         {
-            IsPatroling = false;
+            nav.speed = 5f;
             nav.SetDestination(Player.position);
         }
-        else
+        if(isInFov == false)
         {
-            IsPatroling = true;
             EnemyPath();
         }
+
     }
 
     public void EnemyPath()

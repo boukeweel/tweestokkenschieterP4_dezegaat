@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/main munu.unity
     guid: 78a32d986b3aa594cac851c682c091dd
   - enabled: 1
-    path: Assets/Scenes/Scene_Max.unity
-    guid: b72159c69e63c4e4a80b1789b356188c
+    path: Assets/Scenes/Tutorial Level.unity
+    guid: 7220eb8ce59d35046a137a5e3a550b1d
   m_configObjects: {}

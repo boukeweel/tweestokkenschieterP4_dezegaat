@@ -40,15 +40,7 @@ public class EnemyPath : MonoBehaviour
 
     void PathFinding()
     {
-        nav.SetDestination(point2.position);
-        //if (gameObject.transform.position == point2.position)
-        //{
-        //    nav.SetDestination(point1.position);
-        //}
-        //if (gameObject.transform.position == point1.transform.position)
-        //{
-        //    nav.SetDestination(point2.position);
-        //}
+     
     }
 
     void ReachedTarget()
