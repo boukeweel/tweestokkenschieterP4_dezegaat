@@ -25,11 +25,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee1002c608bfe54dbb99cd9e16ffbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 0
-  magSize: 0
-  bullet: {fileID: 0}
-  ammotext: {fileID: 0}
-  ammo: 0
+  AmountAmmoget: 25
+  ammosystem: {fileID: 0}
 --- !u!1001 &7169634949191219973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40,8 +37,13 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 2ef251c29df7a5041b894c050e22f0f0,
         type: 3}
       propertyPath: m_Name
-      value: Ammo
+      value: Ammo Variant
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 2ef251c29df7a5041b894c050e22f0f0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5cb545a2dc44325469ea3f8965b13f1f, type: 2}
     - target: {fileID: -4216859302048453862, guid: 2ef251c29df7a5041b894c050e22f0f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,11 +99,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 2ef251c29df7a5041b894c050e22f0f0,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5cb545a2dc44325469ea3f8965b13f1f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef251c29df7a5041b894c050e22f0f0, type: 3}
 --- !u!1 &1179457021960512012 stripped

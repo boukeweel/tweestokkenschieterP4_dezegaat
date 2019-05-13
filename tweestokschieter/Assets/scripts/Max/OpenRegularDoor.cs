@@ -14,13 +14,11 @@ public class OpenRegularDoor : MonoBehaviour
 
     void Update()
     {
-        {
             if (XCI.GetButtonDown(XboxButton.Y, XboxController.First) || Input.GetKeyDown(KeyCode.F))
             {
                 IsOpen = 0;
                 Open();
             }
-        }
 
     }
 
