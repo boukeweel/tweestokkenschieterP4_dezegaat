@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2939066465555753638}
   - component: {fileID: 2939066465555753641}
   - component: {fileID: 2939066465555753639}
+  - component: {fileID: 6725268666325678463}
   m_Layer: 0
   m_Name: Enemy Robot placeholder
   m_TagString: Untagged
@@ -167,6 +168,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   point3: {fileID: 0}
   point4: {fileID: 0}
+--- !u!114 &6725268666325678463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939066465555753644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b363d9461db46d4583c0035b15e798d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  Damage: 20
+  Armor: 0
+  UI: {fileID: 0}
 --- !u!1 &7478571810634874012
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,13 +22,8 @@ public class EnemySight1 : MonoBehaviour
 
     [SerializeField] private bool IsPatroling = true;
 
-    public AnimationCurve curve;
-
-    public AnimationCurve curve2;
-
-    [SerializeField] private Transform point3;
-    [SerializeField] private Transform point4;
-
+    int current = 0;
+    float WPradius = 1;
 
     private void Awake()
     {
@@ -107,49 +102,30 @@ public class EnemySight1 : MonoBehaviour
         else
         {
             IsPatroling = true;
-            EnemyPath2();
+            EnemyPath();
         }
     }
 
     public void EnemyPath()
     {
-        transform.position = Vector3.Lerp(points[0].transform.position, points[1].transform.position, curve.Evaluate(Speed));
-        if (gameObject.transform.position == points[1].transform.position)
+        if (Vector3.Distance(points[current].transform.position, transform.position) < WPradius)
         {
-            FaceTarget();
-            transform.position = Vector3.Lerp(points[1].transform.position, points[0].transform.position, curve2.Evaluate(Speed));
+            current++;
+            if (current >= points.Length)
+            {
+                current = 0;
+            }
         }
-        else
-            transform.position = Vector3.Lerp(points[0].transform.position, points[1].transform.position, curve.Evaluate(Speed));
-
-        Speed += Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * Speed);
+        FaceTarget();
     }
 
     void FaceTarget()
     {
-        Vector3 direction = (point3.position - transform.position).normalized;
+        Vector3 direction = (points[current].transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    void FaceTarget2()
-    {
-        Vector3 direction = (point4.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    }
 
-    void EnemyPath2()
-    {
-        transform.position = Vector3.Lerp(points[0].transform.position, points[1].transform.position, Mathf.PingPong(Time.time, 3));
-        if (gameObject.transform.position == points[1].transform.position)
-        {
-            FaceTarget();
-        }
-        if (gameObject.transform.position == points[0].transform.position)
-        {
-            FaceTarget2();
-        }
-
-    }
 }
