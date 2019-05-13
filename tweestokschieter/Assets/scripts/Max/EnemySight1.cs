@@ -11,7 +11,7 @@ public class EnemySight1 : MonoBehaviour
     public float maxRadius;
 
     private NavMeshAgent nav;
-  
+
     public Transform Player;
 
     private bool isInFov = false;
@@ -26,6 +26,8 @@ public class EnemySight1 : MonoBehaviour
 
     public AnimationCurve curve2;
 
+    [SerializeField] private Transform point3;
+    [SerializeField] private Transform point4;
 
 
     private void Awake()
@@ -49,7 +51,7 @@ public class EnemySight1 : MonoBehaviour
         Gizmos.DrawRay(transform.position, FovLine2);
 
         if (!isInFov)
-        Gizmos.color = Color.red;
+            Gizmos.color = Color.red;
         else
             Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, (Player.position - transform.position).normalized * maxRadius);
@@ -58,34 +60,33 @@ public class EnemySight1 : MonoBehaviour
 
     public static bool inFov(Transform CheckingObject, Transform target, float maxAngle, float maxRadius)
     {
-        Collider[] overlaps = new Collider[20];
+        Collider[] overlaps = new Collider[100];
         int count = Physics.OverlapSphereNonAlloc(CheckingObject.position, maxRadius, overlaps);
 
         for (int i = 0; i < count + 1; i++)
         {
-            if(overlaps[i] != null)
+            if (overlaps[i] != null)
             {
-                if(overlaps[i].transform == target)
+                if (overlaps[i].transform == target)
                 {
                     Vector3 directionBetween = (target.position - CheckingObject.position).normalized;
                     directionBetween.y *= 0;
 
                     float angle = Vector3.Angle(CheckingObject.forward, directionBetween);
 
-                    if(angle <= maxAngle)
+                    if (angle <= maxAngle)
                     {
                         Ray ray = new Ray(CheckingObject.position, target.position - CheckingObject.position);
                         RaycastHit hit;
 
-                        if(Physics.Raycast(ray, out hit, maxRadius))
+                        if (Physics.Raycast(ray, out hit, maxRadius))
                         {
-                            if(hit.transform == target)
+                            if (hit.transform == target)
                             {
-                                
                                 return true;
                             }
                         }
-                            
+
                     }
                 }
             }
@@ -98,7 +99,7 @@ public class EnemySight1 : MonoBehaviour
     {
         isInFov = inFov(transform, Player, maxAngle, maxRadius);
 
-        if(isInFov == true)
+        if (isInFov == true)
         {
             IsPatroling = false;
             nav.SetDestination(Player.position);
@@ -106,17 +107,49 @@ public class EnemySight1 : MonoBehaviour
         else
         {
             IsPatroling = true;
-            EnemyPath();
+            EnemyPath2();
         }
     }
 
     public void EnemyPath()
     {
         transform.position = Vector3.Lerp(points[0].transform.position, points[1].transform.position, curve.Evaluate(Speed));
-        if(gameObject.transform.position == points[1].transform.position)
+        if (gameObject.transform.position == points[1].transform.position)
         {
-            transform.position = Vector3.Lerp(points[1].transform.position, points[2].transform.position, curve2.Evaluate(Speed));
+            FaceTarget();
+            transform.position = Vector3.Lerp(points[1].transform.position, points[0].transform.position, curve2.Evaluate(Speed));
         }
+        else
+            transform.position = Vector3.Lerp(points[0].transform.position, points[1].transform.position, curve.Evaluate(Speed));
+
         Speed += Time.deltaTime;
+    }
+
+    void FaceTarget()
+    {
+        Vector3 direction = (point3.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    void FaceTarget2()
+    {
+        Vector3 direction = (point4.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    void EnemyPath2()
+    {
+        transform.position = Vector3.Lerp(points[0].transform.position, points[1].transform.position, Mathf.PingPong(Time.time, 3));
+        if (gameObject.transform.position == points[1].transform.position)
+        {
+            FaceTarget();
+        }
+        if (gameObject.transform.position == points[0].transform.position)
+        {
+            FaceTarget2();
+        }
+
     }
 }

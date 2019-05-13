@@ -39,14 +39,15 @@ public class stadesmanger : MonoBehaviour
         RandomAmmoPickedupammount = Random.Range(0, 200); 
         RandomHealthpickedupammount = Random.Range(0, 200);
         RandomArmorpickedupAmmount = Random.Range(0, 200);
+        acuraty = RandomShotHIt * 100 / Randomshotfired;
 
     }
     private void Update()
     {
-        //acuraty = (Randomshotfired )
+        
         ShotfiredAmount.text = Randomshotfired.ToString();
         ShotHitAmount.text = RandomShotHIt.ToString();
-        Acuraty.text = acuraty.ToString();
+        Acuraty.text = acuraty.ToString() + ("%");
 
         Enemyskilled.text = Randomenemyskilled.ToString();
         DamegesTaken.text = Randomdamgestaken.ToString();
