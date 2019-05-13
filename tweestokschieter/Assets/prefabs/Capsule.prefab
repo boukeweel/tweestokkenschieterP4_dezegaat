@@ -168,25 +168,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &4036744714999441144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919089757387723584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: 125
-  magSize: 25
-  bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
-  reloadTime: 3
-  ammotext: {fileID: 0}
-  magsizetext: {fileID: 0}
-  ReloadTimer: {fileID: 0}
 --- !u!1001 &6603224546975468105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,7 +183,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5616c9dc2e2fc744f91510a35495ec22,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.526
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5616c9dc2e2fc744f91510a35495ec22,
         type: 3}
@@ -271,12 +252,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5616c9dc2e2fc744f91510a35495ec22, type: 3}
---- !u!1 &2919089757387723584 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 5616c9dc2e2fc744f91510a35495ec22,
-    type: 3}
-  m_PrefabInstance: {fileID: 6603224546975468105}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2223064575358886227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5616c9dc2e2fc744f91510a35495ec22,
