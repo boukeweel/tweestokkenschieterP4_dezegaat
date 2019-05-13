@@ -30,6 +30,13 @@ public class stadesmanger : MonoBehaviour
     private int RandomAmmoPickedupammount;
     private int RandomHealthpickedupammount;
     private int RandomArmorpickedupAmmount;
+
+
+    //circle diagram
+    public float[] Values;
+    public Color[] WedgeColor;
+    public Image WedgePrefabes;
+
     private void Start()
     {
          Randomshotfired = Random.Range(0, 50);
