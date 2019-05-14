@@ -11,6 +11,7 @@ TagManager:
   - ArmorPickup
   - keycard
   - bullet
+  - wall
   layers:
   - Default
   - TransparentFX
