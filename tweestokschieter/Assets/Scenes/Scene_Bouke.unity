@@ -192,11 +192,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3522974424199858974, guid: 73833ffc2d2542f419db14698d177983,
-        type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 262309912745051556, guid: 73833ffc2d2542f419db14698d177983,
         type: 3}
       propertyPath: health
@@ -217,6 +212,11 @@ PrefabInstance:
       propertyPath: FillArmorbar
       value: 
       objectReference: {fileID: 1091789129}
+    - target: {fileID: 3522974424199858974, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4036744714999441144, guid: 73833ffc2d2542f419db14698d177983,
         type: 3}
       propertyPath: ammotext
@@ -748,18 +748,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1322678092 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4036744714999441144, guid: 73833ffc2d2542f419db14698d177983,
-    type: 3}
-  m_PrefabInstance: {fileID: 149471079}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1412765976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2427459978450070787, guid: 1cd6202b59131d34689c584d7002db50,
@@ -1594,6 +1582,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ammosystem
       value: 
-      objectReference: {fileID: 1322678092}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 849f9e6a9cfd1994c82b08cfadd99d58, type: 3}
