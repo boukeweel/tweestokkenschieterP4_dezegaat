@@ -96,7 +96,7 @@ public class EnemySight1 : MonoBehaviour
 
         if (isInFov == true)
         {
-            Speed = 3f;
+            Speed = 2f;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
             //nav.SetDestination(Player.position);
         }
