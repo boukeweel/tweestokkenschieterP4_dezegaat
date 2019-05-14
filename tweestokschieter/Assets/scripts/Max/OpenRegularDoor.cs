@@ -8,7 +8,11 @@ public class OpenRegularDoor : MonoBehaviour
     public GameObject Player;
     public float range;
     public LayerMask layerMask;
-    public Animator animator;
+    public LayerMask layerMask1;
+    public LayerMask layerMask2;
+    public LayerMask layerMask3;
+    public LayerMask layerMask4;
+    public Animator [] animator;
     public int IsOpen = 1;
 
 
@@ -29,10 +33,45 @@ public class OpenRegularDoor : MonoBehaviour
         {
             if (IsOpen == 0)
             {
-                animator.SetBool("active", true);
+                animator[0].SetBool("active", true);
                 IsOpen = 1;
             }
         }
+        if(Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask1))
+        {
+            if (IsOpen == 0)
+            {
+                animator[1].SetBool("active", true);
+                IsOpen = 1;
+            }
+        }
+        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask2))
+        {
+            if (IsOpen == 0)
+            {
+                animator[2].SetBool("active", true);
+                IsOpen = 1;
+            }
+        }
+        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask3))
+        {
+            if (IsOpen == 0)
+            {
+                animator[3].SetBool("active", true);
+                IsOpen = 1;
+            }
+        }
+        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask4))
+        {
+            if (IsOpen == 0)
+            {
+                animator[4].SetBool("active", true);
+                IsOpen = 1;
+            }
+        }
+
+
+
     }
 
     void Close()
@@ -46,7 +85,7 @@ public class OpenRegularDoor : MonoBehaviour
                 {
                     if (IsOpen == 0)
                     {
-                        animator.SetBool("active", false);
+                        animator[0].SetBool("active", false);
                     }
                 }
             }
