@@ -34,7 +34,7 @@ public class stadesmanger : MonoBehaviour
 
 
     //circle diagram
-    public float[] Values;
+    private int[] Values;
     public Color[] WedgeColor;
     public Image WedgePrefabes;
 
@@ -53,6 +53,7 @@ public class stadesmanger : MonoBehaviour
     }
     private void MakeCraph()
     {
+        //Values = int Randomshotfired;
         float total = 0f;
         float zRotation = 0f;
         for (int i = 0; i < Values.Length; i++)
