@@ -15,6 +15,7 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
+    
 
     void Update()
     {
@@ -57,6 +58,7 @@ public class AmmoSystem : MonoBehaviour
         {
             Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
             ammo--;
+            
 
         }
     }
