@@ -12,6 +12,8 @@ TagManager:
   - keycard
   - bullet
   - wall
+  - enemyBullet
+  - keycard2
   layers:
   - Default
   - TransparentFX
@@ -27,9 +29,9 @@ TagManager:
   - door2
   - door3
   - door4
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyBullet
+  - keycardDoor2
   - 
   - 
   - 

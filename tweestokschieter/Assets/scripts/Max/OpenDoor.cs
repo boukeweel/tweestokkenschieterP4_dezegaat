@@ -8,7 +8,8 @@ public class OpenDoor : KeycardPickup
     public GameObject Player;
     public float range;
     public LayerMask layerMask;
-    public Animator animator;
+    public LayerMask layerMask2;
+    public Animator[] animator;
     public int IsOpen = 1;
     
 
@@ -23,6 +24,15 @@ public class OpenDoor : KeycardPickup
             }
         }
 
+        if(keyCardPickedUp2 == true)
+        {
+            if (XCI.GetButtonDown(XboxButton.Y, XboxController.First) || Input.GetKeyDown(KeyCode.F))
+            {
+                IsOpen = 0;
+                Open2();
+            }
+        }
+
     }
 
     void Open()
@@ -32,13 +42,26 @@ public class OpenDoor : KeycardPickup
         {
             if (IsOpen == 0)
             {
-                animator.SetBool("active", true);
+                animator[0].SetBool("active", true);
                 IsOpen = 1;
             }
         }
     }
 
-    void Close()
+    void Open2()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask2))
+        {
+            if (IsOpen == 0)
+            {
+                animator[1].SetBool("active", true);
+                IsOpen = 1;
+            }
+        }
+    }
+
+        void Close()
     {
         if(IsOpen == 1)
         {
@@ -49,7 +72,7 @@ public class OpenDoor : KeycardPickup
                 {
                     if (IsOpen == 0)
                     {
-                        animator.SetBool("active", false);
+                        animator[0].SetBool("active", false);
                     }
                 }
             }

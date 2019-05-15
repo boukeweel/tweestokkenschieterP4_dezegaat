@@ -5,7 +5,10 @@ using UnityEngine;
 public class KeycardPickup : MonoBehaviour
 {
     public GameObject Keycard;
+    public GameObject Keycard2;
     public bool keyCardPickedUp;
+    public bool keyCardPickedUp2;
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -13,6 +16,11 @@ public class KeycardPickup : MonoBehaviour
         {
             keyCardPickedUp = true;
             Destroy(Keycard);
+        }
+        if(collision.collider.CompareTag("keycard2"))
+        {
+            keyCardPickedUp2 = true;
+            Destroy(Keycard2);
         }
     }
 }

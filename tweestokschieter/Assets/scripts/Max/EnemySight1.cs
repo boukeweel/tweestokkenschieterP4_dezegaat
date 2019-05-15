@@ -9,6 +9,9 @@ public class EnemySight1 : MonoBehaviour
     public float fieldOfViewAngle = 110f;
     public float maxAngle;
     public float maxRadius;
+    public float waitTilnextFire;
+    private bool Timer = true;
+    public float fireSpeed;
 
     private NavMeshAgent nav;
 
@@ -21,6 +24,8 @@ public class EnemySight1 : MonoBehaviour
     [SerializeField] private float Speed;
 
     [SerializeField] private bool IsPatroling = true;
+
+    [SerializeField] private GameObject bullet;
 
     int current = 0;
     float WPradius = 1;
@@ -55,7 +60,7 @@ public class EnemySight1 : MonoBehaviour
 
     public static bool inFov(Transform CheckingObject, Transform target, float maxAngle, float maxRadius)
     {
-        Collider[] overlaps = new Collider[100];
+        Collider[] overlaps = new Collider[150];
         int count = Physics.OverlapSphereNonAlloc(CheckingObject.position, maxRadius, overlaps);
 
         for (int i = 0; i < count + 1; i++)
@@ -96,13 +101,15 @@ public class EnemySight1 : MonoBehaviour
 
         if (isInFov == true)
         {
-            Speed = 2f;
+            Speed = 3f;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
-            //nav.SetDestination(Player.position);
+            shoot();
         }
-        else
-            Speed = 2f;
+        if(isInFov == false)
+        {
+            Speed = 1f;
             EnemyPath();
+        }
 
     }
 
@@ -127,5 +134,26 @@ public class EnemySight1 : MonoBehaviour
         transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
+    void shoot()
+    {
+        if (Timer)
+        {
+            waitTilnextFire -= Time.deltaTime * fireSpeed;
+            if (waitTilnextFire <= 0)
+            {
+                Timer = false;
+
+            }
+        }
+
+        if (waitTilnextFire <= 0)
+        {
+            waitTilnextFire = 0;
+            if (gameObject)
+            {
+                Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+            }
+        }
+    }
 
 }

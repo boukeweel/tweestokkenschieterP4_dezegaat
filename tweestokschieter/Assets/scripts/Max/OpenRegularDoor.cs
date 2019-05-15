@@ -14,6 +14,7 @@ public class OpenRegularDoor : MonoBehaviour
     public LayerMask layerMask4;
     public Animator [] animator;
     public int IsOpen = 1;
+    int current = 0;
 
 
     void Update()
@@ -23,7 +24,6 @@ public class OpenRegularDoor : MonoBehaviour
                 IsOpen = 0;
                 Open();
             }
-
     }
 
     void Open()
@@ -31,13 +31,17 @@ public class OpenRegularDoor : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask))
         {
-            if (IsOpen == 0)
+                if (IsOpen == 0)
+                {
+                    animator[0].SetBool("active", true);
+                    IsOpen = 1;
+                }
+            if(IsOpen == 1)
             {
-                animator[0].SetBool("active", true);
-                IsOpen = 1;
+                Close();
             }
         }
-        if(Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask1))
+        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask1))
         {
             if (IsOpen == 0)
             {
@@ -69,9 +73,6 @@ public class OpenRegularDoor : MonoBehaviour
                 IsOpen = 1;
             }
         }
-
-
-
     }
 
     void Close()
@@ -83,9 +84,9 @@ public class OpenRegularDoor : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask))
                 {
-                    if (IsOpen == 0)
+                    if (IsOpen == 1)
                     {
-                        animator[0].SetBool("active", false);
+                        animator[0].SetBool("active", true);
                     }
                 }
             }
