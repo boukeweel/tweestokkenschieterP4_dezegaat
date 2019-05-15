@@ -1457,6 +1457,7 @@ MonoBehaviour:
   ammotext: {fileID: 192940219}
   magsizetext: {fileID: 1712741644}
   ReloadTimer: {fileID: 0}
+  stademanger: {fileID: 0}
 --- !u!4 &247799302
 Transform:
   m_ObjectHideFlags: 0
@@ -1488,7 +1489,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2619086233303812490, guid: db0b2a631941f1b4caaddb9a2f202253, type: 3}
 --- !u!1001 &257756075
@@ -2266,6 +2267,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829294301075383069, guid: f5e4e670661eafd46941ae8855644bef,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 306173470859878327, guid: f5e4e670661eafd46941ae8855644bef,
         type: 3}
@@ -3580,7 +3586,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2619086233303812490, guid: 1f0691a2cb688c349b3a1c312a51279c, type: 3}
 --- !u!1001 &701765942
@@ -3898,7 +3904,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2619086233303812490, guid: 1f0691a2cb688c349b3a1c312a51279c, type: 3}
 --- !u!1001 &781741870
@@ -4874,7 +4880,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2619086233303812490, guid: 1f0691a2cb688c349b3a1c312a51279c, type: 3}
 --- !u!1001 &958065945
@@ -7871,7 +7877,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2619086233303812490, guid: db0b2a631941f1b4caaddb9a2f202253, type: 3}
 --- !u!1001 &1435512387
@@ -10821,7 +10827,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2619086233303812490, guid: 1f0691a2cb688c349b3a1c312a51279c, type: 3}
 --- !u!1 &1980257208 stripped
