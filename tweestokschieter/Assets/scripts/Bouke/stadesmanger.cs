@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class stadesmanger : MonoBehaviour
 {
+    //where the nummer has to come
     [SerializeField]private TMP_Text ShotfiredAmount;
     [SerializeField] private TMP_Text ShotHitAmount;
     [SerializeField] private TMP_Text Acuraty;
@@ -21,12 +22,14 @@ public class stadesmanger : MonoBehaviour
 
     [SerializeField] private TMP_Text favotriteweapeon;
 
-    private int Randomshotfired;
-    private int RandomShotHIt;
-    private int acuraty;
 
-    private int Randomenemyskilled;
-    private int Randomdamgestaken;
+    //random int
+    public float Randomshotfired;
+    public float RandomShotHIt = 3f;
+    private float acuraty;
+
+    public float Randomenemyskilled;
+    public float Randomdamgestaken;
 
     private int RandomAmmoPickedupammount;
     private int RandomHealthpickedupammount;
@@ -34,27 +37,39 @@ public class stadesmanger : MonoBehaviour
 
 
     //circle diagram
-    private int[] Values;
+    private float[] Values;
     public Color[] WedgeColor;
     public Image WedgePrefabes;
 
     private void Start()
     {
+        //randomnummer
          Randomshotfired = Random.Range(0, 50);
-         RandomShotHIt = Random.Range(0, Randomshotfired);
-         Randomenemyskilled = Random.Range(0, 10);
+        RandomShotHIt = Random.Range(0, 50);
+        Randomenemyskilled = Random.Range(0, 10);
         Randomdamgestaken = Random.Range(0, 100);
         RandomAmmoPickedupammount = Random.Range(0, 200); 
         RandomHealthpickedupammount = Random.Range(0, 200);
         RandomArmorpickedupAmmount = Random.Range(0, 200);
         acuraty = RandomShotHIt * 100 / Randomshotfired;
+        //pie diagram
+
+        Values = new float[4];
+        Values[0] = Randomshotfired;
+        Values[1] = RandomShotHIt;
+        Values[2] = Randomenemyskilled;
+        Values[3] = Randomdamgestaken;
+
+
         MakeCraph();
-        
+
+
     }
+    //pie diagram
     private void MakeCraph()
     {
-        //Values = int Randomshotfired;
-        float total = 0f;
+        //circle diagram
+        float total = 0;
         float zRotation = 0f;
         for (int i = 0; i < Values.Length; i++)
         {
@@ -73,7 +88,7 @@ public class stadesmanger : MonoBehaviour
     }
     private void Update()
     {
-        
+        //to text
         ShotfiredAmount.text = Randomshotfired.ToString();
         ShotHitAmount.text = RandomShotHIt.ToString();
         Acuraty.text = acuraty.ToString() + ("%");
@@ -88,6 +103,7 @@ public class stadesmanger : MonoBehaviour
     }
     public void tomainmenu()
     {
+        //load scene
         SceneManager.LoadScene(0);
     }
 }
