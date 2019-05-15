@@ -2398,7 +2398,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 976396873}
-        m_MethodName: Resume
+        m_MethodName: Controls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4199,6 +4199,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1932542800}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &797679998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 262309912745051556, guid: 73833ffc2d2542f419db14698d177983,
+    type: 3}
+  m_PrefabInstance: {fileID: 1932542800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797679997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7929401904665b47af52c4d03f2e07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &797680005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5217,6 +5229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1516080702}
+  player: {fileID: 797679998}
 --- !u!1001 &990860726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8669,7 +8682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1516080703
 RectTransform:
   m_ObjectHideFlags: 0
