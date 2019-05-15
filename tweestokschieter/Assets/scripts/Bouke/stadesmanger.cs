@@ -24,7 +24,7 @@ public class stadesmanger : MonoBehaviour
 
 
     //random int
-    public float Randomshotfired;
+    public float shotfired;
     public float RandomShotHIt = 3f;
     private float acuraty;
 
@@ -44,18 +44,18 @@ public class stadesmanger : MonoBehaviour
     private void Start()
     {
         //randomnummer
-         Randomshotfired = Random.Range(0, 50);
+        shotfired = Random.Range(0, 60);
         RandomShotHIt = Random.Range(0, 50);
         Randomenemyskilled = Random.Range(0, 10);
         Randomdamgestaken = Random.Range(0, 100);
         RandomAmmoPickedupammount = Random.Range(0, 200); 
         RandomHealthpickedupammount = Random.Range(0, 200);
         RandomArmorpickedupAmmount = Random.Range(0, 200);
-        acuraty = RandomShotHIt * 100 / Randomshotfired;
+        acuraty = RandomShotHIt * 100 / shotfired;
         //pie diagram
 
         Values = new float[4];
-        Values[0] = Randomshotfired;
+        Values[0] = shotfired;
         Values[1] = RandomShotHIt;
         Values[2] = Randomenemyskilled;
         Values[3] = Randomdamgestaken;
@@ -89,7 +89,7 @@ public class stadesmanger : MonoBehaviour
     private void Update()
     {
         //to text
-        ShotfiredAmount.text = Randomshotfired.ToString();
+        ShotfiredAmount.text = shotfired.ToString();
         ShotHitAmount.text = RandomShotHIt.ToString();
         Acuraty.text = acuraty.ToString() + ("%");
 
@@ -100,6 +100,10 @@ public class stadesmanger : MonoBehaviour
         Healthpickedupammount.text = RandomHealthpickedupammount.ToString();
         ArmorPickedupAmount.text = RandomArmorpickedupAmmount.ToString();
 
+    }
+    public void shootcount()
+    {
+        shotfired += 1;
     }
     public void tomainmenu()
     {

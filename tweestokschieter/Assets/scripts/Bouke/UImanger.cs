@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 public class UImanger : MonoBehaviour
 {
     public GameObject mainmenu, credits, options, controls;
+    private void Start()
+    {
+        mainmenu.SetActive(true);
+        options.SetActive(false);
+        controls.SetActive(false);
+        credits.SetActive(false);
+    }
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        
     }
     public void Credits()
     {
@@ -39,6 +47,11 @@ public class UImanger : MonoBehaviour
         controls.SetActive(true);
         credits.SetActive(false);
    }
+    public void gotostatics()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void GameQuit()
     {
         Application.Quit();  
