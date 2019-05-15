@@ -15,9 +15,9 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
-    
 
-    public stadesmanger stademanger;
+
+    
     
 
     void Update()

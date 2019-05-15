@@ -6378,7 +6378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1215030327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6697,6 +6697,18 @@ MonoBehaviour:
   - {fileID: 377221305}
   - {fileID: 1822476310}
   IsOpen: 
+--- !u!114 &1218603075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 262309912745051556, guid: 73833ffc2d2542f419db14698d177983,
+    type: 3}
+  m_PrefabInstance: {fileID: 1218603068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218603071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7929401904665b47af52c4d03f2e07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1220948429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7393,7 +7405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1215030326}
-  player: {fileID: 0}
+  player: {fileID: 1218603075}
 --- !u!114 &1380254426
 MonoBehaviour:
   m_ObjectHideFlags: 0
