@@ -16,7 +16,7 @@ public class EnemySight1 : MonoBehaviour
 
     private bool isInFov = false;
 
-    [SerializeField] private GameObject[] points;
+    [SerializeField] private Transform[] points;
 
     [SerializeField] private float Speed;
 
@@ -96,13 +96,13 @@ public class EnemySight1 : MonoBehaviour
 
         if (isInFov == true)
         {
-            nav.speed = 5f;
-            nav.SetDestination(Player.position);
+            Speed = 2f;
+            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
+            //nav.SetDestination(Player.position);
         }
-        if(isInFov == false)
-        {
+        else
+            Speed = 2f;
             EnemyPath();
-        }
 
     }
 

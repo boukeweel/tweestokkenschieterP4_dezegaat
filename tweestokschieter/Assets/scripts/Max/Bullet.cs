@@ -18,5 +18,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(collision.collider.CompareTag("wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
