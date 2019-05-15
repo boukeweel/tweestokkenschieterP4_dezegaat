@@ -25,11 +25,11 @@ public class stadesmanger : MonoBehaviour
 
     //random int
     public float shotfired;
-    public float RandomShotHIt = 3f;
+    public float ShotHit = 3f;
     private float acuraty;
 
-    public float Randomenemyskilled;
-    public float Randomdamgestaken;
+    public float EnemysKilled;
+    public float DammageTaken;
 
     private int RandomAmmoPickedupammount;
     private int RandomHealthpickedupammount;
@@ -45,20 +45,20 @@ public class stadesmanger : MonoBehaviour
     {
         //randomnummer
         shotfired = Random.Range(0, 60);
-        RandomShotHIt = Random.Range(0, 50);
-        Randomenemyskilled = Random.Range(0, 10);
-        Randomdamgestaken = Random.Range(0, 100);
+        ShotHit = Random.Range(0, 50);
+        EnemysKilled = Random.Range(0, 10);
+        DammageTaken = Random.Range(0, 100);
         RandomAmmoPickedupammount = Random.Range(0, 200); 
         RandomHealthpickedupammount = Random.Range(0, 200);
         RandomArmorpickedupAmmount = Random.Range(0, 200);
-        acuraty = RandomShotHIt * 100 / shotfired;
+        acuraty = ShotHit * 100 / shotfired;
         //pie diagram
 
         Values = new float[4];
         Values[0] = shotfired;
-        Values[1] = RandomShotHIt;
-        Values[2] = Randomenemyskilled;
-        Values[3] = Randomdamgestaken;
+        Values[1] = ShotHit;
+        Values[2] = EnemysKilled;
+        Values[3] = DammageTaken;
 
 
         MakeCraph();
@@ -90,11 +90,11 @@ public class stadesmanger : MonoBehaviour
     {
         //to text
         ShotfiredAmount.text = shotfired.ToString();
-        ShotHitAmount.text = RandomShotHIt.ToString();
+        ShotHitAmount.text = ShotHit.ToString();
         Acuraty.text = acuraty.ToString() + ("%");
 
-        Enemyskilled.text = Randomenemyskilled.ToString();
-        DamegesTaken.text = Randomdamgestaken.ToString();
+        Enemyskilled.text = EnemysKilled.ToString();
+        DamegesTaken.text = DammageTaken.ToString();
 
         Ammopickedupammount.text = RandomAmmoPickedupammount.ToString();
         Healthpickedupammount.text = RandomHealthpickedupammount.ToString();

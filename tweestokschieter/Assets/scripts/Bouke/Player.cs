@@ -25,8 +25,6 @@ public class Player : HealthSystem
 
     private void FixedUpdate()
     {
-        
-
         rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
         if (Usingcontroler.Equals(true))
         {
@@ -35,7 +33,6 @@ public class Player : HealthSystem
             {
                 transform.rotation = Quaternion.LookRotation(PlayerDirection, Vector3.up);
             }
-            
         }
         if (Usingcontroler.Equals(false))
         {
@@ -74,4 +71,16 @@ public class Player : HealthSystem
             Addarmor(20);
         }
     }
+    public void usingcontrols()
+    {
+        if (Usingcontroler == true)
+        {
+            Usingcontroler = false;
+        }
+        else
+        {
+            Usingcontroler = true;
+        }
+    }
+    
 }

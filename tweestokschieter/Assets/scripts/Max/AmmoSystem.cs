@@ -15,6 +15,7 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
+    
 
     public stadesmanger stademanger;
     
@@ -66,8 +67,8 @@ public class AmmoSystem : MonoBehaviour
     {
         magSize += AmmoAmount;
     }
+    
 
- 
 
     IEnumerator reloader()
     {
