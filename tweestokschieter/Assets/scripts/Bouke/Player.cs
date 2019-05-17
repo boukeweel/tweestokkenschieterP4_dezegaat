@@ -70,6 +70,10 @@ public class Player : HealthSystem
         {
             Addarmor(20);
         }
+        if(collision.collider.CompareTag("enemyBullet"))
+        {
+            Health();
+        }
     }
     public void usingcontrols()
     {
