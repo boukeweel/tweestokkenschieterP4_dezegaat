@@ -35,7 +35,10 @@ public class EnemySight1 : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
     }
 
-
+    private void Start()
+    {
+        waitTilnextFire = Time.time;
+    }
 
     private void OnDrawGizmos()
     {
@@ -136,24 +139,11 @@ public class EnemySight1 : MonoBehaviour
 
     void shoot()
     {
-        if (Timer)
-        {
-            waitTilnextFire -= Time.deltaTime * fireSpeed;
-            if (waitTilnextFire <= 0)
-            {
-                Timer = false;
-
-            }
-        }
-
-        if (waitTilnextFire <= 0)
-        {
-            waitTilnextFire = 0;
-            if (gameObject)
-            {
-                Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
-            }
-        }
+         if(Time.time > waitTilnextFire)
+         {
+            Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+            waitTilnextFire = Time.time + fireSpeed;
+         }
     }
 
 }
