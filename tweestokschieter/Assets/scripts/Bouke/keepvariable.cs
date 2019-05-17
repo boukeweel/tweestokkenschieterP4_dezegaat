@@ -57,7 +57,6 @@ public class keepvariable
         stadesmanger.AmmoPickUpcount(AmmoPickUp);
         stadesmanger.HealthPickUpcount(HealthPickUp);
         stadesmanger.ArmorPickUpcount(ArmorPickUp);
-
     }
     
 }
