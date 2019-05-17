@@ -24,7 +24,7 @@ public class stadesmanger : MonoBehaviour
 
 
     //random int
-    public float shotfired;
+    public static float shotfired;
     public float ShotHit = 3f;
     private float acuraty;
 
@@ -44,7 +44,7 @@ public class stadesmanger : MonoBehaviour
     private void Start()
     {
         //randomnummer
-        shotfired = Random.Range(0, 60);
+        //shotfired = Random.Range(0, 60);
         ShotHit = Random.Range(0, 50);
         EnemysKilled = Random.Range(0, 10);
         DammageTaken = Random.Range(0, 100);
@@ -101,9 +101,10 @@ public class stadesmanger : MonoBehaviour
         ArmorPickedupAmount.text = RandomArmorpickedupAmmount.ToString();
 
     }
-    public void shootcount()
+    public static void shootcount(float shotfierds)
     {
-        shotfired += 1;
+        shotfired = shotfierds;
+        Debug.Log(shotfired);
     }
     public void tomainmenu()
     {
