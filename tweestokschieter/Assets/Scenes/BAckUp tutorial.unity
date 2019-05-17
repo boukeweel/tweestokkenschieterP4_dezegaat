@@ -5881,7 +5881,6 @@ MonoBehaviour:
   ammotext: {fileID: 1612617853}
   magsizetext: {fileID: 1872098022}
   ReloadTimer: {fileID: 0}
-  stademanger: {fileID: 0}
 --- !u!1001 &1151946014
 PrefabInstance:
   m_ObjectHideFlags: 0
