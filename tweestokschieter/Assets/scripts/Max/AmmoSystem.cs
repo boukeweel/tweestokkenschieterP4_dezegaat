@@ -61,6 +61,7 @@ public class AmmoSystem : MonoBehaviour
         {
             Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
             ammo--;
+            keepvariable.addshot();
         }
     }
     public void AddAmmo(int AmmoAmount)

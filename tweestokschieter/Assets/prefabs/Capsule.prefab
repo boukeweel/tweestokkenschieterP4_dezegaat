@@ -110,7 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Keycard: {fileID: 0}
+  Keycard2: {fileID: 0}
   keyCardPickedUp: 0
+  keyCardPickedUp2: 0
 --- !u!114 &262309912745051556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,13 +146,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Keycard: {fileID: 0}
+  Keycard2: {fileID: 0}
   keyCardPickedUp: 0
+  keyCardPickedUp2: 0
   Player: {fileID: 262309912745051555}
   range: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 0}
+  layerMask2:
+    serializedVersion: 2
+    m_Bits: 0
+  animator:
+  - {fileID: 0}
   IsOpen: 1
 --- !u!54 &262309912745051557
 Rigidbody:
@@ -168,57 +176,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!1 &6691856354155433825
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1810322303550031900}
-  - component: {fileID: 617925557928892786}
-  m_Layer: 0
-  m_Name: shootpoing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1810322303550031900
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6691856354155433825}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000018477438}
-  m_LocalPosition: {x: 0.1571415, y: -0.3142857, z: 0.36193597}
-  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
-  m_Children: []
-  m_Father: {fileID: 2223064575358886227}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &617925557928892786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6691856354155433825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: 0
-  magSize: 0
-  bullet: {fileID: 0}
-  reloadTime: 0
-  ammotext: {fileID: 0}
-  magsizetext: {fileID: 0}
-  ReloadTimer: {fileID: 0}
-  statemager: {fileID: 0}
 --- !u!1001 &6603224546975468105
 PrefabInstance:
   m_ObjectHideFlags: 0
