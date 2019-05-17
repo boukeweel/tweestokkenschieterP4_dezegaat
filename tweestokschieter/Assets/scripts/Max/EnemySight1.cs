@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class EnemySight1 : MonoBehaviour
+public class EnemySight1 : HealthSystem
 {
     public float fieldOfViewAngle = 110f;
     public float maxAngle;
@@ -108,10 +108,19 @@ public class EnemySight1 : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
             shoot();
         }
+
         if(isInFov == false)
         {
             Speed = 1f;
             EnemyPath();
+        }
+
+        if(takingDamage >= 1)
+        {
+            isInFov = true;
+            Speed = 3f;
+            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
+            shoot();
         }
 
     }
@@ -144,6 +153,14 @@ public class EnemySight1 : MonoBehaviour
             Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
             waitTilnextFire = Time.time + fireSpeed;
          }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("bullet"))
+        {
+            EnemyHealth();
+        }
     }
 
 }

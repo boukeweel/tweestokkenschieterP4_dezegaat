@@ -8,6 +8,8 @@ public class HealthSystem : MonoBehaviour
     public float Damage = 20;
     public float Armor = 0;
     public GameObject UI;
+    public bool TakeDamage = false;
+    public int takingDamage;
 
     public void Health()
     {
@@ -47,6 +49,7 @@ public class HealthSystem : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, 100);
         health -= Damage;
+        takingDamage++;
         if (health <= 0)
         {
             keepvariable.addenemykilled();
