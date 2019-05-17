@@ -14,6 +14,7 @@ public class AmmoPickup : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
+            keepvariable.AmmoPickUP(AmountAmmoget);
             ammosystem.AddAmmo(AmountAmmoget);
             Destroy(gameObject);
         }

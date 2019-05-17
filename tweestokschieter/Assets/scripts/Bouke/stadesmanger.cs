@@ -48,15 +48,7 @@ public class stadesmanger : MonoBehaviour
     }
     private void Start()
     {
-        //randomnummer
-        //shotfired = Random.Range(0, 60);
-        //ShotHit = Random.Range(0, 50);
-        //EnemysKilled = Random.Range(0, 10);
-        //DammageTaken = Random.Range(0, 100);
-        AmmoPickup = Random.Range(0, 200); 
-        Healthpickup = Random.Range(0, 200);
-        ArmorPickUp = Random.Range(0, 200);
-
+        
         //percentage uitrekkenen
         acuraty = ShotHit * 100 / shotfired;
         //pie diagram

@@ -60,14 +60,17 @@ public class Player : HealthSystem
     {
         if(collision.collider.CompareTag("enemy"))
         {
+            
             Health();
         }
         if (collision.collider.CompareTag("HealthPickup"))
         {
+            keepvariable.healthPickUp(10);
             Addhealth(10);
         }
         if (collision.collider.CompareTag("ArmorPickup"))
         {
+            keepvariable.ArmorPickUP(20);
             Addarmor(20);
         }
         if(collision.collider.CompareTag("enemyBullet"))

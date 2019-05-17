@@ -31,21 +31,21 @@ public class keepvariable
     {
         Enemyskilled++;
     }
-    public static void AddDamegstaken()
+    public static void AddDamegstaken(float damgestaken)
     {
-        DamagesTaken++;
+        DamagesTaken += damgestaken;
     }
     public static void AmmoPickUP(int ammopicktup)
     {
-        AmmoPickUp = ammopicktup;
+        AmmoPickUp += ammopicktup;
     }
     public static void healthPickUp(int healthpickup)
     {
-        HealthPickUp = healthpickup;
+        HealthPickUp += healthpickup;
     }
     public static void ArmorPickUP(int armorpickup)
     {
-        ArmorPickUp = armorpickup;
+        ArmorPickUp += armorpickup;
     }
     // alles terug sturen naar stadesmanger
     public static void geefallesdoor()

@@ -9,6 +9,7 @@ public class Enemy : HealthSystem
     {
         if (collision.collider.CompareTag("bullet"))
         {
+            keepvariable.addhit();
             EnemyHealth();
         }
     }
