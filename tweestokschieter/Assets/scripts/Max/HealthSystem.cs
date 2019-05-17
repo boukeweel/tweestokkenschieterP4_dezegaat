@@ -25,7 +25,7 @@ public class HealthSystem : MonoBehaviour
             Armor -= Damage;
             
         }
-        keepvariable.AddDamegstaken(Damage);
+        stadesmanger.DamgesTakenCount(Damage);
         if(health <= 0)
         {
             Time.timeScale = 0;
@@ -52,7 +52,7 @@ public class HealthSystem : MonoBehaviour
         takingDamage++;
         if (health <= 0)
         {
-            keepvariable.addenemykilled();
+            stadesmanger.EnemysKilledcount();
             Destroy(gameObject);
         }
     }

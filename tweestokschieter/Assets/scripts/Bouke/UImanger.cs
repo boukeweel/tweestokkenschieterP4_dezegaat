@@ -15,8 +15,14 @@ public class UImanger : MonoBehaviour
     Resolution[] resolutions;
 
     public TMP_Dropdown ResolutionDropDown;
+
+    public TMP_Dropdown Grapichshold;
+
+    private static int holdnumber;
     private void Start()
     {
+
+        Grapichshold.value = holdnumber;
         //mainmenu set true
         MainMenu();
 
@@ -109,6 +115,7 @@ public class UImanger : MonoBehaviour
     public void SetGraphics(int qualityindex)
     {
         QualitySettings.SetQualityLevel(qualityindex);
+        holdnumber = qualityindex;
     }
 
     //set fullscreen
