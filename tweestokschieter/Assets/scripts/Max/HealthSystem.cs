@@ -15,7 +15,6 @@ public class HealthSystem : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, 100);
         Armor = Mathf.Clamp(Armor, 0, 100);
-
         if(Armor == 0)
         {
             health -= Damage;
@@ -26,7 +25,7 @@ public class HealthSystem : MonoBehaviour
             Armor -= Damage;
             
         }
-        
+        keepvariable.AddDamegstaken(Damage);
         if(health <= 0)
         {
             Time.timeScale = 0;
@@ -53,6 +52,7 @@ public class HealthSystem : MonoBehaviour
         takingDamage++;
         if (health <= 0)
         {
+            keepvariable.addenemykilled();
             Destroy(gameObject);
         }
     }
