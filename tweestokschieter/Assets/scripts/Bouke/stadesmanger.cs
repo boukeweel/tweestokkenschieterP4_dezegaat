@@ -25,7 +25,7 @@ public class stadesmanger : MonoBehaviour
 
     //random int
     public static float shotfired;
-    public static float ShotHit = 3f;
+    public static float ShotHit;
     private float acuraty;
 
     public static float EnemysKilled;
@@ -41,11 +41,7 @@ public class stadesmanger : MonoBehaviour
     public Color[] WedgeColor;
     public Image WedgePrefabes;
 
-    private void Awake()
-    {
-        //varibale op vragen
-        keepvariable.geefallesdoor();
-    }
+
     private void Start()
     {
         
@@ -107,33 +103,33 @@ public class stadesmanger : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     //alle vairable krijgen
-    public static void shothitcount(float shothiets)
+    public static void shothitcount()
     {
-        ShotHit = shothiets;
+        ShotHit++;
     }
-    public static void EnemysKilledcount(float enemysKilled)
+    public static void EnemysKilledcount()
     {
-        EnemysKilled = enemysKilled;
+        EnemysKilled++;
     }
     public static void DamgesTakenCount(float damegstaken)
     {
-        DammageTaken = damegstaken;
+        DammageTaken += damegstaken;
     }
-    public static void shootcount(float shotfierds)
+    public static void shootcount()
     {
-        shotfired = shotfierds;
+        shotfired++;
     }
     public static void AmmoPickUpcount(int AmmoPickUps)
     {
-        AmmoPickup = AmmoPickUps;
+        AmmoPickup += AmmoPickUps;
     }
     public static void HealthPickUpcount(int Healthpickups)
     {
-        Healthpickup = Healthpickups;
+        Healthpickup += Healthpickups;
     }
     public static void ArmorPickUpcount(int ArmorPickUps)
     {
-        ArmorPickUp = ArmorPickUps;
+        ArmorPickUp += ArmorPickUps;
     }
     //nu hebben je alle varibele gekregen
 }
