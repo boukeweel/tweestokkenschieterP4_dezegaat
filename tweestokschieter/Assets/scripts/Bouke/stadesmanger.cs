@@ -25,7 +25,7 @@ public class stadesmanger : MonoBehaviour
 
     //random int
     public static float shotfired;
-    public static float ShotHit = 3f;
+    public static float ShotHit;
     private float acuraty;
 
     public static float EnemysKilled;
