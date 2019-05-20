@@ -11,7 +11,6 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private float magSize;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float reloadTime;
-
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;

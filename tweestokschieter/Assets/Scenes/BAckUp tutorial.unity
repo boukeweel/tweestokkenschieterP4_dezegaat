@@ -6531,31 +6531,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.104
-      objectReference: {fileID: 0}
-    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.942
-      objectReference: {fileID: 0}
-    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.56
-      objectReference: {fileID: 0}
     - target: {fileID: 262309912745051552, guid: 73833ffc2d2542f419db14698d177983,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6656,6 +6631,31 @@ PrefabInstance:
       propertyPath: UI
       value: 
       objectReference: {fileID: 2067646120}
+    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223064575358886227, guid: 73833ffc2d2542f419db14698d177983,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.56
+      objectReference: {fileID: 0}
     - target: {fileID: 262309912745051558, guid: 73833ffc2d2542f419db14698d177983,
         type: 3}
       propertyPath: m_ReceiveShadows
@@ -7515,6 +7515,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: healthbar and armor bar
       objectReference: {fileID: 0}
+    - target: {fileID: 1756014857819586487, guid: 313602f73f8ff964ca46f9cbea063095,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1756014858106465434, guid: 313602f73f8ff964ca46f9cbea063095,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7569,11 +7574,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1756014857819586487, guid: 313602f73f8ff964ca46f9cbea063095,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313602f73f8ff964ca46f9cbea063095, type: 3}
@@ -7670,7 +7670,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

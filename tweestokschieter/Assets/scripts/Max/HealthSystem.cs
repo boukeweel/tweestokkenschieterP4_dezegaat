@@ -11,6 +11,9 @@ public class HealthSystem : MonoBehaviour
     public bool TakeDamage = false;
     public int takingDamage;
 
+
+
+
     public void Health()
     {
         health = Mathf.Clamp(health, 0, 100);
@@ -45,10 +48,11 @@ public class HealthSystem : MonoBehaviour
         Armor = Mathf.Clamp(Armor, 0, 100);
     }
 
-    public void EnemyHealth()
+    public void EnemyHealth(int damges)
     {
+        
+        health -= damges;
         health = Mathf.Clamp(health, 0, 100);
-        health -= Damage;
         takingDamage++;
         if (health <= 0)
         {
