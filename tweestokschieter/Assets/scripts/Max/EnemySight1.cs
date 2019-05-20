@@ -104,6 +104,7 @@ public class EnemySight1 : HealthSystem
 
         if (isInFov == true || takingDamage > 0)
         {
+            FacePlayer();
             Speed = 3f;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
             shoot();
@@ -113,6 +114,7 @@ public class EnemySight1 : HealthSystem
         {
             Speed = 1f;
             EnemyPath();
+            FaceTarget();
         }
 
     
@@ -130,14 +132,13 @@ public class EnemySight1 : HealthSystem
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * Speed);
-        FaceTarget();
     }
 
     void FaceTarget()
     {
-        Vector3 direction = (points[current].transform.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+            Vector3 direction = (points[current].transform.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     void shoot()
