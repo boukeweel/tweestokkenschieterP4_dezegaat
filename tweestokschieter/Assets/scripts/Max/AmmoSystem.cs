@@ -15,8 +15,12 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
+    //switch to shotgun
+    [SerializeField] private bool Switchtoshotgun = false;
+    
+    //every thing for auto fire
     [SerializeField] private bool Switchtoautofire;
-    //auto fire 
+    //timer to shoot
     [SerializeField] private float timetowait;
     private float holdtimetowait;
 
@@ -29,21 +33,35 @@ public class AmmoSystem : MonoBehaviour
     }
     void Update()
     {
-        ammo = Mathf.Clamp(ammo, 0, 25f);
-
-        if(ammo != 0)
+        if (Switchtoshotgun)
         {
-            if (Switchtoautofire)
+            ammo = Mathf.Clamp(ammo, 0, 10);
+            if(ammo != 0)
             {
-                SHootSIMIFIRE();
+                shotgun();
             }
-            else
-            {
-                timetowait -= Time.deltaTime;
-                Shootautofire();
-            }
-            
         }
+        else
+        {
+            ammo = Mathf.Clamp(ammo, 0, 25f);
+
+             if(ammo != 0)
+             {
+                if (Switchtoautofire)
+                {
+                    timetowait -= Time.deltaTime;
+                    Shootautofire();
+                
+                }
+                else
+                {
+                    SHootSIMIFIRE();
+                }
+            
+             }
+
+        }
+        
 
         //Debug.Log(ammo);
         if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
@@ -68,6 +86,22 @@ public class AmmoSystem : MonoBehaviour
             if (magSize <= 0) break;
             ammo++;
             magSize--;
+        }
+    }
+
+    public void shotgun()
+    {
+        if(timetowait <= 0)
+        {
+            if(Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+                }
+                ammo--;
+                stadesmanger.shootcount();
+            }
         }
     }
     public void Shootautofire()
