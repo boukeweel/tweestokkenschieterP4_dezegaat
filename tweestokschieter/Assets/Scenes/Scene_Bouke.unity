@@ -171,7 +171,7 @@ MonoBehaviour:
   ammotext: {fileID: 1851696717}
   magsizetext: {fileID: 868845602}
   ReloadTimer: {fileID: 0}
-  Switchfiremode: 0
+  Switchtoautofire: 0
   timetowait: 0.1
 --- !u!65 &588461684
 BoxCollider:
