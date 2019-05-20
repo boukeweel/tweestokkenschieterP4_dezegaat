@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : HealthSystem
 {
-
-   
     public int speed;
 
-    
 
     public bool Usingcontroler = true;
 
@@ -76,6 +74,10 @@ public class Player : HealthSystem
         if(collision.collider.CompareTag("enemyBullet"))
         {
             Health();
+        }
+        if(collision.collider.CompareTag("lift"))
+        {
+            SceneManager.LoadScene(0);
         }
     }
     public void usingcontrols()
