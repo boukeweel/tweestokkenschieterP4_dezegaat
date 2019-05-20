@@ -11,13 +11,12 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private float magSize;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float reloadTime;
-
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
-    
 
-    public stadesmanger stademanger;
+
+    
     
 
     void Update()
@@ -61,6 +60,7 @@ public class AmmoSystem : MonoBehaviour
         {
             Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
             ammo--;
+            stadesmanger.shootcount();
         }
     }
     public void AddAmmo(int AmmoAmount)

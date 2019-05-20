@@ -24,16 +24,16 @@ public class stadesmanger : MonoBehaviour
 
 
     //random int
-    public float shotfired;
-    public float ShotHit = 3f;
+    public static float shotfired;
+    public static float ShotHit;
     private float acuraty;
 
-    public float EnemysKilled;
-    public float DammageTaken;
+    public static float EnemysKilled;
+    public static float DammageTaken;
 
-    private int RandomAmmoPickedupammount;
-    private int RandomHealthpickedupammount;
-    private int RandomArmorpickedupAmmount;
+    private static int AmmoPickup;
+    private static int Healthpickup;
+    private static int ArmorPickUp;
 
 
     //circle diagram
@@ -41,16 +41,11 @@ public class stadesmanger : MonoBehaviour
     public Color[] WedgeColor;
     public Image WedgePrefabes;
 
+
     private void Start()
     {
-        //randomnummer
-        shotfired = Random.Range(0, 60);
-        ShotHit = Random.Range(0, 50);
-        EnemysKilled = Random.Range(0, 10);
-        DammageTaken = Random.Range(0, 100);
-        RandomAmmoPickedupammount = Random.Range(0, 200); 
-        RandomHealthpickedupammount = Random.Range(0, 200);
-        RandomArmorpickedupAmmount = Random.Range(0, 200);
+        
+        //percentage uitrekkenen
         acuraty = ShotHit * 100 / shotfired;
         //pie diagram
 
@@ -96,18 +91,45 @@ public class stadesmanger : MonoBehaviour
         Enemyskilled.text = EnemysKilled.ToString();
         DamegesTaken.text = DammageTaken.ToString();
 
-        Ammopickedupammount.text = RandomAmmoPickedupammount.ToString();
-        Healthpickedupammount.text = RandomHealthpickedupammount.ToString();
-        ArmorPickedupAmount.text = RandomArmorpickedupAmmount.ToString();
+        Ammopickedupammount.text = AmmoPickup.ToString();
+        Healthpickedupammount.text = Healthpickup.ToString();
+        ArmorPickedupAmount.text = ArmorPickUp.ToString();
 
     }
-    public void shootcount()
-    {
-        shotfired += 1;
-    }
+   
     public void tomainmenu()
     {
         //load scene
         SceneManager.LoadScene(0);
     }
+    //alle vairable krijgen
+    public static void shothitcount()
+    {
+        ShotHit++;
+    }
+    public static void EnemysKilledcount()
+    {
+        EnemysKilled++;
+    }
+    public static void DamgesTakenCount(float damegstaken)
+    {
+        DammageTaken += damegstaken;
+    }
+    public static void shootcount()
+    {
+        shotfired++;
+    }
+    public static void AmmoPickUpcount(int AmmoPickUps)
+    {
+        AmmoPickup += AmmoPickUps;
+    }
+    public static void HealthPickUpcount(int Healthpickups)
+    {
+        Healthpickup += Healthpickups;
+    }
+    public static void ArmorPickUpcount(int ArmorPickUps)
+    {
+        ArmorPickUp += ArmorPickUps;
+    }
+    //nu hebben je alle varibele gekregen
 }
