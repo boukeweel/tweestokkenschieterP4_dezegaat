@@ -3744,8 +3744,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 590834115}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &590834118
-MeshCollider:
+--- !u!65 &590834118
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3754,10 +3754,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 3.5282085, y: 3.4492693, z: 2.0161648}
+  m_Center: {x: 0.76566327, y: 1.6296577, z: -0.02780056}
 --- !u!1001 &595482488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10973,6 +10972,11 @@ PrefabInstance:
       propertyPath: m_Shadows.m_Type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7478571810634874012, guid: 3177e27a1caa1234a93d50a43f4638f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2939066465555753641, guid: 3177e27a1caa1234a93d50a43f4638f0,
         type: 3}
       propertyPath: m_AngularSpeed
@@ -10982,11 +10986,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 126
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478571810634874012, guid: 3177e27a1caa1234a93d50a43f4638f0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2939066465555753641, guid: 3177e27a1caa1234a93d50a43f4638f0, type: 3}
