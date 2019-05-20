@@ -155,7 +155,7 @@ public class EnemySight1 : HealthSystem
         if (collision.collider.CompareTag("bullet"))
         {
             stadesmanger.shothitcount();
-            EnemyHealth();
+            EnemyHealth(Bullet.damages);
         }
     }
 
