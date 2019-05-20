@@ -18,7 +18,7 @@ public class OpenRegularDoor : MonoBehaviour
 
     private void Start()
     {
-        IsOpen = new int[5];
+        IsOpen = new int[6];
         for (int i = 0; i < IsOpen.Length; i++)
             IsOpen[i] = 0;
     }
@@ -34,7 +34,7 @@ public class OpenRegularDoor : MonoBehaviour
     void OpenOrClose()
     {
         RaycastHit hit;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             CheckDoor(out hit, i);
         }
