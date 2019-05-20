@@ -12,84 +12,42 @@ public class OpenRegularDoor : MonoBehaviour
     public LayerMask layerMask2;
     public LayerMask layerMask3;
     public LayerMask layerMask4;
-    public Animator [] animator;
-    public int IsOpen = 1;
+    public Animator[] animator;
+    public int[] IsOpen;
+    int current = 0;
 
+    private void Start()
+    {
+        IsOpen = new int[6];
+        for (int i = 0; i < IsOpen.Length; i++)
+            IsOpen[i] = 0;
+    }
 
     void Update()
     {
-            if (XCI.GetButtonDown(XboxButton.Y, XboxController.First) || Input.GetKeyDown(KeyCode.F))
-            {
-                IsOpen = 0;
-                Open();
-            }
-
+        if (XCI.GetButtonDown(XboxButton.Y, XboxController.First) || Input.GetKeyDown(KeyCode.F))
+        {
+            OpenOrClose();
+        }
     }
 
-    void Open()
+    void OpenOrClose()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask))
+        for (int i = 0; i < 6; i++)
         {
-            if (IsOpen == 0)
-            {
-                animator[0].SetBool("active", true);
-                IsOpen = 1;
-            }
+            CheckDoor(out hit, i);
         }
-        if(Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask1))
-        {
-            if (IsOpen == 0)
-            {
-                animator[1].SetBool("active", true);
-                IsOpen = 1;
-            }
-        }
-        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask2))
-        {
-            if (IsOpen == 0)
-            {
-                animator[2].SetBool("active", true);
-                IsOpen = 1;
-            }
-        }
-        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask3))
-        {
-            if (IsOpen == 0)
-            {
-                animator[3].SetBool("active", true);
-                IsOpen = 1;
-            }
-        }
-        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask4))
-        {
-            if (IsOpen == 0)
-            {
-                animator[4].SetBool("active", true);
-                IsOpen = 1;
-            }
-        }
-
-
-
     }
 
-    void Close()
+    private bool CheckDoor(out RaycastHit _hit, int _index)
     {
-        if (IsOpen == 1)
+        if (Physics.Raycast(Player.transform.position, Player.transform.forward, out _hit, range, _index == 0 ? 1 << LayerMask.NameToLayer("door") : 1 << LayerMask.NameToLayer("door" + _index)))
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, range, layerMask))
-                {
-                    if (IsOpen == 0)
-                    {
-                        animator[0].SetBool("active", false);
-                    }
-                }
-            }
+            IsOpen[_index] = IsOpen[_index] == 1 ? 0 : 1;
+            animator[_index].SetBool("active", IsOpen[_index] == 1 ? true : false);
+            return true;
         }
+        return false;
     }
-
 }

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int speed;
-
+    public int Damages;
+    public static int damages;
+   
     void Update()
     {
         transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
@@ -16,7 +18,13 @@ public class Bullet : MonoBehaviour
     {
         if (collision.collider.CompareTag("enemy"))
         {
+            damages = Damages;
+            Destroy(gameObject);
+        }
+        if(collision.collider.CompareTag("wall"))
+        {
             Destroy(gameObject);
         }
     }
+    
 }

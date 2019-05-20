@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class EnemySight1 : MonoBehaviour
+public class EnemySight1 : HealthSystem
 {
     public float fieldOfViewAngle = 110f;
     public float maxAngle;
     public float maxRadius;
+    public float waitTilnextFire;
+    private bool Timer = true;
+    public float fireSpeed;
 
     private NavMeshAgent nav;
 
@@ -16,11 +19,13 @@ public class EnemySight1 : MonoBehaviour
 
     private bool isInFov = false;
 
-    [SerializeField] private GameObject[] points;
+    [SerializeField] private Transform[] points;
 
     [SerializeField] private float Speed;
 
     [SerializeField] private bool IsPatroling = true;
+
+    [SerializeField] private GameObject bullet;
 
     int current = 0;
     float WPradius = 1;
@@ -30,7 +35,10 @@ public class EnemySight1 : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
     }
 
-
+    private void Start()
+    {
+        waitTilnextFire = Time.time;
+    }
 
     private void OnDrawGizmos()
     {
@@ -55,7 +63,7 @@ public class EnemySight1 : MonoBehaviour
 
     public static bool inFov(Transform CheckingObject, Transform target, float maxAngle, float maxRadius)
     {
-        Collider[] overlaps = new Collider[100];
+        Collider[] overlaps = new Collider[150];
         int count = Physics.OverlapSphereNonAlloc(CheckingObject.position, maxRadius, overlaps);
 
         for (int i = 0; i < count + 1; i++)
@@ -94,15 +102,22 @@ public class EnemySight1 : MonoBehaviour
     {
         isInFov = inFov(transform, Player, maxAngle, maxRadius);
 
-        if (isInFov == true)
+        if (isInFov == true || takingDamage > 0)
         {
-            nav.speed = 5f;
-            nav.SetDestination(Player.position);
+            FacePlayer();
+            Speed = 3f;
+            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
+            shoot();
         }
+
         if(isInFov == false)
         {
+            Speed = 1f;
             EnemyPath();
+            FaceTarget();
         }
+
+    
 
     }
 
@@ -117,15 +132,38 @@ public class EnemySight1 : MonoBehaviour
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * Speed);
-        FaceTarget();
     }
 
     void FaceTarget()
     {
-        Vector3 direction = (points[current].transform.position - transform.position).normalized;
+            Vector3 direction = (points[current].transform.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    void shoot()
+    {
+         if(Time.time > waitTilnextFire)
+         {
+            Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+            waitTilnextFire = Time.time + fireSpeed;
+         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("bullet"))
+        {
+            stadesmanger.shothitcount();
+            EnemyHealth(Bullet.damages);
+        }
+    }
+
+    void FacePlayer()
+    {
+        Vector3 direction = (Player.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
-
 
 }

@@ -9,7 +9,8 @@ public class Enemy : HealthSystem
     {
         if (collision.collider.CompareTag("bullet"))
         {
-            EnemyHealth();
+            
+            //EnemyHealth();
         }
     }
 }

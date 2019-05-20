@@ -8,12 +8,16 @@ public class HealthSystem : MonoBehaviour
     public float Damage = 20;
     public float Armor = 0;
     public GameObject UI;
+    public bool TakeDamage = false;
+    public int takingDamage;
+
+
+
 
     public void Health()
     {
         health = Mathf.Clamp(health, 0, 100);
         Armor = Mathf.Clamp(Armor, 0, 100);
-
         if(Armor == 0)
         {
             health -= Damage;
@@ -24,7 +28,7 @@ public class HealthSystem : MonoBehaviour
             Armor -= Damage;
             
         }
-        
+        stadesmanger.DamgesTakenCount(Damage);
         if(health <= 0)
         {
             Time.timeScale = 0;
@@ -44,12 +48,15 @@ public class HealthSystem : MonoBehaviour
         Armor = Mathf.Clamp(Armor, 0, 100);
     }
 
-    public void EnemyHealth()
+    public void EnemyHealth(int damges)
     {
+        
+        health -= damges;
         health = Mathf.Clamp(health, 0, 100);
-        health -= Damage;
+        takingDamage++;
         if (health <= 0)
         {
+            stadesmanger.EnemysKilledcount();
             Destroy(gameObject);
         }
     }

@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : HealthSystem
 {
-
-   
     public int speed;
 
-    
 
     public bool Usingcontroler = true;
 
@@ -25,8 +23,6 @@ public class Player : HealthSystem
 
     private void FixedUpdate()
     {
-        
-
         rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
         if (Usingcontroler.Equals(true))
         {
@@ -35,7 +31,6 @@ public class Player : HealthSystem
             {
                 transform.rotation = Quaternion.LookRotation(PlayerDirection, Vector3.up);
             }
-            
         }
         if (Usingcontroler.Equals(false))
         {
@@ -63,15 +58,38 @@ public class Player : HealthSystem
     {
         if(collision.collider.CompareTag("enemy"))
         {
+            
             Health();
         }
         if (collision.collider.CompareTag("HealthPickup"))
         {
+            stadesmanger.HealthPickUpcount(10);
             Addhealth(10);
         }
         if (collision.collider.CompareTag("ArmorPickup"))
         {
+            stadesmanger.ArmorPickUpcount(20);
             Addarmor(20);
         }
+        if(collision.collider.CompareTag("enemyBullet"))
+        {
+            Health();
+        }
+        if(collision.collider.CompareTag("lift"))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
+    public void usingcontrols()
+    {
+        if (Usingcontroler == true)
+        {
+            Usingcontroler = false;
+        }
+        else
+        {
+            Usingcontroler = true;
+        }
+    }
+    
 }
