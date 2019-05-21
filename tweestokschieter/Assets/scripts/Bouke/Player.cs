@@ -9,6 +9,7 @@ public class Player : HealthSystem
 {
     public int speed;
 
+    public Animator animator;
 
     public bool Usingcontroler = true;
 
@@ -94,7 +95,8 @@ public class Player : HealthSystem
         }
         if(collision.collider.CompareTag("lift"))
         {
-            SceneManager.LoadScene("Loading Scene");
+            animator.SetBool("active", true);
+            SceneManager.LoadScene(0);
         }
     }
     public void usingcontrols()

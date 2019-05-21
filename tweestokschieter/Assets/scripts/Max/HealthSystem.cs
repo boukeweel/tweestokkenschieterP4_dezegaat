@@ -11,9 +11,6 @@ public class HealthSystem : MonoBehaviour
     public bool TakeDamage = false;
     public int takingDamage;
 
-
-
-
     public void Health()
     {
         health = Mathf.Clamp(health, 0, 100);

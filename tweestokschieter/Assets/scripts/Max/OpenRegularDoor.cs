@@ -40,6 +40,12 @@ public class OpenRegularDoor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// raycast checked of the layermask en doet steeds 1 erbij deur staat op een toggle waardoor je hem open en dicht kan doen
+    /// </summary>
+    /// <param name="_hit"></param>
+    /// <param name="_index"></param>
+    /// <returns></returns>
     private bool CheckDoor(out RaycastHit _hit, int _index)
     {
         if (Physics.Raycast(Player.transform.position, Player.transform.forward, out _hit, range, _index == 0 ? 1 << LayerMask.NameToLayer("door") : 1 << LayerMask.NameToLayer("door" + _index)))
