@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2375251599074925338}
   - component: {fileID: 565096702460622969}
   - component: {fileID: 9127747323312869779}
-  - component: {fileID: 7104058668397906368}
+  - component: {fileID: 2341511881594133607}
   m_Layer: 0
   m_Name: bullet
   m_TagString: bullet
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 51
   Damages: 10
---- !u!54 &7104058668397906368
+--- !u!54 &2341511881594133607
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
