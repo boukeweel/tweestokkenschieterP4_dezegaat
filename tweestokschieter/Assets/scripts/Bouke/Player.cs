@@ -15,15 +15,22 @@ public class Player : HealthSystem
     private Rigidbody rig;
 
     public Image FillHealthBar, FillArmorbar;
-   
+   /// <summary>
+   /// set rigidbody 
+   /// </summary>
     private void Start()
     {
         rig = GetComponent<Rigidbody>();
     }
 
+    /// <summary>
+    /// movement
+    /// </summary>
     private void FixedUpdate()
     {
+        //movement
         rig.MovePosition(transform.position + input() * Time.deltaTime * speed);
+        //for using controler
         if (Usingcontroler.Equals(true))
         {
             Vector3 PlayerDirection = Vector3.right * XCI.GetAxisRaw(XboxAxis.RightStickX, XboxController.First) + Vector3.forward * XCI.GetAxisRaw(XboxAxis.RightStickY, XboxController.First);
@@ -32,6 +39,7 @@ public class Player : HealthSystem
                 transform.rotation = Quaternion.LookRotation(PlayerDirection, Vector3.up);
             }
         }
+        //for using mouse
         if (Usingcontroler.Equals(false))
         {
             Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,15 +53,24 @@ public class Player : HealthSystem
             }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
-
+        //set fillamount of health and armor bar 
         FillHealthBar.fillAmount = (health / 100);
         FillArmorbar.fillAmount = (Armor / 100);
 
     }
+
+    /// <summary>
+    /// set input of movement
+    /// </summary>
+    /// <returns></returns>
     public Vector3 input()
     {
         return new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
+    /// <summary>
+    /// all collisions
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("enemy"))
