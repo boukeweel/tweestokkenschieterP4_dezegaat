@@ -7,12 +7,7 @@ public class Bullet : MonoBehaviour
     public int speed;
     public int Damages;
     public static int damages;
-    private Rigidbody rig;
-
-    private void Start()
-    {
-        rig = GetComponent<Rigidbody>();
-    }
+    
 
     void Update()
     {
