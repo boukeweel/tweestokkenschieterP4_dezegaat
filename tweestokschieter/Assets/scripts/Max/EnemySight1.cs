@@ -40,6 +40,9 @@ public class EnemySight1 : HealthSystem
         waitTilnextFire = Time.time;
     }
 
+    /// <summary>
+    /// laat de angle en radisu zien van de enemy in de scene 
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -61,6 +64,14 @@ public class EnemySight1 : HealthSystem
 
     }
 
+    /// <summary>
+    /// checked of the speler in the field of view van de enemy is
+    /// </summary>
+    /// <param name="CheckingObject"></param>
+    /// <param name="target"></param>
+    /// <param name="maxAngle"></param>
+    /// <param name="maxRadius"></param>
+    /// <returns></returns>
     public static bool inFov(Transform CheckingObject, Transform target, float maxAngle, float maxRadius)
     {
         Collider[] overlaps = new Collider[150];
@@ -94,7 +105,6 @@ public class EnemySight1 : HealthSystem
                 }
             }
         }
-
         return false;
     }
 
@@ -102,7 +112,8 @@ public class EnemySight1 : HealthSystem
     {
         isInFov = inFov(transform, Player, maxAngle, maxRadius);
 
-        if (isInFov == true || takingDamage > 0)
+
+        if (isInFov == true) 
         {
             FacePlayer();
             Speed = 3f;
@@ -141,6 +152,13 @@ public class EnemySight1 : HealthSystem
             transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
+    void FacePlayer()
+    {
+        Vector3 direction = (Player.transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
     void shoot()
     {
          if(Time.time > waitTilnextFire)
@@ -159,11 +177,6 @@ public class EnemySight1 : HealthSystem
         }
     }
 
-    void FacePlayer()
-    {
-        Vector3 direction = (Player.transform.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    }
+  
 
 }
