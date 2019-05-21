@@ -151,10 +151,6 @@ public class EnemySight1 : HealthSystem
     void FacePlayer()
     {
         transform.LookAt(Player);
-
-        //Vector3 direction = (Player.transform.position - transform.position).normalized;
-        //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        //transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     void shoot()
