@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
             damages = Damages;
             Destroy(gameObject);
         }
-        if(collision.collider.CompareTag("wall"))
+        if(collision.transform.CompareTag("wall"))
         {
             Destroy(gameObject);
         }
