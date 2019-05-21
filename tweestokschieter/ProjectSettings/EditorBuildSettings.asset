@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BAckUp tutorial.unity
     guid: dcc9696e5906e194eac3586489d936f4
   - enabled: 1
-    path: Assets/Scenes/Loading Scene.unity
-    guid: 55ccf0f3f8244c7448f0a7cf71dbcfcb
-  - enabled: 1
     path: Assets/Scenes/states_scene.unity
     guid: 89ec299f81a0d74438fb2a14c4869dd9
+  - enabled: 1
+    path: Assets/Scenes/Loading Scene.unity
+    guid: 55ccf0f3f8244c7448f0a7cf71dbcfcb
   m_configObjects: {}
