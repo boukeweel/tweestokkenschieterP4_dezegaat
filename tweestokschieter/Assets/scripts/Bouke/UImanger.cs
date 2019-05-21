@@ -19,16 +19,18 @@ public class UImanger : MonoBehaviour
     public TMP_Dropdown Grapichshold;
 
     private static int holdnumber;
+
+
     private void Start()
     {
-
+        // hold value
         Grapichshold.value = holdnumber;
         //mainmenu set true
         MainMenu();
 
         //set resultion
          resolutions = Screen.resolutions;
-
+            
         ResolutionDropDown.ClearOptions();
 
         List<string> Options = new List<string>();
@@ -51,12 +53,18 @@ public class UImanger : MonoBehaviour
         ResolutionDropDown.RefreshShownValue();
 
     }
+    /// <summary>
+    /// Go to first lvl
+    /// </summary>
     public void StartGame()
     {
         //start game
         SceneManager.LoadScene(1);
         
     }
+    /// <summary>
+    /// Go to credits scene
+    /// </summary>
     public void Credits()
     {
         //credits to true
@@ -66,6 +74,9 @@ public class UImanger : MonoBehaviour
         credits.SetActive(true);
 
     }
+    /// <summary>
+    /// go to options 
+    /// </summary>
     public void Options()
     {
         //options to true
@@ -74,6 +85,9 @@ public class UImanger : MonoBehaviour
         controls.SetActive(false);
         credits.SetActive(false);
     }
+    /// <summary>
+    /// go to Main menu
+    /// </summary>
     public void MainMenu()
     {
         //mainmenu to true
@@ -82,6 +96,9 @@ public class UImanger : MonoBehaviour
         controls.SetActive(false);
         credits.SetActive(false);
     }
+    /// <summary>
+    /// go to the control scherm
+    /// </summary>
    public void Controls()
    {
         //controls to true
@@ -90,12 +107,14 @@ public class UImanger : MonoBehaviour
         controls.SetActive(true);
         credits.SetActive(false);
    }
+    // go to statics scene
     public void gotostatics()
     {
         //go to states
         SceneManager.LoadScene(2);
     }
 
+    //quit the game 
     public void GameQuit()
     {
         //quit game
