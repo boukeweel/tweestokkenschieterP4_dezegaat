@@ -96,7 +96,7 @@ public class Player : HealthSystem
         if(collision.collider.CompareTag("lift"))
         {
             animator.SetBool("active", true);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Loading Scene");
         }
     }
     public void usingcontrols()
