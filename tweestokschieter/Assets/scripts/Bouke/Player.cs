@@ -74,11 +74,6 @@ public class Player : HealthSystem
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("enemy"))
-        {
-            
-            Health();
-        }
         if (collision.collider.CompareTag("HealthPickup"))
         {
             stadesmanger.HealthPickUpcount(10);

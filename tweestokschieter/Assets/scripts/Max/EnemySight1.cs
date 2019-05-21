@@ -169,6 +169,10 @@ public class EnemySight1 : HealthSystem
             stadesmanger.shothitcount();
             EnemyHealth(Bullet.damages);
         }
+        if(collision.collider.CompareTag("walls"))
+        {
+
+        }
     }
 
   
