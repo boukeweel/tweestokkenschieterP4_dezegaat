@@ -17978,20 +17978,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: robotje Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1220030230730954616, guid: 41e01f6041e9c404da58c8a6b025caef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2789191477759190379, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.981218
+      value: 12.13
       objectReference: {fileID: 0}
     - target: {fileID: 2789191477759190379, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.067
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 2789191477759190379, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.65
+      value: 9.39
       objectReference: {fileID: 0}
     - target: {fileID: 2789191477759190379, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
@@ -18036,7 +18041,7 @@ PrefabInstance:
     - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
       propertyPath: points.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
@@ -18047,7 +18052,7 @@ PrefabInstance:
         type: 3}
       propertyPath: points.Array.data[1]
       value: 
-      objectReference: {fileID: 171042019}
+      objectReference: {fileID: 682341596}
     - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
       propertyPath: points.Array.data[2]
@@ -18057,7 +18062,7 @@ PrefabInstance:
         type: 3}
       propertyPath: points.Array.data[3]
       value: 
-      objectReference: {fileID: 351859208}
+      objectReference: {fileID: 171042019}
     - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
         type: 3}
       propertyPath: Speed
@@ -18068,6 +18073,36 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1218603069}
+    - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
+        type: 3}
+      propertyPath: fieldOfViewAngle
+      value: 45.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
+        type: 3}
+      propertyPath: maxAngle
+      value: 35.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
+        type: 3}
+      propertyPath: maxRadius
+      value: 12.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
+        type: 3}
+      propertyPath: waitTilnextFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
+        type: 3}
+      propertyPath: fireSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210089009505397788, guid: 41e01f6041e9c404da58c8a6b025caef,
+        type: 3}
+      propertyPath: points.Array.data[4]
+      value: 
+      objectReference: {fileID: 351859208}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41e01f6041e9c404da58c8a6b025caef, type: 3}
 --- !u!1 &1716404607
@@ -18850,7 +18885,7 @@ PrefabInstance:
     - target: {fileID: 2939066465555753644, guid: 3177e27a1caa1234a93d50a43f4638f0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2939066465555753640, guid: 3177e27a1caa1234a93d50a43f4638f0,
         type: 3}
