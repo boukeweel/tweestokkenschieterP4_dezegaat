@@ -42,7 +42,7 @@ public class Player : HealthSystem
         }
         //for using mouse
         if (Usingcontroler.Equals(false))
-        {
+        {   
             Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit _hit;
@@ -91,7 +91,7 @@ public class Player : HealthSystem
         if(collision.collider.CompareTag("lift"))
         {
             animator.SetBool("active", true);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Loading Scene");
         }
     }
     public void usingcontrols()

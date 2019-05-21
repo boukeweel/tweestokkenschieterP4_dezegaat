@@ -23,6 +23,8 @@ public class AmmoSystem : MonoBehaviour
     //timer to shoot
     [SerializeField] private float timetowait;
     private float holdtimetowait;
+    //shot gun bullet
+    public GameObject shotgunbullet;
 
 
 
@@ -97,7 +99,9 @@ public class AmmoSystem : MonoBehaviour
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+                    Instantiate(shotgunbullet, transform.position - (transform.forward), transform.rotation);
+
+
                 }
                 ammo--;
                 stadesmanger.shootcount();
