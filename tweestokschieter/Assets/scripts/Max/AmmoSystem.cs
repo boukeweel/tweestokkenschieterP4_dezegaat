@@ -102,7 +102,7 @@ public class AmmoSystem : MonoBehaviour
                 for (int i = 0; i < 5; i++)
                 {
                     Quaternion projectilerotation = shotingpos.rotation;
-                    projectilerotation = transform.eulerAngles(new Vector3(3,3,0));
+                    //projectilerotation = transform.eulerAngles();
                     Instantiate(shotgunbullet, shotingpos.position, projectilerotation);
                 }
                 ammo--;
@@ -129,7 +129,7 @@ public class AmmoSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
         {
-            Instantiate(bullet, shotingpos.position, transform.rotation);
+            Instantiate(bullet, shotingpos.position = (transform.forward), transform.rotation);
             ammo--;
             stadesmanger.shootcount();
         }

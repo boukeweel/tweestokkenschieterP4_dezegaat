@@ -9826,7 +9826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd590bf8307b8ed4a8da3be38ccb40cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1218603071}
+  player: {fileID: 0}
 --- !u!4 &839081575
 Transform:
   m_ObjectHideFlags: 0
@@ -10545,16 +10545,15 @@ MonoBehaviour:
   ammo: 25
   magSize: 125
   bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
-  reloadTime: 3
+  reloadTime: 0
   ammotext: {fileID: 1612617853}
   magsizetext: {fileID: 1872098022}
   ReloadTimer: {fileID: 0}
   shotingpos: {fileID: 1099265992}
   Switchtoshotgun: 0
   Switchtoautofire: 0
-  timetowait: 0.2
-  shotgunbullet: {fileID: 5584765913047571741, guid: d30a24da1687abe4aa5cae63a0a8900d,
-    type: 3}
+  timetowait: 1
+  shotgunbullet: {fileID: 0}
 --- !u!4 &878774415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2739626947156709407, guid: 849f9e6a9cfd1994c82b08cfadd99d58,
@@ -12774,13 +12773,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099265991}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1397544, z: -2.82}
   m_LocalScale: {x: 1.8382183, y: 1.8382183, z: 1.8382183}
   m_Children: []
   m_Father: {fileID: 1218603070}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1115613537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13523,12 +13522,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1193858326}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1193858328 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9168332848226323938, guid: f5e4e670661eafd46941ae8855644bef,
-    type: 3}
-  m_PrefabInstance: {fileID: 1193858326}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1200460861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14123,43 +14116,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f2e79a860e8a34bb13da27bae8337a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1218603071}
-  range: 2
+  Player: {fileID: 0}
+  range: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   layerMask1:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   layerMask2:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 0
   layerMask3:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 0
   layerMask4:
     serializedVersion: 2
-    m_Bits: 8192
-  animator:
-  - {fileID: 1193858328}
-  - {fileID: 2021339662}
-  - {fileID: 246508031}
-  - {fileID: 377221305}
-  - {fileID: 1822476310}
-  - {fileID: 1652927436}
+    m_Bits: 0
+  animator: []
   IsOpen: 
---- !u!114 &1218603075 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 262309912745051556, guid: 73833ffc2d2542f419db14698d177983,
-    type: 3}
-  m_PrefabInstance: {fileID: 1218603068}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218603071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7929401904665b47af52c4d03f2e07f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1220948429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14911,7 +14886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6f35829c849b84f82862869f405b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1218603069}
+  player: {fileID: 0}
 --- !u!1 &1316911362
 GameObject:
   m_ObjectHideFlags: 0
@@ -15433,8 +15408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb63b922929cc346814f07d9affead7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 1215030326}
-  player: {fileID: 1218603075}
+  UI: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1380254426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18373,7 +18348,7 @@ GameObject:
   - component: {fileID: 1612617854}
   - component: {fileID: 1612617853}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ammo IN MAG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21185,7 +21160,7 @@ GameObject:
   - component: {fileID: 1872098023}
   - component: {fileID: 1872098022}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: totaalammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

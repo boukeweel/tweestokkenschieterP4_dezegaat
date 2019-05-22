@@ -10,6 +10,6 @@ public class ENDloading : MonoBehaviour
     public void endloading()
     {
         SceneManager.LoadScene(scenemanagement);
-        scenemanagement++;
+        
     }
 }
