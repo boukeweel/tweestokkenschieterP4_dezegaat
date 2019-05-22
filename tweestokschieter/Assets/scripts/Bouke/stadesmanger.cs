@@ -87,7 +87,7 @@ public class stadesmanger : MonoBehaviour
         //to text
         ShotfiredAmount.text = shotfired.ToString();
         ShotHitAmount.text = ShotHit.ToString();
-        Acuraty.text = acuraty.ToString() + ("%");
+        Acuraty.text = acuraty.ToString() + ("%"); // string.Format("{0}%", acuraty);
 
         Enemyskilled.text = EnemysKilled.ToString();
         DamegesTaken.text = DammageTaken.ToString();

@@ -115,7 +115,6 @@ public class EnemySight1 : HealthSystem
         if (isInFov == true || takingDamage > 0)
         {
             FacePlayer();
-            Speed = 2f;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
             shoot();
         }
@@ -169,10 +168,7 @@ public class EnemySight1 : HealthSystem
             stadesmanger.shothitcount();
             EnemyHealth(Bullet.damages);
         }
-        if(collision.collider.CompareTag("walls"))
-        {
-
-        }
+    
     }
 
   

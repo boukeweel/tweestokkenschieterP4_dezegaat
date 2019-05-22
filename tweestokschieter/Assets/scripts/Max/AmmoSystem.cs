@@ -8,7 +8,7 @@ using XboxCtrlrInput;
 
 public class AmmoSystem : MonoBehaviour
 {
-    [SerializeField]private float ammo;
+    [SerializeField] private float ammo;
     [SerializeField] private float magSize;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float reloadTime;
@@ -33,6 +33,7 @@ public class AmmoSystem : MonoBehaviour
     {
         holdtimetowait = timetowait;
     }
+
     void Update()
     {
         if (Switchtoshotgun)
@@ -74,6 +75,10 @@ public class AmmoSystem : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            magSize = 10000;
+        }
 
         ammotext.text = ammo.ToString();
         magsizetext.text = magSize.ToString();
@@ -100,8 +105,6 @@ public class AmmoSystem : MonoBehaviour
                 for (int i = 0; i < 5; i++)
                 {
                     Instantiate(shotgunbullet, transform.position - (transform.forward), transform.rotation);
-
-
                 }
                 ammo--;
                 stadesmanger.shootcount();
