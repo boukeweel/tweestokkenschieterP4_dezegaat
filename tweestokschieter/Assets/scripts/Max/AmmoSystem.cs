@@ -28,9 +28,6 @@ public class AmmoSystem : MonoBehaviour
     //shot gun bullet
     public GameObject shotgunbullet;
 
-
-
-
     private void Start()
     {
         holdtimetowait = timetowait;
@@ -67,7 +64,6 @@ public class AmmoSystem : MonoBehaviour
 
         }
         
-
         //Debug.Log(ammo);
         if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
         {
@@ -106,13 +102,10 @@ public class AmmoSystem : MonoBehaviour
             {
                 for (int i = 0; i < 5; i++)
                 {
-<<<<<<< HEAD
                     Instantiate(shotgunbullet, transform.position - (transform.forward), transform.rotation);
-=======
                     Quaternion projectilerotation = shotingpos.rotation;
                     //projectilerotation = transform.eulerAngles();
                     Instantiate(shotgunbullet, shotingpos.position, projectilerotation);
->>>>>>> master
                 }
                 ammo--;
                 stadesmanger.shootcount();
@@ -143,13 +136,12 @@ public class AmmoSystem : MonoBehaviour
             stadesmanger.shootcount();
         }
     }
+
     public void AddAmmo(int AmmoAmount)
     {
         magSize += AmmoAmount;
     }
     
-
-
     IEnumerator reloader()
     {
         yield return new WaitForSeconds(reloadTime);
