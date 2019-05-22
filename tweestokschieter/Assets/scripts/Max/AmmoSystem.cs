@@ -107,7 +107,7 @@ public class AmmoSystem : MonoBehaviour
                 for (int i = 0; i < 8; i++)
                 {
                     Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
-                    Instantiate(shotgunbullet, transform.position, transform.rotation);
+                    Instantiate(bullet, transform.position, transform.rotation);
                 }
                 ammo--;
                 stadesmanger.shootcount();
