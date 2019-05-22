@@ -11,8 +11,7 @@ public class ShotGun : MonoBehaviour
 
     private void Start()
     {
-        Randomleftorright = Random.Range(-3, 3);
-        Randomupordown = Random.Range(-3, 3);
+        
     }
     public void Update()
     {

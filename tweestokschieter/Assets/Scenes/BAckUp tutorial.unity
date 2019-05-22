@@ -10524,36 +10524,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2619086233303812490, guid: db0b2a631941f1b4caaddb9a2f202253, type: 3}
---- !u!1 &869385549 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2919089757387723584, guid: 73833ffc2d2542f419db14698d177983,
-    type: 3}
-  m_PrefabInstance: {fileID: 1218603068}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &869385550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869385549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: 25
-  magSize: 125
-  bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
-  reloadTime: 0
-  ammotext: {fileID: 1612617853}
-  magsizetext: {fileID: 1872098022}
-  ReloadTimer: {fileID: 0}
-  shotingpos: {fileID: 1099265992}
-  Switchtoshotgun: 0
-  Switchtoautofire: 0
-  timetowait: 1
-  shotgunbullet: {fileID: 0}
 --- !u!4 &878774415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2739626947156709407, guid: 849f9e6a9cfd1994c82b08cfadd99d58,
@@ -12759,6 +12729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099265992}
+  - component: {fileID: 1099265993}
   m_Layer: 0
   m_Name: shotingpos
   m_TagString: Untagged
@@ -12773,13 +12744,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099265991}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1397544, z: -2.82}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0, y: 0.13975453, z: -1.24}
   m_LocalScale: {x: 1.8382183, y: 1.8382183, z: 1.8382183}
   m_Children: []
   m_Father: {fileID: 1218603070}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1099265993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099265991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 25
+  magSize: 125
+  bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
+  reloadTime: 0
+  ammotext: {fileID: 1612617853}
+  magsizetext: {fileID: 1872098022}
+  ReloadTimer: {fileID: 0}
+  shotingpos: {fileID: 1099265992}
+  Switchtoshotgun: 0
+  Switchtoautofire: 0
+  timetowait: 1
+  shotgunbullet: {fileID: 0}
 --- !u!1001 &1115613537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14135,6 +14130,18 @@ MonoBehaviour:
     m_Bits: 0
   animator: []
   IsOpen: 
+--- !u!114 &1218603075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 262309912745051556, guid: 73833ffc2d2542f419db14698d177983,
+    type: 3}
+  m_PrefabInstance: {fileID: 1218603068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218603071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7929401904665b47af52c4d03f2e07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1220948429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14886,7 +14893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6f35829c849b84f82862869f405b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1218603069}
 --- !u!1 &1316911362
 GameObject:
   m_ObjectHideFlags: 0
@@ -15408,8 +15415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb63b922929cc346814f07d9affead7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 0}
-  player: {fileID: 0}
+  UI: {fileID: 1215030326}
+  player: {fileID: 1218603075}
 --- !u!114 &1380254426
 MonoBehaviour:
   m_ObjectHideFlags: 0
