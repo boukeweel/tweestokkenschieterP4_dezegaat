@@ -35,9 +35,11 @@ public class AmmoSystem : MonoBehaviour
 
     void Update()
     {
+        
         if (Switchtoshotgun)
         {
-            ammo = Mathf.Clamp(ammo, 0, 10);
+            
+            ammo = Mathf.Clamp(ammo, 0, 10f);
             if(ammo != 0)
             {
                 
@@ -100,7 +102,7 @@ public class AmmoSystem : MonoBehaviour
         timetowait -= Time.deltaTime;
         if(timetowait <= 0)
         {
-            if(Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
+            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -109,8 +111,9 @@ public class AmmoSystem : MonoBehaviour
                 }
                 ammo--;
                 stadesmanger.shootcount();
+                timetowait = holdtimetowait;
             }
-            timetowait = holdtimetowait;
+            
         }
     }
 
@@ -119,7 +122,7 @@ public class AmmoSystem : MonoBehaviour
         
         if(timetowait <= 0)
         {
-            if (Input.GetMouseButton(0) || XCI.GetButton(XboxButton.RightBumper, XboxController.First))
+            if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
                 Instantiate(bullet, transform.position, transform.rotation);
                 ammo--;
@@ -131,7 +134,7 @@ public class AmmoSystem : MonoBehaviour
     }
     public void SHootSIMIFIRE()
     {
-        if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
+        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
         {
             Instantiate(bullet, transform.position, transform.rotation);
             ammo--;
