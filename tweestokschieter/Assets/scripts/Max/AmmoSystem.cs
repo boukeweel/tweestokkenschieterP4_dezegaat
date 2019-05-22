@@ -16,7 +16,7 @@ public class AmmoSystem : MonoBehaviour
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
 
-    [SerializeField] private Transform shotingpos;
+    
     //switch to shotgun
     [SerializeField] private bool Switchtoshotgun = false;
     
@@ -102,10 +102,9 @@ public class AmmoSystem : MonoBehaviour
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Instantiate(shotgunbullet, transform.position - (transform.forward), transform.rotation);
-                    Quaternion projectilerotation = shotingpos.rotation;
-                    //projectilerotation = transform.eulerAngles();
-                    Instantiate(shotgunbullet, shotingpos.position, projectilerotation);
+                    //Quaternion projectilerotation = transform.EulerAngles(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
+                    //projectilerotation = transform.eulerAngles =  new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
+                    Instantiate(shotgunbullet, transform.position, transform.rotation);
                 }
                 ammo--;
                 stadesmanger.shootcount();
@@ -119,7 +118,7 @@ public class AmmoSystem : MonoBehaviour
         {
             if (Input.GetMouseButton(0) || XCI.GetButton(XboxButton.RightBumper, XboxController.First))
             {
-                Instantiate(bullet, shotingpos.position, transform.rotation);
+                Instantiate(bullet, transform.position, transform.rotation);
                 ammo--;
                 stadesmanger.shootcount();
             }
@@ -131,7 +130,7 @@ public class AmmoSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
         {
-            Instantiate(bullet, shotingpos.position = (transform.forward), transform.rotation);
+            Instantiate(bullet, transform.position, transform.rotation);
             ammo--;
             stadesmanger.shootcount();
         }
