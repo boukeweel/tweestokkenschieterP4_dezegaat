@@ -15,6 +15,8 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
+
+    [SerializeField] private Transform shotingpos;
     //switch to shotgun
     [SerializeField] private bool Switchtoshotgun = false;
     
@@ -104,7 +106,13 @@ public class AmmoSystem : MonoBehaviour
             {
                 for (int i = 0; i < 5; i++)
                 {
+<<<<<<< HEAD
                     Instantiate(shotgunbullet, transform.position - (transform.forward), transform.rotation);
+=======
+                    Quaternion projectilerotation = shotingpos.rotation;
+                    //projectilerotation = transform.eulerAngles();
+                    Instantiate(shotgunbullet, shotingpos.position, projectilerotation);
+>>>>>>> master
                 }
                 ammo--;
                 stadesmanger.shootcount();
@@ -118,7 +126,7 @@ public class AmmoSystem : MonoBehaviour
         {
             if (Input.GetMouseButton(0) || XCI.GetButton(XboxButton.RightBumper, XboxController.First))
             {
-                Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+                Instantiate(bullet, shotingpos.position, transform.rotation);
                 ammo--;
                 stadesmanger.shootcount();
             }
@@ -130,7 +138,7 @@ public class AmmoSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
         {
-            Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+            Instantiate(bullet, shotingpos.position = (transform.forward), transform.rotation);
             ammo--;
             stadesmanger.shootcount();
         }
