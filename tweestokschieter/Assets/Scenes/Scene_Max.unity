@@ -2840,7 +2840,7 @@ GameObject:
   - component: {fileID: 1537480490}
   - component: {fileID: 1537480489}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: diffent level
   m_TagString: pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
