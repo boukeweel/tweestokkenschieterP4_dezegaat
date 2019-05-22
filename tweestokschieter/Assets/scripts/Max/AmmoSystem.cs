@@ -40,6 +40,7 @@ public class AmmoSystem : MonoBehaviour
             ammo = Mathf.Clamp(ammo, 0, 10);
             if(ammo != 0)
             {
+                
                 shotgun();
             }
         }
@@ -96,21 +97,23 @@ public class AmmoSystem : MonoBehaviour
 
     public void shotgun()
     {
+        timetowait -= Time.deltaTime;
         if(timetowait <= 0)
         {
             if(Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 8; i++)
                 {
-                    //Quaternion projectilerotation = transform.EulerAngles(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
-                    //projectilerotation = transform.eulerAngles =  new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
+                    Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
                     Instantiate(shotgunbullet, transform.position, transform.rotation);
                 }
                 ammo--;
                 stadesmanger.shootcount();
             }
+            timetowait = holdtimetowait;
         }
     }
+
     public void Shootautofire()
     {
         
