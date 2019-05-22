@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class ShotGun : MonoBehaviour
 {
-    public int speed;
+    
+    [SerializeField] private float Speed;
     public int Damages;
     public static int damages;
-    public int timetilldestory;
-    
 
-    void Update()
+    private void Start()
     {
-        transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
-
-        Destroy(gameObject, timetilldestory);
+        
     }
+    public void Update()
+    {
 
+        transform.Translate(new Vector3(0, 0, 1) * Speed * Time.deltaTime);
+        Destroy(gameObject, 4);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("enemy"))
@@ -29,5 +31,4 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
 }

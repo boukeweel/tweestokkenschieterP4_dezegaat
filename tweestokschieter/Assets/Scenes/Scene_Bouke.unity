@@ -893,7 +893,9 @@ MonoBehaviour:
   ReloadTimer: {fileID: 0}
   Switchtoshotgun: 0
   Switchtoautofire: 0
-  timetowait: 0.1
+  timetowait: 0.2
+  shotgunbullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932,
+    type: 3}
 --- !u!1 &1652145760
 GameObject:
   m_ObjectHideFlags: 0

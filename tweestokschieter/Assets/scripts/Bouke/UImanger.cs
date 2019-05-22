@@ -59,7 +59,7 @@ public class UImanger : MonoBehaviour
     public void StartGame()
     {
         //start game
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Loading Scene");
         
     }
     /// <summary>

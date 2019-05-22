@@ -15,6 +15,7 @@ TagManager:
   - enemyBullet
   - keycard2
   - lift
+  - pickup
   layers:
   - Default
   - TransparentFX

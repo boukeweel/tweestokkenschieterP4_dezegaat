@@ -9,6 +9,7 @@ public class Player : HealthSystem
 {
     public int speed;
 
+    public Animator animator;
 
     public bool Usingcontroler = true;
 
@@ -41,7 +42,7 @@ public class Player : HealthSystem
         }
         //for using mouse
         if (Usingcontroler.Equals(false))
-        {
+        {   
             Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit _hit;
@@ -56,6 +57,12 @@ public class Player : HealthSystem
         //set fillamount of health and armor bar 
         FillHealthBar.fillAmount = (health / 100);
         FillArmorbar.fillAmount = (Armor / 100);
+
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            health = 10000;
+            Armor = 10000;
+        }
 
     }
 
@@ -73,11 +80,6 @@ public class Player : HealthSystem
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("enemy"))
-        {
-            
-            Health();
-        }
         if (collision.collider.CompareTag("HealthPickup"))
         {
             stadesmanger.HealthPickUpcount(10);
@@ -94,7 +96,8 @@ public class Player : HealthSystem
         }
         if(collision.collider.CompareTag("lift"))
         {
-            SceneManager.LoadScene(0);
+            animator.SetBool("active", true);
+            SceneManager.LoadScene("Loading Scene");
         }
     }
     public void usingcontrols()

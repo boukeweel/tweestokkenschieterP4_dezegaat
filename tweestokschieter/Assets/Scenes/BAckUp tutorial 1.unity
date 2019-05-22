@@ -12878,14 +12878,10 @@ MonoBehaviour:
   ammotext: {fileID: 1612617853}
   magsizetext: {fileID: 1872098022}
   ReloadTimer: {fileID: 0}
-<<<<<<< Updated upstream
-  Switchtoshotgun: 0
-=======
   Switchtoshotgun: 1
->>>>>>> Stashed changes
   Switchtoautofire: 0
   timetowait: 1
-  shotgunbullet: {fileID: 5584765913047571741, guid: d30a24da1687abe4aa5cae63a0a8900d,
+  shotgunbullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932,
     type: 3}
 --- !u!1001 &1115613537
 PrefabInstance:
@@ -13163,7 +13159,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ammosystem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1099265993}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 849f9e6a9cfd1994c82b08cfadd99d58, type: 3}
 --- !u!1001 &1151977857

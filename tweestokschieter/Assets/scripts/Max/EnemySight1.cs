@@ -112,24 +112,19 @@ public class EnemySight1 : HealthSystem
     {
         isInFov = inFov(transform, Player, maxAngle, maxRadius);
 
-
-        if (isInFov == true) 
+        if (isInFov == true || takingDamage > 0)
         {
             FacePlayer();
-            Speed = 3f;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
             shoot();
         }
 
-        if(isInFov == false)
+        if (isInFov == false)
         {
             Speed = 1f;
             EnemyPath();
             FaceTarget();
         }
-
-    
-
     }
 
     public void EnemyPath()
@@ -154,9 +149,7 @@ public class EnemySight1 : HealthSystem
 
     void FacePlayer()
     {
-        Vector3 direction = (Player.transform.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        transform.LookAt(Player);
     }
 
     void shoot()
@@ -175,6 +168,7 @@ public class EnemySight1 : HealthSystem
             stadesmanger.shothitcount();
             EnemyHealth(Bullet.damages);
         }
+    
     }
 
   
