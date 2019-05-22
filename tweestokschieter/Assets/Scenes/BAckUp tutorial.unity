@@ -10191,8 +10191,8 @@ Transform:
   - {fileID: 246508029}
   - {fileID: 331216785}
   - {fileID: 1609665690}
-  - {fileID: 1652927434}
   - {fileID: 1084116280}
+  - {fileID: 1652927434}
   - {fileID: 874387584}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -12698,7 +12698,7 @@ Transform:
   m_Children:
   - {fileID: 377221303}
   m_Father: {fileID: 859370367}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1084116281
 Animator:
@@ -14223,8 +14223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f2e79a860e8a34bb13da27bae8337a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  range: 0
+  Player: {fileID: 1218603071}
+  range: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -14243,9 +14243,9 @@ MonoBehaviour:
   animator:
   - {fileID: 104920387}
   - {fileID: 2021339662}
+  - {fileID: 246508031}
   - {fileID: 1084116281}
   - {fileID: 874387585}
-  - {fileID: 1652927436}
   IsOpen: 
 --- !u!114 &1218603075 stripped
 MonoBehaviour:
