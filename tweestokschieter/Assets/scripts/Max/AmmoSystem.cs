@@ -108,7 +108,7 @@ public class AmmoSystem : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
-                flash.enabled = !flash.enabled;
+
                 for (int i = 0; i < 8; i++)
                 {
                     Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
