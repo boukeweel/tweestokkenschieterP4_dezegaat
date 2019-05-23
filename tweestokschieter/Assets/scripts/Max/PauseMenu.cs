@@ -9,10 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject UI;
     public static bool isPaused = false;
     public Player player;
-    private void Start()
-    {
-        
-    }
+
     void Update()
     {
         if (XCI.GetButtonDown(XboxButton.Start, XboxController.First) || Input.GetKeyDown(KeyCode.Escape)) 
@@ -25,7 +22,6 @@ public class PauseMenu : MonoBehaviour
             {
                 paused();
             }
-
         }
     } 
 

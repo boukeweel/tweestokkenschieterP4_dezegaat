@@ -62,7 +62,7 @@ public class OpenDoor : KeycardPickup
     }
 
         void Close()
-    {
+        {
         if(IsOpen == 1)
         {
             if(Input.GetKeyDown(KeyCode.F))
@@ -77,7 +77,7 @@ public class OpenDoor : KeycardPickup
                 }
             }
         }
-    }
+        }
 
    
 
