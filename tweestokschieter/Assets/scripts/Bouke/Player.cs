@@ -16,12 +16,19 @@ public class Player : HealthSystem
     private Rigidbody rig;
 
     public Image FillHealthBar, FillArmorbar;
+
+    //flashligt
+    [SerializeField] private GameObject flashlight;
+    [SerializeField] private float Flashlight_Life;
+    private bool Flashlight_on;
    /// <summary>
    /// set rigidbody 
    /// </summary>
     private void Start()
     {
+        flashlight.SetActive(true);
         rig = GetComponent<Rigidbody>();
+        Flashlight_on = true;
     }
 
     /// <summary>
@@ -64,8 +71,43 @@ public class Player : HealthSystem
             Armor = 10000;
         }
 
-    }
+        //flashlight
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Flashligt();
+        }
+        if (Flashlight_on.Equals(true))
+        {
+            Flashlight_Life -= Time.deltaTime;
+        }
+        if(Flashlight_Life <= 0)
+        {
+            Flashlight_on = false;
+            flashlight.SetActive(false);
+            Flashlight_Life = 0;
+        }
 
+    }
+    /// <summary>
+    /// flashlight turnon
+    /// </summary>
+    private void Flashligt()
+    {
+        if (Flashlight_on.Equals(true))
+        {
+            flashlight.SetActive(false);
+            Flashlight_on = false;
+        }
+        else
+        {
+            if(Flashlight_Life > 0)
+            {
+                flashlight.SetActive(true);
+                Flashlight_on = true;
+            }
+            
+        }
+    }
     /// <summary>
     /// set input of movement
     /// </summary>
