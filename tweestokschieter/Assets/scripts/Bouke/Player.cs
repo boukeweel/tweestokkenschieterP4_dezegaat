@@ -17,6 +17,8 @@ public class Player : HealthSystem
 
     public Image FillHealthBar, FillArmorbar;
 
+    private float damgestaken;
+
     //flashligt
     [SerializeField] private GameObject flashlight;
     [SerializeField] private float Flashlight_Life;
@@ -29,6 +31,8 @@ public class Player : HealthSystem
         flashlight.SetActive(true);
         rig = GetComponent<Rigidbody>();
         Flashlight_on = true;
+        FillHealthBar.fillAmount = (health / 100);
+        FillArmorbar.fillAmount = (Armor / 100);
     }
 
     /// <summary>
@@ -61,7 +65,8 @@ public class Player : HealthSystem
             }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
-        //set fillamount of health and armor bar 
+        //set fillamount of health and armor bar
+        
         FillHealthBar.fillAmount = (health / 100);
         FillArmorbar.fillAmount = (Armor / 100);
 
@@ -134,7 +139,7 @@ public class Player : HealthSystem
         }
         if(collision.collider.CompareTag("enemyBullet"))
         {
-            Health();
+            Health(20);
         }
         if(collision.collider.CompareTag("lift"))
         {
