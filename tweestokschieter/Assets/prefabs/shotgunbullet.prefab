@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5128878031995250055}
   - component: {fileID: 7113119355256168376}
   - component: {fileID: 6663169602715752387}
-  - component: {fileID: -3442612289019945804}
+  - component: {fileID: 4818090098183734223}
   m_Layer: 0
   m_Name: shotgunbullet
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5584765913047571741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.9223595, y: 8.905671, z: 16.432362}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.15101367, y: 0.15101367, z: 0.15101367}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -109,7 +109,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-3442612289019945804
+--- !u!114 &4818090098183734223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5584765913047571741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5976d6ef0a8527d41a35904ca108eadb, type: 3}
+  m_Script: {fileID: 11500000, guid: d425db3f7909fd540b5e46c7d1f00025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  speed: 10
+  Damages: 5
+  timetilldestory: 4

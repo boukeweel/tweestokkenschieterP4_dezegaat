@@ -8,15 +8,16 @@ using XboxCtrlrInput;
 
 public class AmmoSystem : MonoBehaviour
 {
-    [SerializeField]private float ammo;
+    [SerializeField] private float ammo;
     [SerializeField] private float magSize;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float reloadTime;
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
+     private Light flash;
 
-    [SerializeField] private Transform shotingpos;
+    
     //switch to shotgun
     [SerializeField] private bool Switchtoshotgun = false;
     
@@ -28,20 +29,24 @@ public class AmmoSystem : MonoBehaviour
     //shot gun bullet
     public GameObject shotgunbullet;
 
-
-
+    
 
     private void Start()
     {
         holdtimetowait = timetowait;
+        
     }
+
     void Update()
     {
+        
         if (Switchtoshotgun)
         {
-            ammo = Mathf.Clamp(ammo, 0, 10);
+            
+            ammo = Mathf.Clamp(ammo, 0, 10f);
             if(ammo != 0)
             {
+                
                 shotgun();
             }
         }
@@ -66,7 +71,6 @@ public class AmmoSystem : MonoBehaviour
 
         }
         
-
         //Debug.Log(ammo);
         if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
         {
@@ -76,6 +80,10 @@ public class AmmoSystem : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            magSize = 10000;
+        }
 
         ammotext.text = ammo.ToString();
         magsizetext.text = magSize.ToString();
@@ -95,29 +103,33 @@ public class AmmoSystem : MonoBehaviour
 
     public void shotgun()
     {
+        timetowait -= Time.deltaTime;
         if(timetowait <= 0)
         {
-            if(Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
+            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
-                for (int i = 0; i < 5; i++)
+
+                for (int i = 0; i < 8; i++)
                 {
-                    Quaternion projectilerotation = shotingpos.rotation;
-                    projectilerotation = transform.eulerAngles(new Vector3(3,3,0));
-                    Instantiate(shotgunbullet, shotingpos.position, projectilerotation);
+                    Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
+                    Instantiate(bullet, transform.position, transform.rotation);
                 }
                 ammo--;
                 stadesmanger.shootcount();
+                timetowait = holdtimetowait;
             }
+            
         }
     }
+
     public void Shootautofire()
     {
         
         if(timetowait <= 0)
         {
-            if (Input.GetMouseButton(0) || XCI.GetButton(XboxButton.RightBumper, XboxController.First))
+            if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
-                Instantiate(bullet, shotingpos.position, transform.rotation);
+                Instantiate(bullet, transform.position, transform.rotation);
                 ammo--;
                 stadesmanger.shootcount();
             }
@@ -127,20 +139,19 @@ public class AmmoSystem : MonoBehaviour
     }
     public void SHootSIMIFIRE()
     {
-        if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
+        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
         {
-            Instantiate(bullet, shotingpos.position, transform.rotation);
+            Instantiate(bullet, transform.position, transform.rotation);
             ammo--;
             stadesmanger.shootcount();
         }
     }
+
     public void AddAmmo(int AmmoAmount)
     {
         magSize += AmmoAmount;
     }
     
-
-
     IEnumerator reloader()
     {
         yield return new WaitForSeconds(reloadTime);

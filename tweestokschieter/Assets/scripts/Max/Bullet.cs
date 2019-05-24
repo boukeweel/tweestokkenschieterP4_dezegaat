@@ -7,13 +7,14 @@ public class Bullet : MonoBehaviour
     public int speed;
     public int Damages;
     public static int damages;
+    public int timetilldestory;
     
 
     void Update()
     {
         transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
 
-        Destroy(gameObject, 10);
+        Destroy(gameObject, timetilldestory);
     }
 
     private void OnCollisionEnter(Collision collision)
