@@ -15,6 +15,7 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
+     private Light flash;
 
     
     //switch to shotgun
@@ -28,9 +29,12 @@ public class AmmoSystem : MonoBehaviour
     //shot gun bullet
     public GameObject shotgunbullet;
 
+    
+
     private void Start()
     {
         holdtimetowait = timetowait;
+        
     }
 
     void Update()
@@ -104,6 +108,7 @@ public class AmmoSystem : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
+
                 for (int i = 0; i < 8; i++)
                 {
                     Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));

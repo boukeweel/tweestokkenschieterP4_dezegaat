@@ -156,7 +156,7 @@ public class EnemySight1 : HealthSystem
     {
          if(Time.time > waitTilnextFire)
          {
-            Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+            Instantiate(bullet, transform.position + (transform.forward), transform.rotation);
             waitTilnextFire = Time.time + fireSpeed;
          }
     }
@@ -167,6 +167,7 @@ public class EnemySight1 : HealthSystem
         {
             stadesmanger.shothitcount();
             EnemyHealth(Bullet.damages);
+
         }
     
     }
