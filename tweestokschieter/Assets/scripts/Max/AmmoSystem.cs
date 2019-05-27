@@ -64,6 +64,7 @@ public class AmmoSystem : MonoBehaviour
                 }
                 else
                 {
+                    timetowait -= Time.deltaTime;
                     SHootSIMIFIRE();
                 }
             
@@ -139,11 +140,15 @@ public class AmmoSystem : MonoBehaviour
     }
     public void SHootSIMIFIRE()
     {
-        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
+        if (timetowait <= 0)
         {
-            Instantiate(bullet, transform.position, transform.rotation);
-            ammo--;
-            stadesmanger.shootcount();
+            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
+            {
+                Instantiate(bullet, transform.position, transform.rotation);
+                ammo--;
+                stadesmanger.shootcount();
+            }
+            timetowait = holdtimetowait;
         }
     }
 

@@ -903,10 +903,6 @@ MonoBehaviour:
   Healthpickedupammount: {fileID: 1748188657}
   ArmorPickedupAmount: {fileID: 2057856807}
   favotriteweapeon: {fileID: 1538926850}
-  Randomshotfired: 0
-  RandomShotHIt: 3
-  Randomenemyskilled: 0
-  Randomdamgestaken: 0
   WedgeColor:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.55144167, g: 1, b: 0, a: 1}
@@ -1913,7 +1909,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 542364106}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1636784158
