@@ -16,7 +16,6 @@ public class PullUpInventory : MonoBehaviour
             if (inventoryActive)
             {
                 PlayeAnimaiton();
-             
             }
             else
             {
@@ -29,14 +28,19 @@ public class PullUpInventory : MonoBehaviour
     public void PlayeAnimaiton()
     {
         inventoryActive = false;
-        panelAnmimation.SetBool("active", false);
         Time.timeScale = 1f;
+        panelAnmimation.SetBool("active", false);
+
     }
 
     public void ReverseAnimtion()
     {
         panelAnmimation.SetBool("active", true);
         inventoryActive = true;
-      
+    }
+
+    public void SetTime()
+    {
+        Time.timeScale = 0f;
     }
 }
