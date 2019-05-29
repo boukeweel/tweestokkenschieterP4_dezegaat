@@ -12878,10 +12878,15 @@ MonoBehaviour:
   ammotext: {fileID: 1612617853}
   magsizetext: {fileID: 1872098022}
   ReloadTimer: {fileID: 0}
+<<<<<<< Updated upstream
   Switchtoshotgun: 0
+=======
+  Switchtoshotgun: 1
+>>>>>>> Stashed changes
   Switchtoautofire: 0
   timetowait: 1
-  shotgunbullet: {fileID: 0}
+  shotgunbullet: {fileID: 5584765913047571741, guid: d30a24da1687abe4aa5cae63a0a8900d,
+    type: 3}
 --- !u!1001 &1115613537
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] private GameObject weapons;
     [SerializeField] private GameObject player;
     [SerializeField] private Rigidbody gunRigid;
@@ -57,4 +58,8 @@ public class WeaponPickup : MonoBehaviour
         Gizmos.DrawRay(transform.position, FovLine1 * range);
 
     }
+=======
+    private float PickUpRange = 2f;
+    
+>>>>>>> master
 }

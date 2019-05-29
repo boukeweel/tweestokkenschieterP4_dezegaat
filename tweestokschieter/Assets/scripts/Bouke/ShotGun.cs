@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ShotGun : MonoBehaviour
 {
-    public GameObject bullet;
+    
     [SerializeField] private float Speed;
-    private float Randomupordown;
-    private float Randomleftorright;
+    public int Damages;
+    public static int damages;
 
     private void Start()
     {
@@ -15,7 +15,20 @@ public class ShotGun : MonoBehaviour
     }
     public void Update()
     {
+
         transform.Translate(new Vector3(0, 0, 1) * Speed * Time.deltaTime);
-        
+        Destroy(gameObject, 4);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("enemy"))
+        {
+            damages = Damages;
+            Destroy(gameObject);
+        }
+        if (collision.collider.CompareTag("wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

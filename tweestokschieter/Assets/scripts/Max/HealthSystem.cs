@@ -11,20 +11,30 @@ public class HealthSystem : MonoBehaviour
     public bool TakeDamage = false;
     public int takingDamage;
 
-    public void Health()
+    public void Health(int damges)
     {
+        
+        Damage = damges;
         health = Mathf.Clamp(health, 0, 100);
         Armor = Mathf.Clamp(Armor, 0, 100);
 
         if(Armor == 0)
         {
+<<<<<<< HEAD
             health -= Damage;
+=======
+            takingDamage = damges;
+            //test();
+            health -= takingDamage;
+            
+>>>>>>> master
         }
 
         if (Armor > 0)
         {
-            Armor -= Damage;
-            
+            takingDamage = damges;
+            Armor -= takingDamage;
+
         }
 
         stadesmanger.DamgesTakenCount(Damage);
@@ -33,6 +43,11 @@ public class HealthSystem : MonoBehaviour
             Time.timeScale = 0;
             UI.SetActive(true);
         }
+        
+    }
+    private void test()
+    {
+        
     }
 
     public void Addhealth(int Healthget)

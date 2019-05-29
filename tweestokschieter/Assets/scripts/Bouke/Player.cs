@@ -16,12 +16,23 @@ public class Player : HealthSystem
     private Rigidbody rig;
 
     public Image FillHealthBar, FillArmorbar;
+
+    private float damgestaken;
+
+    //flashligt
+    [SerializeField] private GameObject flashlight;
+    [SerializeField] private float Flashlight_Life;
+    private bool Flashlight_on;
    /// <summary>
    /// set rigidbody 
    /// </summary>
     private void Start()
     {
+        flashlight.SetActive(true);
         rig = GetComponent<Rigidbody>();
+        Flashlight_on = true;
+        FillHealthBar.fillAmount = (health / 100);
+        FillArmorbar.fillAmount = (Armor / 100);
     }
 
     /// <summary>
@@ -54,7 +65,8 @@ public class Player : HealthSystem
             }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
-        //set fillamount of health and armor bar 
+        //set fillamount of health and armor bar
+        
         FillHealthBar.fillAmount = (health / 100);
         FillArmorbar.fillAmount = (Armor / 100);
 
@@ -64,8 +76,43 @@ public class Player : HealthSystem
             Armor = 10000;
         }
 
-    }
+        //flashlight
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Flashligt();
+        }
+        if (Flashlight_on.Equals(true))
+        {
+            Flashlight_Life -= Time.deltaTime;
+        }
+        if(Flashlight_Life <= 0)
+        {
+            Flashlight_on = false;
+            flashlight.SetActive(false);
+            Flashlight_Life = 0;
+        }
 
+    }
+    /// <summary>
+    /// flashlight turnon
+    /// </summary>
+    private void Flashligt()
+    {
+        if (Flashlight_on.Equals(true))
+        {
+            flashlight.SetActive(false);
+            Flashlight_on = false;
+        }
+        else
+        {
+            if(Flashlight_Life > 0)
+            {
+                flashlight.SetActive(true);
+                Flashlight_on = true;
+            }
+            
+        }
+    }
     /// <summary>
     /// set input of movement
     /// </summary>
@@ -92,7 +139,7 @@ public class Player : HealthSystem
         }
         if(collision.collider.CompareTag("enemyBullet"))
         {
-            Health();
+            Health(20);
         }
         if(collision.collider.CompareTag("lift"))
         {

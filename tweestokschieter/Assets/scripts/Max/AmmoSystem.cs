@@ -15,6 +15,7 @@ public class AmmoSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
     public TextMeshProUGUI ReloadTimer;
+     private Light flash;
 
     
     //switch to shotgun
@@ -28,18 +29,29 @@ public class AmmoSystem : MonoBehaviour
     //shot gun bullet
     public GameObject shotgunbullet;
 
+    //het wapen hebben
+    private bool hebWapen = false;
+    private AmmoSystem wapen;
+
+    
+
     private void Start()
     {
         holdtimetowait = timetowait;
+
+        
     }
 
     void Update()
     {
+        
         if (Switchtoshotgun)
         {
-            ammo = Mathf.Clamp(ammo, 0, 10);
+            
+            ammo = Mathf.Clamp(ammo, 0, 10f);
             if(ammo != 0)
             {
+                
                 shotgun();
             }
         }
@@ -57,6 +69,7 @@ public class AmmoSystem : MonoBehaviour
                 }
                 else
                 {
+                    timetowait -= Time.deltaTime;
                     SHootSIMIFIRE();
                 }
             
@@ -82,6 +95,8 @@ public class AmmoSystem : MonoBehaviour
         magsizetext.text = magSize.ToString();
 
     }
+
+    
     
     public void ReloadSystem()
     {
@@ -96,27 +111,31 @@ public class AmmoSystem : MonoBehaviour
 
     public void shotgun()
     {
+        timetowait -= Time.deltaTime;
         if(timetowait <= 0)
         {
-            if(Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper, XboxController.First))
+            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
-                for (int i = 0; i < 5; i++)
+
+                for (int i = 0; i < 8; i++)
                 {
-                    //Quaternion projectilerotation = transform.EulerAngles(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
-                    //projectilerotation = transform.eulerAngles =  new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
-                    Instantiate(shotgunbullet, transform.position, transform.rotation);
+                    Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
+                    Instantiate(bullet, transform.position, transform.rotation);
                 }
                 ammo--;
                 stadesmanger.shootcount();
+                timetowait = holdtimetowait;
             }
+            
         }
     }
+
     public void Shootautofire()
     {
         
         if(timetowait <= 0)
         {
-            if (Input.GetMouseButton(0) || XCI.GetButton(XboxButton.RightBumper, XboxController.First))
+            if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
             {
                 Instantiate(bullet, transform.position, transform.rotation);
                 ammo--;
@@ -128,11 +147,15 @@ public class AmmoSystem : MonoBehaviour
     }
     public void SHootSIMIFIRE()
     {
-        if (Input.GetMouseButtonDown(0) || XCI.GetButtonDown(XboxButton.RightBumper,XboxController.First))
+        if (timetowait <= 0)
         {
-            Instantiate(bullet, transform.position, transform.rotation);
-            ammo--;
-            stadesmanger.shootcount();
+            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
+            {
+                Instantiate(bullet, transform.position, transform.rotation);
+                ammo--;
+                stadesmanger.shootcount();
+            }
+            timetowait = holdtimetowait;
         }
     }
 
