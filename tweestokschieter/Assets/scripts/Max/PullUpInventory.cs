@@ -43,4 +43,6 @@ public class PullUpInventory : MonoBehaviour
     {
         Time.timeScale = 0f;
     }
+
+     
 }

@@ -5,14 +5,7 @@ using UnityEngine;
 public class PickUpInventoryItem : InventorySystem
 {
     private Collision collision;
-    public GameObject[] tags = GameObject.FindGameObjectsWithTag("item3");
     
-
-    private void Start()
-    {
-        collision = new Collision();
-    }
-
     void Update()
     {
         Item1Text.text = Item1.ToString();
@@ -36,19 +29,19 @@ public class PickUpInventoryItem : InventorySystem
         if (collision.collider.CompareTag("item3"))
         {
             Item3++;
-            Destroy(GameObject.FindWithTag("item3"));
+            Destroy(GameObject.FindGameObjectWithTag("item3"));
         }
     }
 
     private void DestroyItem()
     { 
-        foreach(GameObject go in tags)
-        {
-            if(go != gameObject)
-            {
-                Destroy(go);
-            }
-        }
+        //foreach(GameObject go in tags)
+        //{
+        //    if(go != gameObject)
+        //    {
+        //        Destroy(go);
+        //    }
+        //}
 
     }
 }

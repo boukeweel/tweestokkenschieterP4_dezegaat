@@ -15,16 +15,18 @@ public class HealthSystem : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, 100);
         Armor = Mathf.Clamp(Armor, 0, 100);
+
         if(Armor == 0)
         {
             health -= Damage;
-            
         }
+
         if (Armor > 0)
         {
             Armor -= Damage;
             
         }
+
         stadesmanger.DamgesTakenCount(Damage);
         if(health <= 0)
         {
@@ -32,12 +34,14 @@ public class HealthSystem : MonoBehaviour
             UI.SetActive(true);
         }
     }
+
     public void Addhealth(int Healthget)
     {
         
         health += Healthget;
         health = Mathf.Clamp(health, 0, 100);
     }
+
     public void Addarmor(int armorget)
     {
         
@@ -47,7 +51,6 @@ public class HealthSystem : MonoBehaviour
 
     public void EnemyHealth(int damges)
     {
-        
         health -= damges;
         health = Mathf.Clamp(health, 0, 100);
         takingDamage++;

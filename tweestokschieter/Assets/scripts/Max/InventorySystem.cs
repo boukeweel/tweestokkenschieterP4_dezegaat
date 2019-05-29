@@ -5,10 +5,10 @@ using TMPro;
 
 public class InventorySystem : MonoBehaviour
 {
-    public float Item1;
-    public float Item2;
-    public float Item3;
-    public float healthPotion;
+    public int Item1;
+    public int Item2;
+    public int Item3;
+    public int healthPotion;
     public LayerMask layerMask;
 
     public TextMeshProUGUI Item1Text;
@@ -72,9 +72,10 @@ public class InventorySystem : MonoBehaviour
         inventoryActive = true;
     }
 
-    public void SetTime()
+    public void SetTime()   
     {
         Time.timeScale = 0f;
     }
 
+    
 }
