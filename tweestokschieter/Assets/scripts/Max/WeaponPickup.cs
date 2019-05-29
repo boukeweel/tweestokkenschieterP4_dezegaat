@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
-    [SerializeField] private Transform[] weapons;
-    [SerializeField] private Transform player;
-    private bool gunInHand;
-
-    void Update()
-    {
-       
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        collision.collider.CompareTag("");
-    }
+    private float PickUpRange = 2f;
+    
 }

@@ -29,11 +29,16 @@ public class AmmoSystem : MonoBehaviour
     //shot gun bullet
     public GameObject shotgunbullet;
 
+    //het wapen hebben
+    private bool hebWapen = false;
+    private AmmoSystem wapen;
+
     
 
     private void Start()
     {
         holdtimetowait = timetowait;
+
         
     }
 
@@ -90,6 +95,8 @@ public class AmmoSystem : MonoBehaviour
         magsizetext.text = magSize.ToString();
 
     }
+
+    
     
     public void ReloadSystem()
     {
