@@ -9,6 +9,7 @@ public class InventorySystem : MonoBehaviour
     public float Item2;
     public float Item3;
     public float healthPotion;
+    public LayerMask layerMask;
 
     public TextMeshProUGUI Item1Text;
     public TextMeshProUGUI Item2Text;
@@ -23,14 +24,14 @@ public class InventorySystem : MonoBehaviour
     {
         if (other.CompareTag("desk"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.F))
             {
                 if (inventoryActive)
                 {
                     PlayeAnimaiton();
-                    if (Item1 > 1 && Item2 > 2 && Item3 > 3)
+                    if (Item1 >= 3 && Item2 >= 1 && Item3 >= 3)
                     {
-
+                        MakeHealthPotion();
                     }
                 }
                 else
@@ -40,17 +41,21 @@ public class InventorySystem : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("desk"))
+        if (other.CompareTag("desk"))
         {
             PlayeAnimaiton();
         }
     }
 
     public void MakeHealthPotion()
-    {
+    { 
         healthPotion++;
+        Item1 = Item1 - 3;
+        Item2 = Item2 - 1;
+        Item3 = Item3 - 3;
     }
 
     public void PlayeAnimaiton()
@@ -71,4 +76,5 @@ public class InventorySystem : MonoBehaviour
     {
         Time.timeScale = 0f;
     }
+
 }

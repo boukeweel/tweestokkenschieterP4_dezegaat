@@ -969,6 +969,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.4039516, y: 5.392354, z: 11.25684}
   m_Center: {x: 0.041369602, y: -2.1961768, z: -0.0238746}
+--- !u!4 &298257563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 50488d8a0ed18d84dae39660bccf1f41,
+    type: 3}
+  m_PrefabInstance: {fileID: 30603344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &314843311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1159,7 @@ GameObject:
   - component: {fileID: 374205942}
   - component: {fileID: 374205946}
   - component: {fileID: 374205947}
+  - component: {fileID: 374205948}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1274,6 +1281,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 1698159478}
   panelAnmimation: {fileID: 1698159480}
+  inventoryActive: 0
+--- !u!114 &374205948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374205941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c9cf3fa98533542824d3589cae6ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item1: 0
+  Item2: 0
+  Item3: 0
+  healthPotion: 0
+  Item1Text: {fileID: 0}
+  Item2Text: {fileID: 0}
+  Item3Text: {fileID: 0}
+  potionText: {fileID: 0}
+  animator: {fileID: 1698159480}
   inventoryActive: 0
 --- !u!1 &392442263
 GameObject:
@@ -3209,6 +3238,11 @@ PrefabInstance:
       propertyPath: potionText
       value: 
       objectReference: {fileID: 1747952938}
+    - target: {fileID: 5541554021004369750, guid: 134f84ecc973680419f7ea2d77a2cbc7,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1080242037}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 134f84ecc973680419f7ea2d77a2cbc7, type: 3}
 --- !u!1 &942608489
@@ -3444,12 +3478,12 @@ GameObject:
   - component: {fileID: 1080242038}
   - component: {fileID: 1080242037}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: workStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1080242036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4464,7 +4498,7 @@ GameObject:
   - component: {fileID: 1600450221}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: desk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4480,8 +4514,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5474448, y: 1.6217915, z: 1}
-  m_Center: {x: -0.19356608, y: 0.31089574, z: 0}
+  m_Size: {x: 3.5474448, y: 1.621793, z: 1.7316765}
+  m_Center: {x: -0.19356611, y: 0.31089568, z: -0.36583823}
 --- !u!4 &1600450222
 Transform:
   m_ObjectHideFlags: 0
@@ -4489,12 +4523,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600450220}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.646, y: 0.931816, z: -6.793}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.72521794, z: -0, w: 0.6885195}
+  m_LocalPosition: {x: -3.832638, y: -4.1087375, z: -0.050423283}
+  m_LocalScale: {x: 3.7757757, y: 3.7757747, z: 3.7757757}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_Father: {fileID: 298257563}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627965815
 GameObject:
@@ -5076,7 +5110,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1758545845}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 374205948}
+        m_MethodName: MakeHealthPotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1758545845
