@@ -23,15 +23,16 @@ public class AmmoSystem : MonoBehaviour
     
     //every thing for auto fire
     [SerializeField] private bool Switchtoautofire;
+
     //timer to shoot
     [SerializeField] private float timetowait;
     private float holdtimetowait;
+
     //shot gun bullet
     public GameObject shotgunbullet;
 
-    //het wapen hebben
-    private bool hebWapen = false;
-    private AmmoSystem wapen;
+    
+    
 
     
 
@@ -44,10 +45,7 @@ public class AmmoSystem : MonoBehaviour
 
     void Update()
     {
-        
-       
-        
-        
+
         //Debug.Log(ammo);
         if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
         {
@@ -64,10 +62,6 @@ public class AmmoSystem : MonoBehaviour
 
         ammotext.text = ammo.ToString();
         magsizetext.text = magSize.ToString();
-
-    }
-    public void shoot()
-    {
         if (Switchtoshotgun)
         {
             
@@ -98,7 +92,9 @@ public class AmmoSystem : MonoBehaviour
             }
 
         }
+
     }
+    
 
 
 

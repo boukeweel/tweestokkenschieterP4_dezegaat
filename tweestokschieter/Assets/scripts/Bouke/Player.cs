@@ -25,6 +25,12 @@ public class Player : HealthSystem
     [SerializeField] private GameObject flashlight;
     [SerializeField] private float Flashlight_Life;
     private bool Flashlight_on;
+
+    //pickup wapen
+    private AmmoSystem wapen;
+    private bool picktup;
+
+
    /// <summary>
    /// set rigidbody 
    /// </summary>
@@ -93,11 +99,7 @@ public class Player : HealthSystem
             flashlight.SetActive(false);
             Flashlight_Life = 0;
         }
-        //shoot
-        if(haveweapeon == true)
-        {
-            
-        }
+        
 
     }
     /// <summary>
@@ -163,6 +165,14 @@ public class Player : HealthSystem
         else
         {
             Usingcontroler = true;
+        }
+    }
+    public void PicktupWapen(AmmoSystem dewapen)
+    {
+        if(haveweapeon != true)
+        {
+            wapen = dewapen;
+            haveweapeon = false;
         }
     }
     
