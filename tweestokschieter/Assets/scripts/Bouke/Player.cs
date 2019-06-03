@@ -19,6 +19,8 @@ public class Player : HealthSystem
 
     private float damgestaken;
 
+    private bool haveweapeon;
+
     //flashligt
     [SerializeField] private GameObject flashlight;
     [SerializeField] private float Flashlight_Life;
@@ -90,6 +92,11 @@ public class Player : HealthSystem
             Flashlight_on = false;
             flashlight.SetActive(false);
             Flashlight_Life = 0;
+        }
+        //shoot
+        if(haveweapeon == true)
+        {
+            
         }
 
     }
