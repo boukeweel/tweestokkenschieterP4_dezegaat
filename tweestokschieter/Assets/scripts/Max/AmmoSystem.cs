@@ -23,15 +23,16 @@ public class AmmoSystem : MonoBehaviour
     
     //every thing for auto fire
     [SerializeField] private bool Switchtoautofire;
+
     //timer to shoot
     [SerializeField] private float timetowait;
     private float holdtimetowait;
+
     //shot gun bullet
     public GameObject shotgunbullet;
 
-    //het wapen hebben
-    private bool hebWapen = false;
-    private AmmoSystem wapen;
+    
+    
 
     
 
@@ -44,39 +45,7 @@ public class AmmoSystem : MonoBehaviour
 
     void Update()
     {
-        
-        if (Switchtoshotgun)
-        {
-            
-            ammo = Mathf.Clamp(ammo, 0, 10f);
-            if(ammo != 0)
-            {
-                
-                shotgun();
-            }
-        }
-        else
-        {
-            ammo = Mathf.Clamp(ammo, 0, 25f);
 
-             if(ammo != 0)
-             {
-                if (Switchtoautofire)
-                {
-                    timetowait -= Time.deltaTime;
-                    Shootautofire();
-                
-                }
-                else
-                {
-                    timetowait -= Time.deltaTime;
-                    SHootSIMIFIRE();
-                }
-            
-             }
-
-        }
-        
         //Debug.Log(ammo);
         if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
         {
@@ -93,11 +62,42 @@ public class AmmoSystem : MonoBehaviour
 
         ammotext.text = ammo.ToString();
         magsizetext.text = magSize.ToString();
+        if (Switchtoshotgun)
+        {
+            
+            ammo = Mathf.Clamp(ammo, 0, 10f);
+            if(ammo != 0)
+            {
+                shotgun();
+            }
+        }
+        else
+        {
+            ammo = Mathf.Clamp(ammo, 0, 25f);
+
+            if(ammo != 0)
+            {
+                if (Switchtoautofire)
+                {
+                    timetowait -= Time.deltaTime;
+                    Shootautofire();
+                
+                }
+                else
+                {
+                    timetowait -= Time.deltaTime;
+                    SHootSIMIFIRE();
+                }
+            
+            }
+
+        }
 
     }
+    
 
-    
-    
+
+
     public void ReloadSystem()
     {
        
