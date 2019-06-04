@@ -5,6 +5,12 @@ using TMPro;
 
 public class InventorySystem : MonoBehaviour
 {
+    public int allSlots;
+    private GameObject[] slot;
+
+    private int enabledSlots;
+    public GameObject slotHolder;
+
     public int Item1;
     public int Item2;
     public int Item3;
@@ -19,6 +25,17 @@ public class InventorySystem : MonoBehaviour
     public Animator animator;
 
     public bool inventoryActive = false;
+
+    private void Start()
+    {
+        allSlots = 4;
+        slot = new GameObject[allSlots];
+
+        for (int i = 0; i < allSlots; i++)
+        {
+            slot[i] = slotHolder.transform.GetChild(i).gameObject;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -77,5 +94,9 @@ public class InventorySystem : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    void AddItem()
+    {
+
+    }
     
 }
