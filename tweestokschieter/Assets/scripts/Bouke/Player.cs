@@ -39,7 +39,7 @@ public class Player : HealthSystem
         rig = GetComponent<Rigidbody>();
         Flashlight_on = true;
        // FillHealthBar.fillAmount = (health / 100);
-        FillArmorbar.fillAmount = (Armor / 100);
+        //FillArmorbar.fillAmount = (Armor / 100);
         
     }
 
@@ -99,11 +99,17 @@ public class Player : HealthSystem
             flashlight.SetActive(false);
             Flashlight_Life = 0;
         }
-        
-        if(Input.GetKey(KeyCode.Space))
+
+        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
         {
             Shoot();
         }
+        if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
+        {
+            Reload();
+        }
+
+
 
     }
     /// <summary>
@@ -185,6 +191,10 @@ public class Player : HealthSystem
         {
             weapon.Shoot();
         }
+    }
+    public void Reload()
+    {
+        weapon.reload();
     }
 
 }
