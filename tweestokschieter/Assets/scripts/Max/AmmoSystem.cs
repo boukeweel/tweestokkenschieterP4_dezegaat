@@ -13,42 +13,34 @@ public enum WeaponStatus
 [CreateAssetMenu(fileName = "weapon", menuName ="scriptableobject/Weapons" , order =1)]
 public class AmmoSystem : ScriptableObject
 {
-
+    [Header("all for ammo")]
     [SerializeField] private float ammo;
     [SerializeField] private float magSize;
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private float reloadTime;
+    [SerializeField] private float AmmoAlloudInClip;
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
-    public TextMeshProUGUI ReloadTimer;
-     private Light flash;
 
-    
-    //switch to shotgun
-    [SerializeField] private bool Switchtoshotgun = false;
-    
-    //every thing for auto fire
-    [SerializeField] private bool Switchtoautofire;
+    [Header("bullet")]
+    [SerializeField] private GameObject bullet;
 
-    //timer to shoot
+    [Header("alle timers")]
+    [SerializeField] private float reloadTime;
+    private float reloadTimer;
     [SerializeField] private float timetowait;
     private float holdtimetowait;
+    public TextMeshProUGUI ReloadTimer;
 
-    //shot gun bullet
-    public GameObject shotgunbullet;
+    [Header("switch to diferent gun")]
+    [SerializeField] private bool Switchtoshotgun = false;
+    [SerializeField] private bool Switchtoautofire;
 
+    [Header("enums zijn cool")]
     [SerializeField] private WeaponStatus weaponStatus;
-    private float reloadTimer;
 
-
+    [Header("De rest")]
     [SerializeField] GameObject weaponPrefab;
     [SerializeField] GameObject parent;
-
     private GameObject weapon;
-    
-    
-
-    
 
     private void Start()
     {
@@ -61,17 +53,17 @@ public class AmmoSystem : ScriptableObject
     {
 
         //Debug.Log(ammo);
-        if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
-        {
-            if (ammo < magSize)
-            {
-                //StartCoroutine(reloader());
-                weaponStatus = WeaponStatus.reloading;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
+            //{
+            //    if (ammo < magSize)
+            //    {
+            //        //StartCoroutine(reloader());
+
+            //    }
+            //}
 
 
-        if(Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             magSize = 10000;
         }
@@ -83,7 +75,7 @@ public class AmmoSystem : ScriptableObject
             if(reloadTimer >= reloadTime)
             {
                 ReloadSystem();
-                weaponStatus = WeaponStatus.ready;
+                
             }
         }
 
@@ -92,39 +84,56 @@ public class AmmoSystem : ScriptableObject
         magsizetext.text = magSize.ToString();
 
     }
-    
+    public void reload()
+    {
+        weaponStatus = WeaponStatus.reloading;
+    }
     public void Shoot()
     {
         if(weaponStatus == WeaponStatus.reloading)
         {
             return;
         }
-
-        if (Switchtoshotgun)
+        ammo = Mathf.Clamp(ammo, 0, AmmoAlloudInClip);
+        if (Switchtoshotgun == true)
         {
             
-            ammo = Mathf.Clamp(ammo, 0, 10f);
+            
             if(ammo != 0)
-            {   
-                shotgun();
+            {
+                timetowait -= Time.deltaTime;
+                if (timetowait <= 0)
+                {
+                    shotgun();
+                }
+
+
             }
         }
         else
         {
-            ammo = Mathf.Clamp(ammo, 0, 25f);
+            
 
             if(ammo != 0)
             {
                 if (Switchtoautofire)
                 {
                     timetowait -= Time.deltaTime;
-                    Shootautofire();
+                    if (timetowait <= 0)
+                    {
+                        Shootautofire();
+
+                    }
                 
                 }
                 else
                 {
                     timetowait -= Time.deltaTime;
-                    SHootSIMIFIRE();
+                    if (timetowait <= 0)
+                    {
+                        SHootSIMIFIRE();
+
+                    }
                 }
             
             }
@@ -135,59 +144,57 @@ public class AmmoSystem : ScriptableObject
 
     public void ReloadSystem()
     {
-       
-        for (float i = ammo; i < magSize; i++)
-        {
-            if (magSize <= 0) break;
-            ammo++;
-            magSize--;
-        }
+            for (float i = ammo; i < magSize; i++)
+            {
+                if (magSize <= 0) break;
+                ammo++;
+                magSize--;
+            }
+        weaponStatus = WeaponStatus.ready;
+
     }
 
     public void shotgun()
     {
-        timetowait -= Time.deltaTime;
-        if(timetowait <= 0)
+        for (int i = 0; i < 8; i++)
         {
-            
-                for (int i = 0; i < 8; i++)
-                {
-                    Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
-                    Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
-                }
-                ammo--;
-                stadesmanger.shootcount();
-                timetowait = holdtimetowait;
-            
-            
+                        //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
+                        Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         }
+        ammo--;
+        stadesmanger.shootcount();
+        timetowait = holdtimetowait;
+            
+        
     }
 
     public void Shootautofire()
     {
         
-        if(timetowait <= 0)
-        {
+        
+        
+            
             
                 Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
                 ammo--;
                 stadesmanger.shootcount();
+
+                timetowait = holdtimetowait;
             
-            timetowait = holdtimetowait;
-        }
+        
         
     }
     public void SHootSIMIFIRE()
     {
-        if (timetowait <= 0)
-        {
+          
             
                 Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
                 ammo--;
                 stadesmanger.shootcount();
+
+                timetowait = holdtimetowait;
             
-            timetowait = holdtimetowait;
-        }
+     
     }
 
     public void AddAmmo(int AmmoAmount)
