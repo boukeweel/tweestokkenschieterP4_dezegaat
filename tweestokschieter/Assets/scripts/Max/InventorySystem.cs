@@ -3,18 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class InventorySystem : MonoBehaviour
+public class InventorySystem : Inventory
 {
-    public int allSlots;
-    private GameObject[] slot;
-
-    private int enabledSlots;
-    public GameObject slotHolder;
-
-    public int Item1;
-    public int Item2;
-    public int Item3;
-    public int healthPotion;
+    
     public LayerMask layerMask;
 
     public TextMeshProUGUI Item1Text;
@@ -22,20 +13,12 @@ public class InventorySystem : MonoBehaviour
     public TextMeshProUGUI Item3Text;
     public TextMeshProUGUI potionText;
 
+    public GameObject button;
+
     public Animator animator;
 
     public bool inventoryActive = false;
 
-    private void Start()
-    {
-        allSlots = 4;
-        slot = new GameObject[allSlots];
-
-        for (int i = 0; i < allSlots; i++)
-        {
-            slot[i] = slotHolder.transform.GetChild(i).gameObject;
-        }
-    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -46,9 +29,13 @@ public class InventorySystem : MonoBehaviour
                 if (inventoryActive)
                 {
                     PlayeAnimaiton();
-                    if (Item1 >= 3 && Item2 >= 1 && Item3 >= 3)
+                    for (int i = 0; i < allSlots; i++)
                     {
-                        MakeHealthPotion();
+                        if(ingredient1 > 0)
+                        {
+                            button.SetActive(true);
+                            MakeHealthPotion();
+                        }
                     }
                 }
                 else
@@ -68,11 +55,9 @@ public class InventorySystem : MonoBehaviour
     }
 
     public void MakeHealthPotion()
-    { 
-        healthPotion++;
-        Item1 = Item1 - 3;
-        Item2 = Item2 - 1;
-        Item3 = Item3 - 3;
+    {
+        button.SetActive(true);
+        Debug.Log("potion");
     }
 
     public void PlayeAnimaiton()
@@ -93,10 +78,4 @@ public class InventorySystem : MonoBehaviour
     {
         Time.timeScale = 0f;
     }
-
-    void AddItem()
-    {
-
-    }
-    
 }

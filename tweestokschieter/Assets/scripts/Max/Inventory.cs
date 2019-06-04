@@ -13,6 +13,10 @@ public class Inventory : MonoBehaviour
     private GameObject inventory;
     private bool inventoryEnabled;
 
+    public int ingredient1;
+    public int ingredient2;
+    public int ingredient3;
+
     void Start()
     {
         allSlots = 14;
@@ -37,6 +41,19 @@ public class Inventory : MonoBehaviour
             Item item = itemPickedUp.GetComponent<Item>();
 
             AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
+
+            if(item.ID == 0)
+            {
+                ingredient1++;
+            }
+            if (item.ID == 1)
+            {
+                ingredient2++;
+            }
+            if (item.ID == 2)
+            {
+                ingredient3++;
+            }
         }
     }
 
@@ -61,8 +78,14 @@ public class Inventory : MonoBehaviour
                 slot[i].GetComponent<Slot>().UpdateSlot();
                 slot[i].GetComponent<Slot>().empty = false;
 
+             
                 return;
             }
         }
+    }
+
+    void RemoveItem()
+    {
+
     }
 }
