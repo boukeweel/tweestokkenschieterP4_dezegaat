@@ -183,6 +183,7 @@ public class Player : HealthSystem
     {
         weapon = a;
         weapon.SetParent(hand);
+        weapon.Awake();
     }
 
     public void Shoot()

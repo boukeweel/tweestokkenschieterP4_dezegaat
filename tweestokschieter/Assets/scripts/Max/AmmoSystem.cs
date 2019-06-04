@@ -24,7 +24,7 @@ public class AmmoSystem : ScriptableObject
     [SerializeField] private GameObject bullet;
 
     [Header("alle timers")]
-    [SerializeField] private float reloadTime;
+    [SerializeField] private float reloadTime = 2;
     private float reloadTimer;
     [SerializeField] private float timetowait;
     private float holdtimetowait;
@@ -42,11 +42,20 @@ public class AmmoSystem : ScriptableObject
     [SerializeField] GameObject parent;
     private GameObject weapon;
 
-    private void Start()
+    public void Awake()
     {
         weaponStatus = WeaponStatus.ready;
+    }
+    private void Start()
+    {
+        
         reloadTimer = 0f;
         holdtimetowait = timetowait;
+    }
+    public void reload()
+    {
+        weaponStatus = WeaponStatus.reloading;
+        
     }
 
     void Update()
@@ -70,24 +79,26 @@ public class AmmoSystem : ScriptableObject
 
         if (weaponStatus == WeaponStatus.reloading)
         {
+
+
+            Debug.Log("werkt dit");
             reloadTimer += Time.deltaTime;
 
-            if(reloadTimer >= reloadTime)
+            if (reloadTimer >= reloadTime)
             {
+
                 ReloadSystem();
-                
+
             }
         }
+        
 
 
         ammotext.text = ammo.ToString();
         magsizetext.text = magSize.ToString();
 
     }
-    public void reload()
-    {
-        weaponStatus = WeaponStatus.reloading;
-    }
+    
     public void Shoot()
     {
         if(weaponStatus == WeaponStatus.reloading)
