@@ -26,10 +26,9 @@ public class Player : HealthSystem
     [SerializeField] private float Flashlight_Life;
     private bool Flashlight_on;
 
-    //pickup wapen
-    private AmmoSystem wapen;
-    private bool picktup;
-
+    [SerializeField] GameObject hand;
+    [SerializeField] AmmoSystem weapon;
+    
 
    /// <summary>
    /// set rigidbody 
@@ -39,8 +38,9 @@ public class Player : HealthSystem
         flashlight.SetActive(true);
         rig = GetComponent<Rigidbody>();
         Flashlight_on = true;
-        FillHealthBar.fillAmount = (health / 100);
+       // FillHealthBar.fillAmount = (health / 100);
         FillArmorbar.fillAmount = (Armor / 100);
+        
     }
 
     /// <summary>
@@ -75,8 +75,8 @@ public class Player : HealthSystem
         }
         //set fillamount of health and armor bar
         
-        FillHealthBar.fillAmount = (health / 100);
-        FillArmorbar.fillAmount = (Armor / 100);
+       // FillHealthBar.fillAmount = (health / 100);
+       // FillArmorbar.fillAmount = (Armor / 100);
 
         if(Input.GetKeyDown(KeyCode.I))
         {
@@ -100,6 +100,10 @@ public class Player : HealthSystem
             Flashlight_Life = 0;
         }
         
+        if(Input.GetKey(KeyCode.Space))
+        {
+            Shoot();
+        }
 
     }
     /// <summary>
@@ -150,7 +154,7 @@ public class Player : HealthSystem
         {
             Health(20);
         }
-        if(collision.collider.CompareTag("lift"))
+        if(collision.collider.CompareTag("lift"))   
         {
             animator.SetBool("active", true);
             SceneManager.LoadScene("Loading Scene");
@@ -167,13 +171,20 @@ public class Player : HealthSystem
             Usingcontroler = true;
         }
     }
-    public void PicktupWapen(AmmoSystem dewapen)
+   
+
+    public void SetWeapon(AmmoSystem a)
     {
-        if(haveweapeon != true)
+        weapon = a;
+        weapon.SetParent(hand);
+    }
+
+    public void Shoot()
+    {
+        if(weapon != null)
         {
-            wapen = dewapen;
-            haveweapeon = false;
+            weapon.Shoot();
         }
     }
-    
+
 }
