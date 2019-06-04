@@ -4,10 +4,16 @@ using UnityEngine;
 using TMPro;
 using XboxCtrlrInput;
 
-
-
-public class AmmoSystem : MonoBehaviour
+public enum WeaponStatus
 {
+    ready = 0,
+    reloading
+}
+
+[CreateAssetMenu(fileName = "weapon", menuName ="scriptableobject/Weapons" , order =1)]
+public class AmmoSystem : ScriptableObject
+{
+
     [SerializeField] private float ammo;
     [SerializeField] private float magSize;
     [SerializeField] private GameObject bullet;
@@ -31,6 +37,14 @@ public class AmmoSystem : MonoBehaviour
     //shot gun bullet
     public GameObject shotgunbullet;
 
+    [SerializeField] private WeaponStatus weaponStatus;
+    private float reloadTimer;
+
+
+    [SerializeField] GameObject weaponPrefab;
+    [SerializeField] GameObject parent;
+
+    private GameObject weapon;
     
     
 
@@ -38,9 +52,9 @@ public class AmmoSystem : MonoBehaviour
 
     private void Start()
     {
+        weaponStatus = WeaponStatus.ready;
+        reloadTimer = 0f;
         holdtimetowait = timetowait;
-
-        
     }
 
     void Update()
@@ -51,23 +65,47 @@ public class AmmoSystem : MonoBehaviour
         {
             if (ammo < magSize)
             {
-                StartCoroutine(reloader());
+                //StartCoroutine(reloader());
+                weaponStatus = WeaponStatus.reloading;
             }
         }
+
 
         if(Input.GetKeyDown(KeyCode.I))
         {
             magSize = 10000;
         }
 
+        if (weaponStatus == WeaponStatus.reloading)
+        {
+            reloadTimer += Time.deltaTime;
+
+            if(reloadTimer >= reloadTime)
+            {
+                ReloadSystem();
+                weaponStatus = WeaponStatus.ready;
+            }
+        }
+
+
         ammotext.text = ammo.ToString();
         magsizetext.text = magSize.ToString();
+
+    }
+    
+    public void Shoot()
+    {
+        if(weaponStatus == WeaponStatus.reloading)
+        {
+            return;
+        }
+
         if (Switchtoshotgun)
         {
             
             ammo = Mathf.Clamp(ammo, 0, 10f);
             if(ammo != 0)
-            {
+            {   
                 shotgun();
             }
         }
@@ -92,10 +130,7 @@ public class AmmoSystem : MonoBehaviour
             }
 
         }
-
     }
-    
-
 
 
     public void ReloadSystem()
@@ -114,18 +149,16 @@ public class AmmoSystem : MonoBehaviour
         timetowait -= Time.deltaTime;
         if(timetowait <= 0)
         {
-            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
-            {
-
+            
                 for (int i = 0; i < 8; i++)
                 {
                     Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
-                    Instantiate(bullet, transform.position, transform.rotation);
+                    Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
                 }
                 ammo--;
                 stadesmanger.shootcount();
                 timetowait = holdtimetowait;
-            }
+            
             
         }
     }
@@ -135,12 +168,11 @@ public class AmmoSystem : MonoBehaviour
         
         if(timetowait <= 0)
         {
-            if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
-            {
-                Instantiate(bullet, transform.position, transform.rotation);
+            
+                Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
                 ammo--;
                 stadesmanger.shootcount();
-            }
+            
             timetowait = holdtimetowait;
         }
         
@@ -149,12 +181,11 @@ public class AmmoSystem : MonoBehaviour
     {
         if (timetowait <= 0)
         {
-            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1f)
-            {
-                Instantiate(bullet, transform.position, transform.rotation);
+            
+                Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
                 ammo--;
                 stadesmanger.shootcount();
-            }
+            
             timetowait = holdtimetowait;
         }
     }
@@ -163,18 +194,32 @@ public class AmmoSystem : MonoBehaviour
     {
         magSize += AmmoAmount;
     }
-    
-    IEnumerator reloader()
+
+    public void BuildWeapon()
     {
-        yield return new WaitForSeconds(reloadTime);
-
-
-        for (float i = ammo; i < magSize; i++)
-        {
-            if (magSize <= 0) break;
-            ammo++;
-            magSize--;
-        }
+        weapon = Instantiate<GameObject>(weaponPrefab, parent.transform.position, parent.transform.rotation);
+        weapon.transform.parent = parent.transform;
     }
+
+    public void SetParent(GameObject p)
+    {
+        parent = p;
+        BuildWeapon();
+    }
+    
+    //IEnumerator reloader()
+    //{
+    //    yield return new WaitForSeconds(reloadTime);
+
+
+    //    for (float i = ammo; i < magSize; i++)
+    //    {
+    //        if (magSize <= 0) break;
+    //        ammo++;
+    //        magSize--;
+    //    }
+    //}
+    
+
 
 }
