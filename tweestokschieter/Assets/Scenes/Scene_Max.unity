@@ -461,6 +461,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  Damage: 20
+  Armor: 0
+  UI: {fileID: 0}
+  TakeDamage: 0
+  takingDamage: 0
+  speed: 0
+  animator: {fileID: 0}
+  Usingcontroler: 1
+  FillHealthBar: {fileID: 0}
+  FillArmorbar: {fileID: 0}
+  flashlight: {fileID: 0}
+  Flashlight_Life: 0
+  hand: {fileID: 0}
+  weapon: {fileID: 0}
   ID: 1
   type: 
   description: 
@@ -1447,6 +1462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allSlots: 0
   slotHolder: {fileID: 0}
+  health: {fileID: 0}
   ingredient1: 0
   ingredient2: 0
   ingredient3: 0
@@ -4421,6 +4437,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  Damage: 20
+  Armor: 0
+  UI: {fileID: 0}
+  TakeDamage: 0
+  takingDamage: 0
+  speed: 0
+  animator: {fileID: 0}
+  Usingcontroler: 1
+  FillHealthBar: {fileID: 0}
+  FillArmorbar: {fileID: 0}
+  flashlight: {fileID: 0}
+  Flashlight_Life: 0
+  hand: {fileID: 0}
+  weapon: {fileID: 0}
   ID: 2
   type: 
   description: 
@@ -4649,6 +4680,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  Damage: 20
+  Armor: 0
+  UI: {fileID: 0}
+  TakeDamage: 0
+  takingDamage: 0
+  speed: 0
+  animator: {fileID: 0}
+  Usingcontroler: 1
+  FillHealthBar: {fileID: 0}
+  FillArmorbar: {fileID: 0}
+  flashlight: {fileID: 0}
+  Flashlight_Life: 0
+  hand: {fileID: 0}
+  weapon: {fileID: 0}
   ID: 2
   type: 
   description: 
@@ -6006,6 +6052,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  Damage: 20
+  Armor: 0
+  UI: {fileID: 0}
+  TakeDamage: 0
+  takingDamage: 0
+  speed: 0
+  animator: {fileID: 0}
+  Usingcontroler: 1
+  FillHealthBar: {fileID: 0}
+  FillArmorbar: {fileID: 0}
+  flashlight: {fileID: 0}
+  Flashlight_Life: 0
+  hand: {fileID: 0}
+  weapon: {fileID: 0}
   ID: 0
   type: ingr 1
   description: for potions
@@ -6665,7 +6726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1758545843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6683,7 +6744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 168}
+  m_AnchoredPosition: {x: -620, y: 349}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758545844
@@ -6729,8 +6790,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 374205948}
-        m_MethodName: MakeHealthPotion
+      - m_Target: {fileID: 5290060144674867226}
+        m_MethodName: AddToInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7284,6 +7345,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  Damage: 20
+  Armor: 0
+  UI: {fileID: 0}
+  TakeDamage: 0
+  takingDamage: 0
+  speed: 0
+  animator: {fileID: 0}
+  Usingcontroler: 1
+  FillHealthBar: {fileID: 0}
+  FillArmorbar: {fileID: 0}
+  flashlight: {fileID: 0}
+  Flashlight_Life: 0
+  hand: {fileID: 0}
+  weapon: {fileID: 0}
   ID: 0
   type: ingr 1
   description: for potions
@@ -7478,6 +7554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Robot placeholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939066465555753644, guid: 3177e27a1caa1234a93d50a43f4638f0,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2939066465555753640, guid: 3177e27a1caa1234a93d50a43f4638f0,
         type: 3}
@@ -8596,8 +8677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7929401904665b47af52c4d03f2e07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Damage: 20
+  health: 50
+  Damage: 25
   Armor: 0
   UI: {fileID: 0}
   TakeDamage: 0
@@ -8625,6 +8706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allSlots: 14
   slotHolder: {fileID: 2054849862}
+  health: {fileID: 7152501028047017323, guid: 0a0cf7ef060cb7e48951744c63adb12e, type: 3}
   ingredient1: 0
   ingredient2: 0
   ingredient3: 0

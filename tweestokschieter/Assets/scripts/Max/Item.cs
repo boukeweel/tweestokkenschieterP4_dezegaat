@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Item : MonoBehaviour
 {
     public int ID;
@@ -9,5 +10,18 @@ public class Item : MonoBehaviour
     public string description;
     public Sprite icon;
     public bool pickedUp;
-  
+    public Player player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Player>();
+    }
+
+    public void ItemUsage()
+    {
+        if(type == "Health")
+        {
+            player.Addhealth(25);
+        }
+    }
 }
