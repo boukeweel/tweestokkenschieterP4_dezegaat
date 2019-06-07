@@ -14,7 +14,7 @@ public enum WeaponStatus
 public class AmmoSystem : ScriptableObject
 {
     [Header("all for ammo")]
-    [SerializeField] private float ammo;
+    [SerializeField] public float ammo;
     [SerializeField] private float magSize;
     [SerializeField] private float AmmoAlloudInClip;
     [SerializeField] private TextMeshProUGUI ammotext;
@@ -79,18 +79,14 @@ public class AmmoSystem : ScriptableObject
 
         if (weaponStatus == WeaponStatus.reloading)
         {
-
-
-            Debug.Log("werkt dit");
             reloadTimer += Time.deltaTime;
 
             if (reloadTimer >= reloadTime)
             {
-
                 ReloadSystem();
-
             }
         }
+        
         
 
 
