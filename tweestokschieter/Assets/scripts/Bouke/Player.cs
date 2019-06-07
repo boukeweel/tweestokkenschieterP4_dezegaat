@@ -28,7 +28,7 @@ public class Player : HealthSystem
 
     [SerializeField] GameObject hand;
     [SerializeField] AmmoSystem weapon;
-    
+
 
    /// <summary>
    /// set rigidbody 
@@ -108,7 +108,7 @@ public class Player : HealthSystem
         {
             Reload();
         }
-
+        
 
 
     }
@@ -197,5 +197,7 @@ public class Player : HealthSystem
     {
         weapon.reload();
     }
+   
+    
 
 }
