@@ -21,7 +21,7 @@ public class AmmoPickup : MonoBehaviour
         {
             //Particle.SetActive(true);
             stadesmanger.AmmoPickUpcount(AmountAmmoget);
-            ammosystem.AddAmmo(AmountAmmoget);
+            //ammosystem.AddAmmo(AmountAmmoget);
             Destroy(gameObject);
         }
     }

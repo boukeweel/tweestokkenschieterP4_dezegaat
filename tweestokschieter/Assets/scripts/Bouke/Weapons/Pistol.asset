@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  ammo: 0
-  magSize: 0
-  bullet: {fileID: 0}
-  reloadTime: 0
+  ammo: 5
+  magSize: 50
+  AmmoAlloudInClip: 10
   ammotext: {fileID: 0}
   magsizetext: {fileID: 0}
+  bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
+  reloadTime: 2
+  timetowait: 0
   ReloadTimer: {fileID: 0}
   Switchtoshotgun: 0
   Switchtoautofire: 0
-  timetowait: 0
-  shotgunbullet: {fileID: 0}
-  weaponStatus: 0
-  weaponPrefab: {fileID: 0}
+  weaponStatus: 1
+  weaponPrefab: {fileID: 1183212729013301287, guid: b8f6b9f7da4c9054080d9a9e7b4a5c44,
+    type: 3}
   parent: {fileID: 0}
