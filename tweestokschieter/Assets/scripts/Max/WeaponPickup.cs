@@ -14,7 +14,9 @@ public class WeaponPickup : MonoBehaviour
         if(p != null)
         {
             p.SetWeapon(weapon);
+            Destroy(gameObject);
         }
+        
     }
 
 
