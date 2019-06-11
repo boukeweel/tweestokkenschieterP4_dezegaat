@@ -21,23 +21,20 @@ public class Player : HealthSystem
 
     private bool haveweapeon;
 
-    //flashligt
-    [SerializeField] private GameObject flashlight;
-    [SerializeField] private float Flashlight_Life;
-    private bool Flashlight_on;
+    
 
     [SerializeField] GameObject hand;
     [SerializeField] AmmoSystem weapon;
-    
+
 
    /// <summary>
    /// set rigidbody 
    /// </summary>
     private void Start()
     {
-        flashlight.SetActive(true);
+        
         rig = GetComponent<Rigidbody>();
-        Flashlight_on = true;
+      
        // FillHealthBar.fillAmount = (health / 100);
         //FillArmorbar.fillAmount = (Armor / 100);
         
@@ -83,22 +80,7 @@ public class Player : HealthSystem
             health = 10000;
             Armor = 10000;
         }
-
-        //flashlight
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Flashligt();
-        }
-        if (Flashlight_on.Equals(true))
-        {
-            Flashlight_Life -= Time.deltaTime;
-        }
-        if(Flashlight_Life <= 0)
-        {
-            Flashlight_on = false;
-            flashlight.SetActive(false);
-            Flashlight_Life = 0;
-        }
+        
 
         if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
         {
@@ -108,30 +90,12 @@ public class Player : HealthSystem
         {
             Reload();
         }
-
+        
 
 
     }
-    /// <summary>
-    /// flashlight turnon
-    /// </summary>
-    private void Flashligt()
-    {
-        if (Flashlight_on.Equals(true))
-        {
-            flashlight.SetActive(false);
-            Flashlight_on = false;
-        }
-        else
-        {
-            if(Flashlight_Life > 0)
-            {
-                flashlight.SetActive(true);
-                Flashlight_on = true;
-            }
-            
-        }
-    }
+    
+    
     /// <summary>
     /// set input of movement
     /// </summary>
@@ -197,5 +161,7 @@ public class Player : HealthSystem
     {
         weapon.reload();
     }
+   
+    
 
 }
