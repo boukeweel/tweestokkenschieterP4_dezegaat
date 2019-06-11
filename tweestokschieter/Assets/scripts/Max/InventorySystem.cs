@@ -13,6 +13,9 @@ public class InventorySystem : Inventory
     public TextMeshProUGUI Item3Text;
     public TextMeshProUGUI potionText;
 
+    public GameObject text;
+    public Animator textAnimation;
+
     public GameObject button;
 
     public Animator animator;
@@ -39,6 +42,9 @@ public class InventorySystem : Inventory
     {
         if (other.CompareTag("desk"))
         {
+            text.SetActive(true);
+            textAnimation.SetBool("active", true);
+
             if (Input.GetKey(KeyCode.F))
             {
                 if (inventoryActive)
@@ -60,6 +66,7 @@ public class InventorySystem : Inventory
         if (other.CompareTag("desk"))
         {
             PlayeAnimaiton();
+            textAnimation.SetBool("active", false);
         }
     }
 

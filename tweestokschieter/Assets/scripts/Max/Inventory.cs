@@ -111,8 +111,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void RemoveItem()
+    public void RemoveItem()
     {
-
+        for (int i = 0; i < allSlots; i++)
+        {
+            if(slot[i].GetComponent<Slot>().item == health)
+            {
+                Destroy(slot[i].GetComponent<Slot>().slotIconGO);
+            }
+        }
     }
 }

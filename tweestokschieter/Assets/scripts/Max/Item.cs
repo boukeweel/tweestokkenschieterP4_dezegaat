@@ -24,4 +24,15 @@ public class Item : MonoBehaviour
             player.Addhealth(25);
         }
     }
+
+    public void RemoveItem()
+    {
+        for (int i = 0; i < ID; i++)
+        {
+            if(i == 3)
+            {
+                Destroy(icon);
+            }
+        }
+    }
 }

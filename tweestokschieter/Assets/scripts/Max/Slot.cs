@@ -13,10 +13,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public bool empty;
     public Sprite icon;
     public Transform slotIconGO;
+    private Inventory inventory;
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         UseItem();
+        RemoveItem();
     }
 
     private void Start()
@@ -33,4 +35,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         item.GetComponent<Item>().ItemUsage();
     }
+
+    public void RemoveItem()
+    {
+        inventory.RemoveItem();
+    }
+    
+
 }
