@@ -22,6 +22,7 @@ public class Player : HealthSystem
     private bool haveweapeon;
 
     
+    
 
     [SerializeField] GameObject hand;
     [SerializeField] AmmoSystem weapon;
@@ -82,14 +83,8 @@ public class Player : HealthSystem
         }
         
 
-        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
-        {
-            Shoot();
-        }
-        if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
-        {
-            Reload();
-        }
+        
+        
         
 
 
@@ -150,17 +145,8 @@ public class Player : HealthSystem
         weapon.Awake();
     }
 
-    public void Shoot()
-    {
-        if(weapon != null)
-        {
-            weapon.Shoot();
-        }
-    }
-    public void Reload()
-    {
-        weapon.reload();
-    }
+    
+   
    
     
 

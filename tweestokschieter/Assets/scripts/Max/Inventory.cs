@@ -10,6 +10,8 @@ public class Inventory : MonoBehaviour
     private int enabledSlots;
     public GameObject slotHolder;
 
+    public GameObject health;
+
     private GameObject inventory;
     private bool inventoryEnabled;
 
@@ -78,14 +80,45 @@ public class Inventory : MonoBehaviour
                 slot[i].GetComponent<Slot>().UpdateSlot();
                 slot[i].GetComponent<Slot>().empty = false;
 
-             
                 return;
             }
         }
     }
 
-    void RemoveItem()
+    public void Addhealth(int itemID, string itemType, string itemDescription, Sprite itemIcon)
     {
+        for (int i = 0; i < allSlots; i++)
+        {
+            if (slot[i].GetComponent<Slot>().empty)
+            {
+                //add item
+                health.GetComponent<Item>().pickedUp = true;
 
+                slot[i].GetComponent<Slot>().item = health;
+                slot[i].GetComponent<Slot>().icon = itemIcon;
+                slot[i].GetComponent<Slot>().type = itemType;
+                slot[i].GetComponent<Slot>().ID = itemID;
+                slot[i].GetComponent<Slot>().description = itemDescription;
+
+                health.transform.parent = slot[i].transform;
+                health.SetActive(false);
+
+                slot[i].GetComponent<Slot>().UpdateSlot();
+                slot[i].GetComponent<Slot>().empty = false;
+
+                return;
+            }
+        }
+    }
+
+    public void RemoveItem()
+    {
+        for (int i = 0; i < allSlots; i++)
+        {
+            if(slot[i].GetComponent<Slot>().item == health)
+            {
+                Destroy(slot[i].GetComponent<Slot>().slotIconGO);
+            }
+        }
     }
 }

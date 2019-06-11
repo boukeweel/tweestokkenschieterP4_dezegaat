@@ -13,34 +13,49 @@ public class InventorySystem : Inventory
     public TextMeshProUGUI Item3Text;
     public TextMeshProUGUI potionText;
 
+    public GameObject text;
+    public Animator textAnimation;
+
     public GameObject button;
 
     public Animator animator;
 
     public bool inventoryActive = false;
 
+    public bool inventoryAnimDone = false;
+
+    private void Update()
+    {
+        if (inventoryAnimDone == true)
+        {
+            for (int i = 0; i < allSlots; i++)
+            {
+                if (ingredient1 >= 3 && ingredient2 >= 1 && ingredient3 >= 2 )
+                {
+                    button.SetActive(true);
+                }
+            }
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("desk"))
         {
-            if (Input.GetKeyUp(KeyCode.F))
+            text.SetActive(true);
+            textAnimation.SetBool("active", true);
+
+            if (Input.GetKey(KeyCode.F))
             {
                 if (inventoryActive)
                 {
+                    inventoryAnimDone = true;
                     PlayeAnimaiton();
-                    for (int i = 0; i < allSlots; i++)
-                    {
-                        if(ingredient1 > 0)
-                        {
-                            button.SetActive(true);
-                            MakeHealthPotion();
-                        }
-                    }
                 }
                 else
                 {
                     ReverseAnimtion();
+                    inventoryAnimDone = false;
                 }
             }
         }
@@ -51,13 +66,8 @@ public class InventorySystem : Inventory
         if (other.CompareTag("desk"))
         {
             PlayeAnimaiton();
+            textAnimation.SetBool("active", false);
         }
-    }
-
-    public void MakeHealthPotion()
-    {
-        button.SetActive(true);
-        Debug.Log("potion");
     }
 
     public void PlayeAnimaiton()
@@ -77,5 +87,12 @@ public class InventorySystem : Inventory
     public void SetTime()   
     {
         Time.timeScale = 0f;
+    }
+
+    public void AddToInventory()
+    {
+        Item item = health.GetComponent<Item>();
+
+        Addhealth(item.ID, item.type, item.description, item.icon);
     }
 }

@@ -17,7 +17,7 @@ public class AmmoSystem : ScriptableObject
     [SerializeField] public float ammo;
     [SerializeField] public float magSize;
     [SerializeField] public float AmmoAlloudInClip;
-    [SerializeField] private TextMeshProUGUI ammotext;
+    [SerializeField] public TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
 
     [Header("bullet")]
@@ -28,182 +28,24 @@ public class AmmoSystem : ScriptableObject
     public float reloadTimer;
     [SerializeField] public float timetowait;
     private float holdtimetowait;
-    public TextMeshProUGUI ReloadTimer;
+    public TextMeshProUGUI ReloadTimer_;
 
     [Header("switch to diferent gun")]
     [SerializeField] public bool Switchtoshotgun = false;
     [SerializeField] public  bool Switchtoautofire;
 
     [Header("enums zijn cool")]
-    [SerializeField] private WeaponStatus weaponStatus;
+    [SerializeField] public WeaponStatus weaponStatus;
 
     [Header("De rest")]
-    [SerializeField] GameObject weaponPrefab;
-    [SerializeField] GameObject parent;
-    private GameObject weapon;
+    [SerializeField] public GameObject weaponPrefab;
+    [SerializeField] public GameObject parent;
+    public GameObject weapon;
 
     public void Awake()
     {
         weaponStatus = WeaponStatus.ready;
     }
-    private void Start()
-    {
-        
-        reloadTimer = 0f;
-        holdtimetowait = timetowait;
-    }
-    public void reload()
-    {
-        weaponStatus = WeaponStatus.reloading;
-        
-    }
-
-    void Update()
-    {
-
-        //Debug.Log(ammo);
-        //if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
-            //{
-            //    if (ammo < magSize)
-            //    {
-            //        //StartCoroutine(reloader());
-
-            //    }
-            //}
-
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            magSize = 10000;
-        }
-
-        if (weaponStatus == WeaponStatus.reloading)
-        {
-            reloadTimer += Time.deltaTime;
-
-            if (reloadTimer >= reloadTime)
-            {
-                ReloadSystem();
-            }
-        }
-        
-        
-
-
-        ammotext.text = ammo.ToString();
-        magsizetext.text = magSize.ToString();
-
-    }
-    
-    public void Shoot()
-    {
-        if(weaponStatus == WeaponStatus.reloading)
-        {
-            return;
-        }
-        ammo = Mathf.Clamp(ammo, 0, AmmoAlloudInClip);
-        if (Switchtoshotgun == true)
-        {
-            
-            
-            if(ammo != 0)
-            {
-                timetowait -= Time.deltaTime;
-                if (timetowait <= 0)
-                {
-                    shotgun();
-                }
-
-
-            }
-        }
-        else
-        {
-            
-
-            if(ammo != 0)
-            {
-                if (Switchtoautofire)
-                {
-                    timetowait -= Time.deltaTime;
-                    if (timetowait <= 0)
-                    {
-                        Shootautofire();
-
-                    }
-                
-                }
-                else
-                {
-                    timetowait -= Time.deltaTime;
-                    if (timetowait <= 0)
-                    {
-                        SHootSIMIFIRE();
-
-                    }
-                }
-            
-            }
-
-        }
-    }
-
-
-    public void ReloadSystem()
-    {
-            for (float i = ammo; i < magSize; i++)
-            {
-                if (magSize <= 0) break;
-                ammo++;
-                magSize--;
-            }
-        weaponStatus = WeaponStatus.ready;
-
-    }
-
-    public void shotgun()
-    {
-        for (int i = 0; i < 8; i++)
-        {
-                        //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
-                        Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
-        }
-        ammo--;
-        stadesmanger.shootcount();
-        timetowait = holdtimetowait;
-            
-        
-    }
-
-    public void Shootautofire()
-    {
-        
-        
-        
-            
-            
-                Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
-                ammo--;
-                stadesmanger.shootcount();
-
-                timetowait = holdtimetowait;
-            
-        
-        
-    }
-    public void SHootSIMIFIRE()
-    {
-          
-            
-                Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
-                ammo--;
-                stadesmanger.shootcount();
-
-                timetowait = holdtimetowait;
-            
-     
-    }
-
     public void AddAmmo(int AmmoAmount)
     {
         magSize += AmmoAmount;
@@ -221,18 +63,7 @@ public class AmmoSystem : ScriptableObject
         BuildWeapon();
     }
     
-    //IEnumerator reloader()
-    //{
-    //    yield return new WaitForSeconds(reloadTime);
-
-
-    //    for (float i = ammo; i < magSize; i++)
-    //    {
-    //        if (magSize <= 0) break;
-    //        ammo++;
-    //        magSize--;
-    //    }
-    //}
+    
     
 
 

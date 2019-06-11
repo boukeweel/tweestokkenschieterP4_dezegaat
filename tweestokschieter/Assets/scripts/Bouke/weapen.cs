@@ -1,24 +1,245 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using XboxCtrlrInput;
 
 public class weapen : MonoBehaviour
 {
     public AmmoSystem weapontype;
 
     float ammo;
-    float magsize;
+    float magSize;
     float ammoalloudinclip;
 
     float reloadtimer;
-    float reloadtimes;
+    float ReloadTimer;
 
+    float timetowait;
+
+    bool Switchtoshotgun;
+    bool Switchtoautofire;
+
+    float holdtimetowait;
+
+    private TextMeshProUGUI ammotext;
+    private TextMeshProUGUI magsizetext;
+    private TextMeshProUGUI ReloadTimer_;
+
+    private GameObject bullet;
+
+    private GameObject weaponPrefab;
+    private GameObject parent;
+    private GameObject weapon;
+
+
+    private WeaponStatus weaponStatus;
     private void Start()
     {
-        weapontype.ammo = ammo;
-        weapontype.AmmoAlloudInClip = ammoalloudinclip;
-        weapontype.magSize = magsize;
-        weapontype.reloadTime = reloadtimer;
+        ammo = weapontype.ammo;
+        ammoalloudinclip = weapontype.AmmoAlloudInClip;
+        magSize = weapontype.magSize;
+        reloadtimer = weapontype.reloadTime;
+        ReloadTimer = weapontype.reloadTimer;
+        timetowait = weapontype.timetowait;
+        Switchtoshotgun = weapontype.Switchtoshotgun;
+        Switchtoautofire = weapontype.Switchtoautofire;
+        ammotext = weapontype.ammotext;
+        magsizetext = weapontype.magsizetext;
+        ReloadTimer_ = weapontype.ReloadTimer_;
+        bullet = weapontype.bullet;
+        weaponPrefab = weapontype.weaponPrefab;
+        parent = weapontype.parent;
+        weapon = weapontype.weapon;
+        
 
+
+        ReloadTimer = 0f;
+        holdtimetowait = timetowait;
+
+    }
+    public void Awake()
+    {
+        weaponStatus = WeaponStatus.ready;
+    }
+    
+    public void reload()
+    {
+        weaponStatus = WeaponStatus.reloading;
+
+    }
+
+    void Update()
+    {
+
+        //Debug.Log(ammo);
+        //if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
+        //{
+        //    if (ammo < magSize)
+        //    {
+        //        //StartCoroutine(reloader());
+
+        //    }
+        //}
+
+        if (Input.GetKeyDown(KeyCode.R) || XCI.GetButtonDown(XboxButton.X, XboxController.First))
+        {
+            if (ammo < magSize)
+            {
+                weaponStatus = WeaponStatus.reloading;
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            magSize = 10000;
+        }
+
+        if (weaponStatus == WeaponStatus.reloading)
+        {
+            ReloadTimer += Time.deltaTime;
+
+            if (ReloadTimer >= reloadtimer)
+            {
+                ReloadSystem();
+            }
+        }
+        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
+        {
+            Shoot();
+        }
+        timetowait -= Time.deltaTime;
+
+
+
+        //ammotext.text = ammo.ToString();
+        //magsizetext.text = magSize.ToString();
+
+    }
+
+    public void Shoot()
+    {
+        if (weaponStatus == WeaponStatus.reloading)
+        {
+            return;
+        }
+        ammo = Mathf.Clamp(ammo, 0, ammoalloudinclip);
+        if (Switchtoshotgun == true)
+        {
+
+
+            if (ammo != 0)
+            {
+               
+                if (timetowait <= 0)
+                {
+                    shotgun();
+                }
+
+
+            }
+        }
+        else
+        {
+
+
+            if (ammo != 0)
+            {
+                if (Switchtoautofire)
+                {
+                    
+                    if (timetowait <= 0)
+                    {
+                        Shootautofire();
+
+                    }
+
+                }
+                else
+                {
+                    
+                    if (timetowait <= 0)
+                    {
+                        SHootSIMIFIRE();
+
+                    }
+                }
+
+            }
+
+        }
+    }
+
+
+    public void ReloadSystem()
+    {
+        for (float i = ammo; i < magSize; i++)
+        {
+            if (magSize <= 0) break;
+            ammo++;
+            magSize--;
+        }
+        weaponStatus = WeaponStatus.ready;
+
+    }
+
+    public void shotgun()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
+            Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
+        }
+        ammo--;
+        stadesmanger.shootcount();
+        timetowait = holdtimetowait;
+
+
+    }
+
+    public void Shootautofire()
+    {
+
+
+
+
+
+        Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
+        ammo--;
+        stadesmanger.shootcount();
+
+        timetowait = holdtimetowait;
+
+
+
+    }
+    public void SHootSIMIFIRE()
+    {
+
+
+        Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
+        ammo--;
+        stadesmanger.shootcount();
+
+        timetowait = holdtimetowait;
+
+
+    }
+
+    public void AddAmmo(int AmmoAmount)
+    {
+        magSize += AmmoAmount;
+    }
+
+    public void BuildWeapon()
+    {
+        weapon = Instantiate<GameObject>(weaponPrefab, parent.transform.position, parent.transform.rotation);
+        weapon.transform.parent = parent.transform;
+    }
+
+    public void SetParent(GameObject p)
+    {
+        parent = p;
+        BuildWeapon();
     }
 }
