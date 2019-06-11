@@ -11,6 +11,8 @@ public class Item : MonoBehaviour
     public Sprite icon;
     public bool pickedUp;
     public Player player;
+    public int itemCurrentStack;
+    public int itemMaxStack;
 
     private void Start()
     {
