@@ -14,7 +14,7 @@ public class Item : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();  
     }
 
     public void ItemUsage()

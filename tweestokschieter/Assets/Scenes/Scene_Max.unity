@@ -461,26 +461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Damage: 20
-  Armor: 0
-  UI: {fileID: 0}
-  TakeDamage: 0
-  takingDamage: 0
-  speed: 0
-  animator: {fileID: 0}
-  Usingcontroler: 1
-  FillHealthBar: {fileID: 0}
-  FillArmorbar: {fileID: 0}
-  flashlight: {fileID: 0}
-  Flashlight_Life: 0
-  hand: {fileID: 0}
-  weapon: {fileID: 0}
   ID: 1
   type: 
   description: 
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   pickedUp: 0
+  player: {fileID: 0}
 --- !u!1 &79718019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1462,7 @@ MonoBehaviour:
   button: {fileID: 0}
   animator: {fileID: 1698159480}
   inventoryActive: 0
+  inventoryAnimDone: 0
 --- !u!114 &374205949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2894,9 +2881,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'make health potoin
-
-'
+  m_Text: make health potion
 --- !u!222 &623243368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4437,26 +4422,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Damage: 20
-  Armor: 0
-  UI: {fileID: 0}
-  TakeDamage: 0
-  takingDamage: 0
-  speed: 0
-  animator: {fileID: 0}
-  Usingcontroler: 1
-  FillHealthBar: {fileID: 0}
-  FillArmorbar: {fileID: 0}
-  flashlight: {fileID: 0}
-  Flashlight_Life: 0
-  hand: {fileID: 0}
-  weapon: {fileID: 0}
   ID: 2
   type: 
   description: 
   icon: {fileID: 21300000, guid: 3e81c24a4da7754459eaa89fde1780d2, type: 3}
   pickedUp: 0
+  player: {fileID: 0}
 --- !u!1 &1180600052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4680,26 +4651,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Damage: 20
-  Armor: 0
-  UI: {fileID: 0}
-  TakeDamage: 0
-  takingDamage: 0
-  speed: 0
-  animator: {fileID: 0}
-  Usingcontroler: 1
-  FillHealthBar: {fileID: 0}
-  FillArmorbar: {fileID: 0}
-  flashlight: {fileID: 0}
-  Flashlight_Life: 0
-  hand: {fileID: 0}
-  weapon: {fileID: 0}
   ID: 2
   type: 
   description: 
   icon: {fileID: 21300000, guid: 3e81c24a4da7754459eaa89fde1780d2, type: 3}
   pickedUp: 0
+  player: {fileID: 0}
 --- !u!1 &1245088388
 GameObject:
   m_ObjectHideFlags: 0
@@ -6052,26 +6009,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Damage: 20
-  Armor: 0
-  UI: {fileID: 0}
-  TakeDamage: 0
-  takingDamage: 0
-  speed: 0
-  animator: {fileID: 0}
-  Usingcontroler: 1
-  FillHealthBar: {fileID: 0}
-  FillArmorbar: {fileID: 0}
-  flashlight: {fileID: 0}
-  Flashlight_Life: 0
-  hand: {fileID: 0}
-  weapon: {fileID: 0}
   ID: 0
   type: ingr 1
   description: for potions
   icon: {fileID: 21300000, guid: 2d6cc20b8f5826a4495baa8b96492c2a, type: 3}
   pickedUp: 0
+  player: {fileID: 0}
 --- !u!1 &1600450220
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,7 +6669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1758545843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6771,7 +6714,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -7345,26 +7288,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d1efadfc8cc240b328f111d93dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Damage: 20
-  Armor: 0
-  UI: {fileID: 0}
-  TakeDamage: 0
-  takingDamage: 0
-  speed: 0
-  animator: {fileID: 0}
-  Usingcontroler: 1
-  FillHealthBar: {fileID: 0}
-  FillArmorbar: {fileID: 0}
-  flashlight: {fileID: 0}
-  Flashlight_Life: 0
-  hand: {fileID: 0}
-  weapon: {fileID: 0}
   ID: 0
   type: ingr 1
   description: for potions
   icon: {fileID: 21300000, guid: 2d6cc20b8f5826a4495baa8b96492c2a, type: 3}
   pickedUp: 0
+  player: {fileID: 0}
 --- !u!1 &2054849862
 GameObject:
   m_ObjectHideFlags: 0
@@ -8720,6 +8649,7 @@ MonoBehaviour:
   button: {fileID: 1758545842}
   animator: {fileID: 1080242037}
   inventoryActive: 0
+  inventoryAnimDone: 0
 --- !u!1 &5290060144773938983
 GameObject:
   m_ObjectHideFlags: 0
