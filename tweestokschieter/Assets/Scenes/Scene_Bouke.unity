@@ -1566,8 +1566,6 @@ MonoBehaviour:
   Usingcontroler: 0
   FillHealthBar: {fileID: 0}
   FillArmorbar: {fileID: 0}
-  flashlight: {fileID: 1876038698729799534}
-  Flashlight_Life: 5
   hand: {fileID: 986706254}
   weapon: {fileID: 0}
 --- !u!1 &717198772499979082
