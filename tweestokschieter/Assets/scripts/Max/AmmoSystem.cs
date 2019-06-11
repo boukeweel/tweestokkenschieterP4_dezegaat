@@ -15,24 +15,24 @@ public class AmmoSystem : ScriptableObject
 {
     [Header("all for ammo")]
     [SerializeField] public float ammo;
-    [SerializeField] private float magSize;
-    [SerializeField] private float AmmoAlloudInClip;
+    [SerializeField] public float magSize;
+    [SerializeField] public float AmmoAlloudInClip;
     [SerializeField] private TextMeshProUGUI ammotext;
     public TextMeshProUGUI magsizetext;
 
     [Header("bullet")]
-    [SerializeField] private GameObject bullet;
+    [SerializeField] public GameObject bullet;
 
     [Header("alle timers")]
-    [SerializeField] private float reloadTime = 2;
-    private float reloadTimer;
-    [SerializeField] private float timetowait;
+    [SerializeField] public float reloadTime = 2;
+    public float reloadTimer;
+    [SerializeField] public float timetowait;
     private float holdtimetowait;
     public TextMeshProUGUI ReloadTimer;
 
     [Header("switch to diferent gun")]
-    [SerializeField] private bool Switchtoshotgun = false;
-    [SerializeField] private bool Switchtoautofire;
+    [SerializeField] public bool Switchtoshotgun = false;
+    [SerializeField] public  bool Switchtoautofire;
 
     [Header("enums zijn cool")]
     [SerializeField] private WeaponStatus weaponStatus;
