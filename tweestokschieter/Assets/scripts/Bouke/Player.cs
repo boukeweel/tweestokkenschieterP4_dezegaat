@@ -72,11 +72,11 @@ public class Player : HealthSystem
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
         //set fillamount of health and armor bar
-        
-       // FillHealthBar.fillAmount = (health / 100);
-       // FillArmorbar.fillAmount = (Armor / 100);
 
-        if(Input.GetKeyDown(KeyCode.I))
+        FillHealthBar.fillAmount = (health / 100);
+        // FillArmorbar.fillAmount = (Armor / 100);
+
+        if (Input.GetKeyDown(KeyCode.I))
         {
             health = 10000;
             Armor = 10000;

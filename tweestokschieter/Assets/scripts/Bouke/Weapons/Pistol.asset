@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   ammo: 10
-  magSize: 10
+  magSize: 40
   AmmoAlloudInClip: 100
   ammotext: {fileID: 0}
   magsizetext: {fileID: 0}
@@ -25,7 +25,8 @@ MonoBehaviour:
   Switchtoshotgun: 0
   Switchtoautofire: 0
   weaponStatus: 0
-  weaponPrefab: {fileID: 1183212729013301287, guid: b8f6b9f7da4c9054080d9a9e7b4a5c44,
+  weaponPrefab: {fileID: 7246025192710158327, guid: be5ac1a33a5064b4b91c98cf1895329d,
     type: 3}
   parent: {fileID: 0}
   weapon: {fileID: 0}
+  Weapon: {fileID: 7219990963708262801, guid: be5ac1a33a5064b4b91c98cf1895329d, type: 3}
