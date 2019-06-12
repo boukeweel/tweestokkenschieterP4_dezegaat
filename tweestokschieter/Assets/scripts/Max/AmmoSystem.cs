@@ -41,6 +41,7 @@ public class AmmoSystem : ScriptableObject
     [SerializeField] public GameObject weaponPrefab;
     [SerializeField] public GameObject parent;
     public GameObject weapon;
+    [SerializeField] weapen Weapon;
 
     public void Awake()
     {
@@ -49,6 +50,7 @@ public class AmmoSystem : ScriptableObject
     public void AddAmmo(int AmmoAmount)
     {
         magSize += AmmoAmount;
+        Weapon.setallfabriale();
     }
 
     public void BuildWeapon()
