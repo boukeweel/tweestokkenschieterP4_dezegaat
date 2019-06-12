@@ -51,9 +51,9 @@ public class weapen : MonoBehaviour
         weaponPrefab = weapontype.weaponPrefab;
         parent = weapontype.parent;
         weapon = weapontype.weapon;
-        
 
 
+        Debug.Log("zoveel ammo" + magSize);
         ReloadTimer = 0f;
         holdtimetowait = timetowait;
 
@@ -67,6 +67,26 @@ public class weapen : MonoBehaviour
     {
         weaponStatus = WeaponStatus.reloading;
 
+    }
+
+    public void setallfabriale()
+    {
+        ammo = weapontype.ammo;
+        ammoalloudinclip = weapontype.AmmoAlloudInClip;
+        magSize = weapontype.magSize;
+        reloadtimer = weapontype.reloadTime;
+        ReloadTimer = weapontype.reloadTimer;
+        timetowait = weapontype.timetowait;
+        Switchtoshotgun = weapontype.Switchtoshotgun;
+        Switchtoautofire = weapontype.Switchtoautofire;
+        ammotext = weapontype.ammotext;
+        magsizetext = weapontype.magsizetext;
+        ReloadTimer_ = weapontype.ReloadTimer_;
+        bullet = weapontype.bullet;
+        weaponPrefab = weapontype.weaponPrefab;
+        parent = weapontype.parent;
+        weapon = weapontype.weapon;
+        Debug.Log("nu zoveel ammo" + magSize);
     }
 
     void Update()

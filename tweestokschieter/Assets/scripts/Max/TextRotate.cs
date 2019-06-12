@@ -6,18 +6,12 @@ public class TextRotate : MonoBehaviour
 {
     public Transform player;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Vector3 targetDir = player.position - transform.position;
+          //targetDir *= -1;
+        Vector3 newDir = Vector3.RotateTowards(transform.up = new Vector3(0, -1, 0), targetDir, 1f * Time.deltaTime, 0.0f);
 
-
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 1f * Time.deltaTime, 0.0f);
-
-        transform.rotation = Quaternion.LookRotation(newDir);
+        transform.rotation = Quaternion.LookRotation(newDir);   
     }
 }

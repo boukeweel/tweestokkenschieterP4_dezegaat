@@ -11,8 +11,7 @@ public class Item : MonoBehaviour
     public Sprite icon;
     public bool pickedUp;
     public Player player;
-    public int itemCurrentStack;
-    public int itemMaxStack;
+  
 
     private void Start()
     {
@@ -37,4 +36,16 @@ public class Item : MonoBehaviour
             }
         }
     }
+}
+
+public class ItemDataBase : MonoBehaviour
+{
+    public List<Item> items = new List<Item>();
+
+    private void Start()
+    {
+       
+    }
+
+
 }
