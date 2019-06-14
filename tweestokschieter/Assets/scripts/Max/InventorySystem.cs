@@ -45,7 +45,7 @@ public class InventorySystem : Inventory
             text.SetActive(true);
             textAnimation.SetBool("active", true);
 
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 if (inventoryActive)
                 {

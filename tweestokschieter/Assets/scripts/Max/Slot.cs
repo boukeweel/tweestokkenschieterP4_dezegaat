@@ -14,6 +14,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public Sprite icon;
     public Transform slotIconGO;
     private Inventory inventory;
+    public int itemCurrentStack;
+    public int itemMaxStack;
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
