@@ -839,7 +839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 986706255}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2125,7 +2125,7 @@ GameObject:
   - component: {fileID: 262309912191331183}
   - component: {fileID: 2347453763077897220}
   - component: {fileID: 262309912191331182}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2260,7 +2260,7 @@ GameObject:
   - component: {fileID: 8479705524371735688}
   - component: {fileID: 8558965760465963884}
   - component: {fileID: 8989732816968874748}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: flashligt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2420,7 +2420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876038698729799529}
   - component: {fileID: 1876038698729799528}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
