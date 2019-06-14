@@ -52,8 +52,8 @@ public class weapen : MonoBehaviour
         parent = weapontype.parent;
         weapon = weapontype.weapon;
 
-
-        Debug.Log("zoveel ammo" + magSize);
+        Debug.Log("ammo alloud in clip is" + ammoalloudinclip);
+        //Debug.Log("zoveel ammo" + magSize);
         ReloadTimer = 0f;
         holdtimetowait = timetowait;
 
@@ -86,7 +86,8 @@ public class weapen : MonoBehaviour
         weaponPrefab = weapontype.weaponPrefab;
         parent = weapontype.parent;
         weapon = weapontype.weapon;
-        Debug.Log("nu zoveel ammo" + magSize);
+        Debug.Log("ammo alloud in clip is" + ammoalloudinclip);
+        //Debug.Log("nu zoveel ammo" + magSize);
     }
 
     void Update()

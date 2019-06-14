@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   ammo: 10
-  magSize: 40
-  AmmoAlloudInClip: 100
+  magSize: 100
+  AmmoAlloudInClip: 10
   ammotext: {fileID: 0}
   magsizetext: {fileID: 0}
   bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
