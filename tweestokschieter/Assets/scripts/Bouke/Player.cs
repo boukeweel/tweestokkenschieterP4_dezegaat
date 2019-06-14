@@ -21,7 +21,7 @@ public class Player : HealthSystem
 
     private bool haveweapeon;
 
-    
+    public Animator fText;
     
 
     [SerializeField] GameObject hand;
@@ -125,6 +125,23 @@ public class Player : HealthSystem
             SceneManager.LoadScene("Loading Scene");
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("door"))
+        {
+            fText.SetBool("active", true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("door"))
+        {
+            fText.SetBool("active", false);
+        }
+    }
+
     public void usingcontrols()
     {
         if (Usingcontroler == true)
@@ -136,7 +153,6 @@ public class Player : HealthSystem
             Usingcontroler = true;
         }
     }
-   
 
     public void SetWeapon(AmmoSystem a)
     {
@@ -144,10 +160,4 @@ public class Player : HealthSystem
         weapon.SetParent(hand);
         weapon.Awake();
     }
-
-    
-   
-   
-    
-
 }
