@@ -15,14 +15,15 @@ public class InventorySystem : Inventory
 
     public GameObject text;
     public Animator textAnimation;
+    public Animator doorAnim;
 
     public GameObject button;
 
     public Animator animator;
 
     public bool inventoryActive = false;
-
     public bool inventoryAnimDone = false;
+    public bool collision = false;
 
     private void Update()
     {
@@ -44,20 +45,29 @@ public class InventorySystem : Inventory
         {
             text.SetActive(true);
             textAnimation.SetBool("active", true);
+            collision = true;
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if(collision == true)
             {
-                if (inventoryActive)
+                if (Input.GetKeyDown(KeyCode.F))
                 {
-                    inventoryAnimDone = true;
-                    PlayeAnimaiton();
-                }
-                else
-                {
-                    ReverseAnimtion();
-                    inventoryAnimDone = false;
+                     if (inventoryActive)
+                     {
+                           inventoryAnimDone = true;
+                           PlayeAnimaiton();
+                     }
+                     else
+                     {
+                         ReverseAnimtion();
+                         inventoryAnimDone = false;
+                         collision = false;
+                     }
                 }
             }
+        }
+        if(other.CompareTag("door"))
+        {
+            doorAnim.SetBool("active", true);
         }
     }
 
@@ -68,6 +78,10 @@ public class InventorySystem : Inventory
             PlayeAnimaiton();
             textAnimation.SetBool("active", false);
         }
+        if(other.CompareTag("door"))
+        {
+            doorAnim.SetBool("active", false);
+        }
     }
 
     public void PlayeAnimaiton()
@@ -75,7 +89,6 @@ public class InventorySystem : Inventory
         inventoryActive = false;
         Time.timeScale = 1f;
         animator.SetBool("active", false);
-
     }
 
     public void ReverseAnimtion()
