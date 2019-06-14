@@ -81,13 +81,6 @@ public class Player : HealthSystem
             health = 10000;
             Armor = 10000;
         }
-        
-
-        
-        
-        
-
-
     }
     
     
