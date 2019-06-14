@@ -52,6 +52,12 @@ public class AmmoSystem : ScriptableObject
         magSize += AmmoAmount;
         Weapon.setallfabriale();
     }
+    public void UpgradeClip()
+    {
+        AmmoAlloudInClip += 10;
+        Weapon.setallfabriale();
+    }
+
 
     public void BuildWeapon()
     {
