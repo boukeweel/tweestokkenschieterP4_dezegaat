@@ -21,6 +21,7 @@ TagManager:
   - item3
   - desk
   - Item
+  - door
   layers:
   - Default
   - TransparentFX

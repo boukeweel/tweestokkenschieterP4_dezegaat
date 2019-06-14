@@ -100,7 +100,6 @@ public class EnemySight1 : HealthSystem
                                 return true;
                             }
                         }
-
                     }
                 }
             }
@@ -167,7 +166,6 @@ public class EnemySight1 : HealthSystem
         {
             stadesmanger.shothitcount();
             EnemyHealth(Bullet.damages);
-
         }
     
     }
