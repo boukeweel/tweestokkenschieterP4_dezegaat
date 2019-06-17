@@ -14,7 +14,7 @@ public class upgrades : MonoBehaviour
     public void shotgunnow()
     {
         
-        if(hetweapon.Switchtoshotgun == true)
+        if(hetweapon.vuurtype == weaponfiretype.shotgun)
         {
             Debug.Log("already shotgun");
         }
@@ -26,7 +26,7 @@ public class upgrades : MonoBehaviour
     }
     public void autofirenow()
     {
-        if(hetweapon.Switchtoautofire == true)
+        if(hetweapon.vuurtype == weaponfiretype.autofire)
         {
             Debug.Log("alraedy autofire");
         }
@@ -37,7 +37,7 @@ public class upgrades : MonoBehaviour
     }
     public void simifirenow()
     {
-        if(hetweapon.Switchtoautofire == false && hetweapon.Switchtoshotgun == false)
+        if(hetweapon.vuurtype == weaponfiretype.simifire)
         {
             Debug.Log("already simifire");
         }

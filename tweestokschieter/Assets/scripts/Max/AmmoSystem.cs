@@ -36,12 +36,14 @@ public class AmmoSystem : ScriptableObject
 
     [Header("enums zijn cool")]
     [SerializeField] public WeaponStatus weaponStatus;
+    public weaponfiretype vuurtype;
 
     [Header("De rest")]
     [SerializeField] public GameObject weaponPrefab;
     [SerializeField] public GameObject parent;
     public GameObject weapon;
     [SerializeField] weapen Weapon;
+    
 
     public void Awake()
     {
@@ -69,16 +71,19 @@ public class AmmoSystem : ScriptableObject
     }
     public void UpgradeToShutgun()
     {
+        vuurtype = weaponfiretype.shotgun;
         Weapon.firetype = weaponfiretype.shotgun;
         Weapon.setallfabriale();
     }
     public void UpgradeToAutofire()
     {
+        vuurtype = weaponfiretype.autofire;
         Weapon.firetype = weaponfiretype.autofire;
         Weapon.setallfabriale();
     }
     public void UpradeToSimifire()
     {
+        vuurtype = weaponfiretype.simifire;
         Weapon.firetype = weaponfiretype.simifire;
         Weapon.setallfabriale();
     }
