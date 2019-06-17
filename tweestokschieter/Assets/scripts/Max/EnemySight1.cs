@@ -13,6 +13,11 @@ public class EnemySight1 : HealthSystem
     private bool Timer = true;
     public float fireSpeed;
 
+    public GameObject droppedItem;
+    public GameObject scrapSpawner;
+
+    public Animator animator;
+
     private NavMeshAgent nav;
 
     public Transform Player;
@@ -38,6 +43,8 @@ public class EnemySight1 : HealthSystem
     private void Start()
     {
         waitTilnextFire = Time.time;
+
+
     }
 
     /// <summary>
@@ -141,9 +148,9 @@ public class EnemySight1 : HealthSystem
 
     void FaceTarget()
     {
-            Vector3 direction = (points[current].transform.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        Vector3 direction = (points[current].transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     void FacePlayer()
@@ -153,11 +160,11 @@ public class EnemySight1 : HealthSystem
 
     void shoot()
     {
-         if(Time.time > waitTilnextFire)
-         {
+        if (Time.time > waitTilnextFire)
+        {
             Instantiate(bullet, transform.position + (transform.forward), transform.rotation);
             waitTilnextFire = Time.time + fireSpeed;
-         }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -167,9 +174,14 @@ public class EnemySight1 : HealthSystem
             stadesmanger.shothitcount();
             EnemyHealth(Bullet.damages);
         }
-    
+
     }
 
-  
+    private void OnDestroy()
+    {
 
+        droppedItem = Instantiate(droppedItem, scrapSpawner.transform.localPosition, Quaternion.identity) as GameObject;
+
+        //animator.SetBool("active", true);
+    }
 }
