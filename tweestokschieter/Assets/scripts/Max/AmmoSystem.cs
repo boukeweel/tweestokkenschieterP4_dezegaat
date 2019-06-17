@@ -27,7 +27,7 @@ public class AmmoSystem : ScriptableObject
     [SerializeField] public float reloadTime = 2;
     public float reloadTimer;
     [SerializeField] public float timetowait;
-    private float holdtimetowait;
+    private float holdtimetowait = 0.5f;
     public TextMeshProUGUI ReloadTimer_;
 
     [Header("switch to diferent gun")]
@@ -55,6 +55,31 @@ public class AmmoSystem : ScriptableObject
     public void UpgradeClip()
     {
         AmmoAlloudInClip += 10;
+        Weapon.setallfabriale();
+    }
+    public void upgradeRelaodtimer()
+    {
+        reloadTime -= 0.2f;
+        Weapon.setallfabriale();
+    }
+    public void Upgradetimetowait()
+    {
+        holdtimetowait -= 0.02f;
+        Weapon.setallfabriale();
+    }
+    public void UpgradeToShutgun()
+    {
+        Weapon.firetype = weaponfiretype.shotgun;
+        Weapon.setallfabriale();
+    }
+    public void UpgradeToAutofire()
+    {
+        Weapon.firetype = weaponfiretype.autofire;
+        Weapon.setallfabriale();
+    }
+    public void UpradeToSimifire()
+    {
+        Weapon.firetype = weaponfiretype.simifire;
         Weapon.setallfabriale();
     }
 
