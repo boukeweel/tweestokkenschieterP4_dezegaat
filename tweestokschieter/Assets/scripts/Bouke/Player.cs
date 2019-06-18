@@ -25,8 +25,6 @@ public class Player : HealthSystem
     
 
     [SerializeField] GameObject hand;
-    [SerializeField] AmmoSystem weapon;
-
 
    /// <summary>
    /// set rigidbody 
@@ -149,8 +147,7 @@ public class Player : HealthSystem
 
     public void SetWeapon(AmmoSystem a)
     {
-        weapon = a;
-        weapon.SetParent(hand);
-        weapon.Awake();
+        a.SetParent(hand);
+        a.Awake();
     }
 }
