@@ -10,26 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
-  m_Name: Pistol
+  m_Name: Pistole
   m_EditorClassIdentifier: 
   ammo: 10
-  magSize: 130
+  magSize: 50
   AmmoAlloudInClip: 10
   ammotext: {fileID: 0}
   magsizetext: {fileID: 0}
   bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
-  reloadTime: 0.39999986
-  reloadTimer: 2
-  timetowait: 0.2
+  reloadTime: 2
+  reloadTimer: 0
+  timetowait: 0.5
   ReloadTimer_: {fileID: 0}
   Switchtoshotgun: 0
   Switchtoautofire: 0
   weaponStatus: 0
-<<<<<<< HEAD
   vuurtype: 0
-=======
-  vuurtype: 1
->>>>>>> master
   weaponPrefab: {fileID: 7246025192710158327, guid: be5ac1a33a5064b4b91c98cf1895329d,
     type: 3}
   parent: {fileID: 0}
