@@ -41,7 +41,7 @@ public class AmmoSystem : ScriptableObject
     [Header("De rest")]
     [SerializeField] public GameObject weaponPrefab;
     [SerializeField] public GameObject parent;
-    public GameObject weapon;
+    public GameObject weapon2;
     [SerializeField] weapen Weapon;
     
 
@@ -71,28 +71,31 @@ public class AmmoSystem : ScriptableObject
     }
     public void UpgradeToShutgun()
     {
-        vuurtype = weaponfiretype.shotgun;
-        Weapon.firetype = weaponfiretype.shotgun;
+        //vuurtype = weaponfiretype.shotgun;
+        //Weapon.firetype = weaponfiretype.shotgun;
+        weapen.firetype = weaponfiretype.shotgun;
         Weapon.setallfabriale();
     }
     public void UpgradeToAutofire()
     {
-        vuurtype = weaponfiretype.autofire;
-        Weapon.firetype = weaponfiretype.autofire;
+        //vuurtype = weaponfiretype.autofire;
+        //Weapon.firetype = weaponfiretype.autofire;
+        weapen.firetype = weaponfiretype.autofire;
         Weapon.setallfabriale();
     }
     public void UpradeToSimifire()
     {
-        vuurtype = weaponfiretype.simifire;
-        Weapon.firetype = weaponfiretype.simifire;
+        //vuurtype = weaponfiretype.simifire;
+        //Weapon.firetype = weaponfiretype.simifire;
+        weapen.firetype = weaponfiretype.simifire;
         Weapon.setallfabriale();
     }
 
 
     public void BuildWeapon()
     {
-        weapon = Instantiate<GameObject>(weaponPrefab, parent.transform.position, parent.transform.rotation);
-        weapon.transform.parent = parent.transform;
+        weapon2 = Instantiate<GameObject>(weaponPrefab, parent.transform.position, parent.transform.rotation);
+        weapon2.transform.parent = parent.transform;
     }
 
     public void SetParent(GameObject p)

@@ -40,10 +40,8 @@ public class weapen : MonoBehaviour
 
 
     private WeaponStatus weaponStatus;
-    public weaponfiretype firetype;
-
+    public static weaponfiretype firetype;
     public AudioSource audio;
-
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -60,9 +58,9 @@ public class weapen : MonoBehaviour
         bullet = weapontype.bullet;
         weaponPrefab = weapontype.weaponPrefab;
         parent = weapontype.parent;
-        weapon = weapontype.weapon;
+        weapon = weapontype.weapon2;
 
-        Debug.LogWarning("de enum is nu " + firetype);
+        //Debug.LogWarning("de enum is nu " + firetype);
         //Debug.Log("zoveel ammo" + magSize);
         ReloadTimer = 0f;
         holdtimetowait = timetowait;
@@ -71,7 +69,7 @@ public class weapen : MonoBehaviour
     public void Awake()
     {
         weaponStatus = WeaponStatus.ready;
-       
+            
 
     }
     
@@ -97,8 +95,9 @@ public class weapen : MonoBehaviour
         bullet = weapontype.bullet;
         weaponPrefab = weapontype.weaponPrefab;
         parent = weapontype.parent;
-        weapon = weapontype.weapon;
-        Debug.LogWarning("de enum is nu " + firetype);
+ //       weapon = weapontype.weapon2;
+//        Debug.LogWarning("de enum is nu " + firetype);
+//        Debug.Log(weapon);
 
         //Debug.Log("nu zoveel ammo" + magSize);
     }
@@ -159,15 +158,18 @@ public class weapen : MonoBehaviour
 
     public void Shoot()
     {
+        print(weapon);
+
         if (weaponStatus == WeaponStatus.reloading)
         {
-            return;
+//            return;
         }
-        
-        ammo = Mathf.Clamp(ammo, 0, ammoalloudinclip);
+
+
+        ammo = 1000;// Mathf.Clamp(ammo, 0, ammoalloudinclip);
         if (firetype == weaponfiretype.shotgun)
         {
-            Debug.Log("komt hij hier");
+          //  Debug.Log("komt hij hier");
 
             if (ammo != 0)
             {

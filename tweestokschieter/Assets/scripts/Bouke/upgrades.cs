@@ -5,7 +5,6 @@ using UnityEngine;
 public class upgrades : MonoBehaviour
 {
     public AmmoSystem hetweapon;
-    
 
     public void Upgradeclipsize()
     {
@@ -13,8 +12,7 @@ public class upgrades : MonoBehaviour
     }
     public void shotgunnow()
     {
-        
-        if(hetweapon.vuurtype == weaponfiretype.shotgun)
+        if (weapen.firetype == weaponfiretype.shotgun)
         {
             Debug.Log("already shotgun");
         }
@@ -22,11 +20,11 @@ public class upgrades : MonoBehaviour
         {
             hetweapon.UpgradeToShutgun();
         }
-            
+
     }
     public void autofirenow()
     {
-        if(hetweapon.vuurtype == weaponfiretype.autofire)
+        if (weapen.firetype == weaponfiretype.autofire)
         {
             Debug.Log("alraedy autofire");
         }
@@ -37,7 +35,7 @@ public class upgrades : MonoBehaviour
     }
     public void simifirenow()
     {
-        if(hetweapon.vuurtype == weaponfiretype.simifire)
+        if(weapen.firetype == weaponfiretype.simifire)
         {
             Debug.Log("already simifire");
         }

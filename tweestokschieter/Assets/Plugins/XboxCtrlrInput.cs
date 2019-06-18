@@ -998,7 +998,7 @@ namespace XboxCtrlrInput
 			
 			for(int i = 0; i < cNames.Length; i++)
 			{
-				Debug.Log("Ctrlr " + i.ToString() + ": " + cNames[i]);
+				//Debug.Log("Ctrlr " + i.ToString() + ": " + cNames[i]);
 			}
 		}
 
