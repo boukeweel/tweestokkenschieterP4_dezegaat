@@ -25,6 +25,7 @@ MonoBehaviour:
   Switchtoshotgun: 0
   Switchtoautofire: 0
   weaponStatus: 0
+  vuurtype: 0
   weaponPrefab: {fileID: 7246025192710158327, guid: be5ac1a33a5064b4b91c98cf1895329d,
     type: 3}
   parent: {fileID: 0}

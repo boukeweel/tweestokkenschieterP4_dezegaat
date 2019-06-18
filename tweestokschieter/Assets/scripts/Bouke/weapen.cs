@@ -41,6 +41,9 @@ public class weapen : MonoBehaviour
 
     private WeaponStatus weaponStatus;
     public weaponfiretype firetype;
+
+    public AudioSource audio;
+
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -118,7 +121,6 @@ public class weapen : MonoBehaviour
             if (ammo < magSize)
             {
                 weaponStatus = WeaponStatus.reloading;
-
             }
         }
         if (Input.GetKeyDown(KeyCode.I))
@@ -139,6 +141,9 @@ public class weapen : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
         {
                 Shoot();
+
+                audio.Play();
+                
         }
         
         
@@ -233,29 +238,21 @@ public class weapen : MonoBehaviour
     public void Shootautofire()
     {
 
-
-
-
-
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
 
         timetowait = holdtimetowait;
-
-
 
     }
     public void SHootSIMIFIRE()
     {
 
-
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
 
         timetowait = holdtimetowait;
-
 
     }
 
