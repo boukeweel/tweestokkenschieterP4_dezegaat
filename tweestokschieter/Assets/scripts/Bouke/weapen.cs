@@ -216,6 +216,7 @@ public class weapen : MonoBehaviour
 
     public void ReloadSystem()
     {
+        reloadAudio.Play();
         for (float i = ammo; i < magSize; i++)
         {
             if (magSize <= 0) break;
@@ -223,7 +224,6 @@ public class weapen : MonoBehaviour
             magSize--;
         }
         weaponStatus = WeaponStatus.ready;
-
     }
 
     public void shotgun()
