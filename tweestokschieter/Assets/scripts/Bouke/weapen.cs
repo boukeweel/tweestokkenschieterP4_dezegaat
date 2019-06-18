@@ -229,6 +229,7 @@ public class weapen : MonoBehaviour
         {
             //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
             Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
+            audio.Play();
         }
         ammo--;
         stadesmanger.shootcount();
@@ -243,8 +244,8 @@ public class weapen : MonoBehaviour
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
-
         timetowait = holdtimetowait;
+        audio.Play();
 
     }
     public void SHootSIMIFIRE()
@@ -253,9 +254,8 @@ public class weapen : MonoBehaviour
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
-
         timetowait = holdtimetowait;
-
+        audio.Play();
     }
 
     public void AddAmmo(int AmmoAmount)
