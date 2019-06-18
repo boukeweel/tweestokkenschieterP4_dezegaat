@@ -163,7 +163,7 @@ public class weapen : MonoBehaviour
         }
 
 
-        ammo = 1000;// Mathf.Clamp(ammo, 0, ammoalloudinclip);
+        ammo = Mathf.Clamp(ammo, 0, ammoalloudinclip);
         if (firetype == weaponfiretype.shotgun)
         {
           //  Debug.Log("komt hij hier");
