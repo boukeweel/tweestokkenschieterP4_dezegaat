@@ -13,21 +13,25 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   ammo: 10
-  magSize: 100
+  magSize: 130
   AmmoAlloudInClip: 10
   ammotext: {fileID: 0}
   magsizetext: {fileID: 0}
   bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
-  reloadTime: 2
+  reloadTime: 0.39999986
   reloadTimer: 2
   timetowait: 0.2
   ReloadTimer_: {fileID: 0}
   Switchtoshotgun: 0
   Switchtoautofire: 0
   weaponStatus: 0
+<<<<<<< HEAD
   vuurtype: 0
+=======
+  vuurtype: 1
+>>>>>>> master
   weaponPrefab: {fileID: 7246025192710158327, guid: be5ac1a33a5064b4b91c98cf1895329d,
     type: 3}
   parent: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon2: {fileID: 0}
   Weapon: {fileID: 7219990963708262801, guid: be5ac1a33a5064b4b91c98cf1895329d, type: 3}

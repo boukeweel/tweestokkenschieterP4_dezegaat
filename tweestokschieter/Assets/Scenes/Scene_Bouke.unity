@@ -3547,7 +3547,6 @@ MonoBehaviour:
   FillArmorbar: {fileID: 0}
   fText: {fileID: 0}
   hand: {fileID: 986706254}
-  weapon: {fileID: 0}
 --- !u!1 &717198772499979082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,7 +3898,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7219990963708262801, guid: be5ac1a33a5064b4b91c98cf1895329d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: be5ac1a33a5064b4b91c98cf1895329d, type: 3}
 --- !u!1001 &3553341947658320686
 PrefabInstance:
