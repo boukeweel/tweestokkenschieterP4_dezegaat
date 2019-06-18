@@ -41,7 +41,10 @@ public class weapen : MonoBehaviour
 
     private WeaponStatus weaponStatus;
     public static weaponfiretype firetype;
-    public AudioSource audio;
+
+    public AudioSource shootAudio;
+    public AudioSource reloadAudio;
+
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -141,7 +144,7 @@ public class weapen : MonoBehaviour
         {
                 Shoot();
 
-                audio.Play();
+                shootAudio.Play();
                 
         }
         
@@ -229,7 +232,7 @@ public class weapen : MonoBehaviour
         {
             //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
             Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
-            audio.Play();
+            shootAudio.Play();
         }
         ammo--;
         stadesmanger.shootcount();
@@ -245,7 +248,7 @@ public class weapen : MonoBehaviour
         ammo--;
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
-        audio.Play();
+        shootAudio.Play();
 
     }
     public void SHootSIMIFIRE()
@@ -255,7 +258,7 @@ public class weapen : MonoBehaviour
         ammo--;
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
-        audio.Play();
+        shootAudio.Play();
     }
 
     public void AddAmmo(int AmmoAmount)
