@@ -27,7 +27,7 @@ public class AmmoSystem : ScriptableObject
     [SerializeField] public float reloadTime = 2;
     public float reloadTimer;
     [SerializeField] public float timetowait;
-    private float holdtimetowait;
+    private float holdtimetowait = 0.5f;
     public TextMeshProUGUI ReloadTimer_;
 
     [Header("switch to diferent gun")]
@@ -36,12 +36,14 @@ public class AmmoSystem : ScriptableObject
 
     [Header("enums zijn cool")]
     [SerializeField] public WeaponStatus weaponStatus;
+    public weaponfiretype vuurtype;
 
     [Header("De rest")]
     [SerializeField] public GameObject weaponPrefab;
     [SerializeField] public GameObject parent;
     public GameObject weapon;
     [SerializeField] weapen Weapon;
+    
 
     public void Awake()
     {
@@ -55,6 +57,34 @@ public class AmmoSystem : ScriptableObject
     public void UpgradeClip()
     {
         AmmoAlloudInClip += 10;
+        Weapon.setallfabriale();
+    }
+    public void upgradeRelaodtimer()
+    {
+        reloadTime -= 0.2f;
+        Weapon.setallfabriale();
+    }
+    public void Upgradetimetowait()
+    {
+        holdtimetowait -= 0.02f;
+        Weapon.setallfabriale();
+    }
+    public void UpgradeToShutgun()
+    {
+        vuurtype = weaponfiretype.shotgun;
+        Weapon.firetype = weaponfiretype.shotgun;
+        Weapon.setallfabriale();
+    }
+    public void UpgradeToAutofire()
+    {
+        vuurtype = weaponfiretype.autofire;
+        Weapon.firetype = weaponfiretype.autofire;
+        Weapon.setallfabriale();
+    }
+    public void UpradeToSimifire()
+    {
+        vuurtype = weaponfiretype.simifire;
+        Weapon.firetype = weaponfiretype.simifire;
         Weapon.setallfabriale();
     }
 

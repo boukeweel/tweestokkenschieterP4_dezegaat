@@ -4,6 +4,12 @@ using UnityEngine;
 using TMPro;
 using XboxCtrlrInput;
 
+public enum weaponfiretype
+{
+    simifire = 0,
+    autofire,
+    shotgun,
+}
 public class weapen : MonoBehaviour
 {
     public AmmoSystem weapontype;
@@ -34,6 +40,7 @@ public class weapen : MonoBehaviour
 
 
     private WeaponStatus weaponStatus;
+    public weaponfiretype firetype;
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -52,7 +59,7 @@ public class weapen : MonoBehaviour
         parent = weapontype.parent;
         weapon = weapontype.weapon;
 
-        Debug.Log("ammo alloud in clip is" + ammoalloudinclip);
+        Debug.LogWarning("de enum is nu " + firetype);
         //Debug.Log("zoveel ammo" + magSize);
         ReloadTimer = 0f;
         holdtimetowait = timetowait;
@@ -61,6 +68,8 @@ public class weapen : MonoBehaviour
     public void Awake()
     {
         weaponStatus = WeaponStatus.ready;
+       
+
     }
     
     public void reload()
@@ -86,7 +95,8 @@ public class weapen : MonoBehaviour
         weaponPrefab = weapontype.weaponPrefab;
         parent = weapontype.parent;
         weapon = weapontype.weapon;
-        Debug.Log("ammo alloud in clip is" + ammoalloudinclip);
+        Debug.LogWarning("de enum is nu " + firetype);
+
         //Debug.Log("nu zoveel ammo" + magSize);
     }
 
@@ -125,10 +135,14 @@ public class weapen : MonoBehaviour
                 ReloadSystem();
             }
         }
+        
         if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
         {
-            Shoot();
+                Shoot();
         }
+        
+        
+        
         timetowait -= Time.deltaTime;
 
 
@@ -144,10 +158,11 @@ public class weapen : MonoBehaviour
         {
             return;
         }
+        
         ammo = Mathf.Clamp(ammo, 0, ammoalloudinclip);
-        if (Switchtoshotgun == true)
+        if (firetype == weaponfiretype.shotgun)
         {
-
+            Debug.Log("komt hij hier");
 
             if (ammo != 0)
             {
@@ -160,34 +175,31 @@ public class weapen : MonoBehaviour
 
             }
         }
-        else
+        if(firetype == weaponfiretype.autofire)
         {
-
-
             if (ammo != 0)
             {
-                if (Switchtoautofire)
+
+                if (timetowait <= 0)
                 {
-                    
-                    if (timetowait <= 0)
-                    {
-                        Shootautofire();
-
-                    }
-
+                    Shootautofire();
                 }
-                else
-                {
-                    
-                    if (timetowait <= 0)
-                    {
-                        SHootSIMIFIRE();
 
-                    }
-                }
 
             }
+        }
+        if(firetype == weaponfiretype.simifire)
+        {
+            if (ammo != 0)
+            {
 
+                if (timetowait <= 0)
+                {
+                    SHootSIMIFIRE();
+                }
+
+
+            }
         }
     }
 
