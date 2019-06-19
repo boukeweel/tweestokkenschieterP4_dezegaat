@@ -38133,6 +38133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hetweapon: {fileID: 11400000, guid: 04f335bc1e9d09d4a8ef9cf4cc788802, type: 2}
+  Shutguntext: {fileID: 2058705643}
+  autofiretext: {fileID: 1280465578}
+  simifiretext: {fileID: 937809250}
+  ClipUpgradetext: {fileID: 1677620797}
+  reloadtimerText: {fileID: 1172973429}
+  Shootingspeedtext: {fileID: 226546924}
 --- !u!1001 &1365482528
 PrefabInstance:
   m_ObjectHideFlags: 0

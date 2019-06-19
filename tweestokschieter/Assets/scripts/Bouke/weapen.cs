@@ -147,9 +147,6 @@ public class weapen : MonoBehaviour
             if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
             {
                 Shoot();
-
-                
-
             }
 
         }
@@ -158,10 +155,7 @@ public class weapen : MonoBehaviour
             if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
             {
                 Shoot();
-
-                
-                
-            }
+            }            
 
         }
         

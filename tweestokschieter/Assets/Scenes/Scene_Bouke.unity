@@ -2024,6 +2024,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hetweapon: {fileID: 0}
+  Shutguntext: {fileID: 0}
+  autofiretext: {fileID: 0}
+  simifiretext: {fileID: 0}
+  ClipUpgradetext: {fileID: 0}
+  reloadtimerText: {fileID: 0}
+  Shootingspeedtext: {fileID: 0}
 --- !u!1 &1457806144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,13 +2616,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617437791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 3.5945, y: 1.2136195, z: -10.564056}
   m_LocalScale: {x: 2.049, y: 2.049, z: 2.049}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1652145760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,6 +3552,7 @@ MonoBehaviour:
   FillHealthBar: {fileID: 0}
   FillArmorbar: {fileID: 0}
   fText: {fileID: 0}
+  Crosshair: {fileID: 0}
   hand: {fileID: 986706254}
 --- !u!1 &717198772499979082
 GameObject:
