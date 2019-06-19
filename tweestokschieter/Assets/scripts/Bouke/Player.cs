@@ -73,7 +73,7 @@ public class Player : HealthSystem
         }
         //set fillamount of health and armor bar
 
-        //FillHealthBar.fillAmount = (health / 100);
+        FillHealthBar.fillAmount = (health / 100);
         // FillArmorbar.fillAmount = (Armor / 100);
 
         if (Input.GetKeyDown(KeyCode.I))
