@@ -48,6 +48,8 @@ public class weapen : MonoBehaviour
     private bool gunShotSound;
     private bool reloadSound;
 
+    public ParticleSystem particleSystem;
+
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -70,7 +72,6 @@ public class weapen : MonoBehaviour
         //Debug.Log("zoveel ammo" + magSize);
         ReloadTimer = 0f;
         holdtimetowait = timetowait;
-
     }
     public void Awake()
     {
@@ -234,6 +235,7 @@ public class weapen : MonoBehaviour
     public void ReloadSystem()
     {
         reloadAudio.Play();
+        particleSystem.Play();
         for (float i = ammo; i < magSize; i++)
         {
             if (magSize <= 0) break;
@@ -250,6 +252,7 @@ public class weapen : MonoBehaviour
             //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
             Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
             shootAudio.Play();
+            particleSystem.Play();
         }
         ammo--;
         stadesmanger.shootcount();
@@ -266,6 +269,7 @@ public class weapen : MonoBehaviour
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
         shootAudio.Play();
+        particleSystem.Play();
         reloadSound = false;
     }
     public void SHootSIMIFIRE()
@@ -276,6 +280,7 @@ public class weapen : MonoBehaviour
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
         shootAudio.Play();
+        particleSystem.Play();
         reloadSound = false;
     }
 
