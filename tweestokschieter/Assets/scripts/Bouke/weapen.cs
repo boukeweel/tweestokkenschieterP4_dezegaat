@@ -45,6 +45,9 @@ public class weapen : MonoBehaviour
     public AudioSource shootAudio;
     public AudioSource reloadAudio;
 
+    private bool gunShotSound;
+    private bool reloadSound;
+
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -72,8 +75,6 @@ public class weapen : MonoBehaviour
     public void Awake()
     {
         weaponStatus = WeaponStatus.ready;
-            
-
     }
     
     public void reload()
@@ -232,6 +233,7 @@ public class weapen : MonoBehaviour
 
     public void ReloadSystem()
     {
+        reloadAudio.Play();
         for (float i = ammo; i < magSize; i++)
         {
             if (magSize <= 0) break;
@@ -239,7 +241,6 @@ public class weapen : MonoBehaviour
             magSize--;
         }
         weaponStatus = WeaponStatus.ready;
-
     }
 
     public void shotgun()
@@ -253,7 +254,7 @@ public class weapen : MonoBehaviour
         ammo--;
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
-
+        reloadSound = false;
 
     }
 
@@ -265,7 +266,7 @@ public class weapen : MonoBehaviour
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
         shootAudio.Play();
-
+        reloadSound = false;
     }
     public void SHootSIMIFIRE()
     {
@@ -275,6 +276,7 @@ public class weapen : MonoBehaviour
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
         shootAudio.Play();
+        reloadSound = false;
     }
 
     public void AddAmmo(int AmmoAmount)
