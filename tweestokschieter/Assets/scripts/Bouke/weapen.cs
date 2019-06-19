@@ -147,7 +147,7 @@ public class weapen : MonoBehaviour
             {
                 Shoot();
 
-                shootAudio.Play();
+                
 
             }
 
@@ -158,7 +158,7 @@ public class weapen : MonoBehaviour
             {
                 Shoot();
 
-                shootAudio.Play();
+                
                 
             }
 

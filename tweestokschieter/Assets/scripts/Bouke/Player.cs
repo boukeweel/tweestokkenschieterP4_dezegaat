@@ -34,7 +34,7 @@ public class Player : HealthSystem
         
         rig = GetComponent<Rigidbody>();
       
-       // FillHealthBar.fillAmount = (health / 100);
+        FillHealthBar.fillAmount = (health / 100);
         //FillArmorbar.fillAmount = (Armor / 100);
         
     }
