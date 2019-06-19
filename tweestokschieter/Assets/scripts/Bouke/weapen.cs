@@ -140,13 +140,29 @@ public class weapen : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
+        if(firetype == weaponfiretype.autofire)
         {
+            if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
+            {
+                Shoot();
+
+                shootAudio.Play();
+
+            }
+
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
+            {
                 Shoot();
 
                 shootAudio.Play();
                 
+            }
+
         }
+        
         
         
         
