@@ -22,6 +22,8 @@ public class Player : HealthSystem
     private bool haveweapeon;
 
     public Animator fText;
+
+    public GameObject Crosshair;
     
 
     [SerializeField] GameObject hand;
@@ -65,7 +67,7 @@ public class Player : HealthSystem
             if (Physics.Raycast(_ray, out _hit))
             {
                 transform.LookAt(_hit.point);
-
+                //Crosshair.transform.position = _hit.point; 
             }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
