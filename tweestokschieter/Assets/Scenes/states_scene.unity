@@ -904,12 +904,12 @@ MonoBehaviour:
   ArmorPickedupAmount: {fileID: 2057856807}
   favotriteweapeon: {fileID: 1538926850}
   WedgeColor:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.55144167, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0.9999995, b: 1, a: 1}
-  - {r: 0, g: 0.08543253, b: 1, a: 1}
-  - {r: 0.8294525, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.88550174, b: 0, a: 1}
+  - {r: 0.2924528, g: 0, b: 0, a: 1}
+  - {r: 0.15127636, g: 0.2735849, b: 0, a: 1}
+  - {r: 0, g: 0.26415092, b: 0.26415092, a: 1}
+  - {r: 0, g: 0.0211617, b: 0.24528301, a: 1}
+  - {r: 0.12549023, g: 0, b: 0.1509434, a: 1}
+  - {r: 0.20754719, g: 0.1839438, b: 0, a: 1}
   WedgePrefabes: {fileID: 3540091353977918618, guid: 3f37d5a22dca7e645953c7170b810fcb,
     type: 3}
 --- !u!1 &902925796
@@ -1257,7 +1257,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 1, b: 0.20181227, a: 1}
+  m_fontColor: {r: 0, g: 0.3018868, b: 0.060377374, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2464,7 +2464,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.21698111, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2621,7 +2621,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.015301228, g: 0, b: 1, a: 1}
+  m_fontColor: {r: 0.0041436064, g: 0, b: 0.26415092, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2778,7 +2778,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 1, b: 0.97032166, a: 1}
+  m_fontColor: {r: 0, g: 0.26415092, b: 0.25586382, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
