@@ -81,7 +81,7 @@ public class EnemySight1 : HealthSystem
     /// <returns></returns>
     public static bool inFov(Transform CheckingObject, Transform target, float maxAngle, float maxRadius)
     {
-        Collider[] overlaps = new Collider[150];
+        Collider[] overlaps = new Collider[200];
         int count = Physics.OverlapSphereNonAlloc(CheckingObject.position, maxRadius, overlaps);
 
         for (int i = 0; i < count + 1; i++)
