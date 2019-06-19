@@ -45,6 +45,9 @@ public class weapen : MonoBehaviour
     public AudioSource shootAudio;
     public AudioSource reloadAudio;
 
+    private bool gunShotSound;
+    private bool reloadSound;
+
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -72,8 +75,6 @@ public class weapen : MonoBehaviour
     public void Awake()
     {
         weaponStatus = WeaponStatus.ready;
-            
-
     }
     
     public void reload()
@@ -143,9 +144,6 @@ public class weapen : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
         {
                 Shoot();
-
-                shootAudio.Play();
-                
         }
         
         
@@ -237,7 +235,7 @@ public class weapen : MonoBehaviour
         ammo--;
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
-
+        reloadSound = false;
 
     }
 
@@ -249,7 +247,7 @@ public class weapen : MonoBehaviour
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
         shootAudio.Play();
-
+        reloadSound = false;
     }
     public void SHootSIMIFIRE()
     {
@@ -259,6 +257,7 @@ public class weapen : MonoBehaviour
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
         shootAudio.Play();
+        reloadSound = false;
     }
 
     public void AddAmmo(int AmmoAmount)
