@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class upgrades : MonoBehaviour
 {
     public AmmoSystem hetweapon;
 
+    public TMP_Text Shutguntext;
+    public TMP_Text autofiretext;
+    public TMP_Text simifiretext;
+    public TMP_Text ClipUpgradetext;
+    public TMP_Text reloadtimerText;
+    public TMP_Text Shootingspeedtext;
+
+    
+    
     public void Upgradeclipsize()
     {
         hetweapon.UpgradeClip();
@@ -14,11 +24,13 @@ public class upgrades : MonoBehaviour
     {
         if (weapen.firetype == weaponfiretype.shotgun)
         {
-            Debug.Log("already shotgun");
+            Debug.Log("already shutgun");
         }
         else
         {
+
             hetweapon.UpgradeToShutgun();
+
         }
 
     }
