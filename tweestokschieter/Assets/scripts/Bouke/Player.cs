@@ -24,7 +24,8 @@ public class Player : HealthSystem
     public Animator fText;
 
     public GameObject Crosshair;
-    
+
+    public Animator walkAnim;
 
     [SerializeField] GameObject hand;
 
@@ -82,8 +83,19 @@ public class Player : HealthSystem
             Armor = 10000;
         }
     }
-    
-    
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            walkAnim.SetBool("active", true);
+        }
+        else
+        {
+            walkAnim.SetBool("active", false);
+        }
+    }
+
     /// <summary>
     /// set input of movement
     /// </summary>

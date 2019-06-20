@@ -49,7 +49,7 @@ public class weapen : MonoBehaviour
     private bool reloadSound;
 
     public ParticleSystem particleSystem;
-
+ 
     private void Start()
     {
         ammo = weapontype.ammo;

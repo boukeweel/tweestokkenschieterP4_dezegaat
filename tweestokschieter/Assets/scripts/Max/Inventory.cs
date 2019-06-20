@@ -100,7 +100,7 @@ public class Inventory : MonoBehaviour
                 slot[i].GetComponent<Slot>().ID = itemID;
                 slot[i].GetComponent<Slot>().description = itemDescription;
 
-                health.transform.parent = slot[i].transform;
+                health.transform.parent = slot[i].transform;    
                 health.SetActive(false);
 
                 slot[i].GetComponent<Slot>().UpdateSlot();
