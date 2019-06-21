@@ -7,6 +7,8 @@ public class upgrades : MonoBehaviour
 {
     public AmmoSystem hetweapon;
 
+    public Inventory inventory;
+
     public TMP_Text Shutguntext;
     public TMP_Text autofiretext;
     public TMP_Text simifiretext;
@@ -14,62 +16,92 @@ public class upgrades : MonoBehaviour
     public TMP_Text reloadtimerText;
     public TMP_Text Shootingspeedtext;
 
-    
-    
+    private void Start()
+    {
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
+    }
+
     public void Upgradeclipsize()
     {
-        hetweapon.UpgradeClip();
+        if(inventory.scraps >= 1)
+        {
+            hetweapon.UpgradeClip();
+            inventory.scraps--;
+        }
     }
+
     public void shotgunnow()
     {
-        if (weapen.firetype == weaponfiretype.shotgun)
+        if (inventory.scraps >= 3)
         {
-            Debug.Log("already shutgun");
+            if (weapen.firetype == weaponfiretype.shotgun)
+            {
+                Debug.Log("already shutgun");
+            }
+            else
+            {
+                hetweapon.UpgradeToShutgun();
+            }
+            inventory.scraps--;
         }
-        else
-        {
-
-            hetweapon.UpgradeToShutgun();
-
-        }
-
     }
+
     public void autofirenow()
     {
-        if (weapen.firetype == weaponfiretype.autofire)
+        if(inventory.scraps >= 1)
         {
-            Debug.Log("alraedy autofire");
-        }
-        else
-        {
-            hetweapon.UpgradeToAutofire();
+            if (weapen.firetype == weaponfiretype.autofire)
+            {
+                Debug.Log("alraedy autofire");
+            }
+            else
+            {
+                hetweapon.UpgradeToAutofire();
+            }
+            inventory.scraps = inventory.scraps - 3;
         }
     }
+
     public void simifirenow()
     {
-        if(weapen.firetype == weaponfiretype.simifire)
+        if (inventory.scraps >= 1)
         {
-            Debug.Log("already simifire");
-        }
-        else
-        {
-            hetweapon.UpradeToSimifire();
+            if (weapen.firetype == weaponfiretype.simifire)
+            {
+                Debug.Log("already simifire");
+            }
+            else
+            {
+                hetweapon.UpradeToSimifire();
+            }
+            inventory.scraps--;
         }
     }
+
     public void lessreloadtimer()
     {
-        if(hetweapon.reloadTime < 0.5)
+        if (inventory.scraps >= 2)
         {
-            return;
+            if (hetweapon.reloadTime < 0.5)
+            {
+                return;
+            }
+            hetweapon.upgradeRelaodtimer();
+            inventory.scraps = inventory.scraps - 2;
         }
-        hetweapon.upgradeRelaodtimer();
     }
+
     public void upgradeshootingspeed()
     {
-        if(hetweapon.timetowait < 0.3)
+        if (inventory.scraps >= 1)
         {
-            return;
+            if (hetweapon.timetowait < 0.3)
+            {
+                return;
+            }
+            hetweapon.Upgradetimetowait();
+            inventory.scraps--;
         }
-        hetweapon.Upgradetimetowait();
+       
     }
 }

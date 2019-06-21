@@ -15,9 +15,7 @@ public class Inventory : MonoBehaviour
     private GameObject inventory;
     private bool inventoryEnabled;
 
-    public int ingredient1;
-    public int ingredient2;
-    public int ingredient3;
+    public int scraps;
 
     void Start()
     {
@@ -44,17 +42,10 @@ public class Inventory : MonoBehaviour
 
             AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
 
-            if(item.ID == 0)
+         
+            if(item.ID == 6)
             {
-                ingredient1++;
-            }
-            if (item.ID == 1)
-            {
-                ingredient2++;
-            }
-            if (item.ID == 2)
-            {
-                ingredient3++;
+                scraps++;
             }
         }
     }

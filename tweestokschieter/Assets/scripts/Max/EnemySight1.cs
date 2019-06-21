@@ -180,7 +180,7 @@ public class EnemySight1 : HealthSystem
     private void OnDestroy()
     {
 
-        droppedItem = Instantiate(droppedItem, scrapSpawner.transform.localPosition, Quaternion.identity) as GameObject;
+        droppedItem = Instantiate(droppedItem, transform.position, droppedItem.transform.rotation);
 
         //animator.SetBool("active", true);
     }
