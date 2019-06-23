@@ -40,7 +40,16 @@ public class weapen : MonoBehaviour
 
 
     private WeaponStatus weaponStatus;
-    public weaponfiretype firetype;
+    public static weaponfiretype firetype;
+
+    public AudioSource shootAudio;
+    public AudioSource reloadAudio;
+
+    private bool gunShotSound;
+    private bool reloadSound;
+
+    public ParticleSystem particleSystem;
+ 
     private void Start()
     {
         ammo = weapontype.ammo;
@@ -57,19 +66,16 @@ public class weapen : MonoBehaviour
         bullet = weapontype.bullet;
         weaponPrefab = weapontype.weaponPrefab;
         parent = weapontype.parent;
-        weapon = weapontype.weapon;
+        weapon = weapontype.weapon2;
 
-        Debug.LogWarning("de enum is nu " + firetype);
+        //Debug.LogWarning("de enum is nu " + firetype);
         //Debug.Log("zoveel ammo" + magSize);
         ReloadTimer = 0f;
         holdtimetowait = timetowait;
-
     }
     public void Awake()
     {
         weaponStatus = WeaponStatus.ready;
-       
-
     }
     
     public void reload()
@@ -94,8 +100,9 @@ public class weapen : MonoBehaviour
         bullet = weapontype.bullet;
         weaponPrefab = weapontype.weaponPrefab;
         parent = weapontype.parent;
-        weapon = weapontype.weapon;
-        Debug.LogWarning("de enum is nu " + firetype);
+ //       weapon = weapontype.weapon2;
+//        Debug.LogWarning("de enum is nu " + firetype);
+//        Debug.Log(weapon);
 
         //Debug.Log("nu zoveel ammo" + magSize);
     }
@@ -118,7 +125,6 @@ public class weapen : MonoBehaviour
             if (ammo < magSize)
             {
                 weaponStatus = WeaponStatus.reloading;
-
             }
         }
         if (Input.GetKeyDown(KeyCode.I))
@@ -136,10 +142,23 @@ public class weapen : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
+        if(firetype == weaponfiretype.autofire)
         {
+            if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
+            {
                 Shoot();
+            }
+
         }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
+            {
+                Shoot();
+            }            
+
+        }
+        
         
         
         
@@ -154,15 +173,18 @@ public class weapen : MonoBehaviour
 
     public void Shoot()
     {
+        print(weapon);
+
         if (weaponStatus == WeaponStatus.reloading)
         {
-            return;
+//            return;
         }
-        
+
+
         ammo = Mathf.Clamp(ammo, 0, ammoalloudinclip);
         if (firetype == weaponfiretype.shotgun)
         {
-            Debug.Log("komt hij hier");
+          //  Debug.Log("komt hij hier");
 
             if (ammo != 0)
             {
@@ -206,6 +228,8 @@ public class weapen : MonoBehaviour
 
     public void ReloadSystem()
     {
+        reloadAudio.Play();
+        particleSystem.Play();
         for (float i = ammo; i < magSize; i++)
         {
             if (magSize <= 0) break;
@@ -213,7 +237,6 @@ public class weapen : MonoBehaviour
             magSize--;
         }
         weaponStatus = WeaponStatus.ready;
-
     }
 
     public void shotgun()
@@ -222,41 +245,37 @@ public class weapen : MonoBehaviour
         {
             //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
             Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
+            shootAudio.Play();
+            particleSystem.Play();
         }
         ammo--;
         stadesmanger.shootcount();
         timetowait = holdtimetowait;
-
+        reloadSound = false;
 
     }
 
     public void Shootautofire()
     {
 
-
-
-
-
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
-
         timetowait = holdtimetowait;
-
-
-
+        shootAudio.Play();
+        particleSystem.Play();
+        reloadSound = false;
     }
     public void SHootSIMIFIRE()
     {
 
-
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
-
         timetowait = holdtimetowait;
-
-
+        shootAudio.Play();
+        particleSystem.Play();
+        reloadSound = false;
     }
 
     public void AddAmmo(int AmmoAmount)

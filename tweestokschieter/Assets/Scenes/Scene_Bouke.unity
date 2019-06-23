@@ -2023,7 +2023,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0568e31af58af48b8c43f98a2358e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hetweapon: {fileID: 11400000, guid: 1897fca104454e54a9fedfd2adc9467b, type: 2}
+  hetweapon: {fileID: 0}
+  Shutguntext: {fileID: 0}
+  autofiretext: {fileID: 0}
+  simifiretext: {fileID: 0}
+  ClipUpgradetext: {fileID: 0}
+  reloadtimerText: {fileID: 0}
+  Shootingspeedtext: {fileID: 0}
 --- !u!1 &1457806144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,13 +2616,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617437791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 3.5945, y: 1.2136195, z: -10.564056}
   m_LocalScale: {x: 2.049, y: 2.049, z: 2.049}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1652145760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmountAmmoget: 10
-  ammosystem: {fileID: 11400000, guid: 1897fca104454e54a9fedfd2adc9467b, type: 2}
+  ammosystem: {fileID: 0}
 --- !u!65 &1739944473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3546,8 +3552,8 @@ MonoBehaviour:
   FillHealthBar: {fileID: 0}
   FillArmorbar: {fileID: 0}
   fText: {fileID: 0}
+  Crosshair: {fileID: 0}
   hand: {fileID: 986706254}
-  weapon: {fileID: 0}
 --- !u!1 &717198772499979082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,7 +3905,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7219990963708262801, guid: be5ac1a33a5064b4b91c98cf1895329d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: be5ac1a33a5064b4b91c98cf1895329d, type: 3}
 --- !u!1001 &3553341947658320686
 PrefabInstance:
@@ -4014,7 +4021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c46aa7fe8e047488091f5fb49cec6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 1897fca104454e54a9fedfd2adc9467b, type: 2}
+  weapon: {fileID: 11400000, guid: 04f335bc1e9d09d4a8ef9cf4cc788802, type: 2}
 --- !u!65 &4761570457003139248
 BoxCollider:
   m_ObjectHideFlags: 0

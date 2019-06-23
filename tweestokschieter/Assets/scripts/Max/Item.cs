@@ -6,34 +6,35 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public int ID;
+    public int itemUsed;
     public string type;
     public string description;
     public Sprite icon;
     public bool pickedUp;
     public Player player;
-  
+    public Sprite temp;
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();  
+        player = GameObject.Find("Player").GetComponent<Player>();
+        temp = icon;
     }
 
     public void ItemUsage()
     {
         if(type == "Health")
         {
-            player.Addhealth(25);
+            itemUsed++;
+            RemoveItem();
+            //player.Addhealth(25);
         }
     }
 
     public void RemoveItem()
     {
-        for (int i = 0; i < ID; i++)
+        for (int i = 0; i < itemUsed; i++)
         {
-            if(i == 3)
-            {
-                Destroy(icon);
-            }
+            Destroy(icon);
         }
     }
 }
@@ -46,6 +47,4 @@ public class ItemDataBase : MonoBehaviour
     {
        
     }
-
-
 }

@@ -26,6 +26,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         slotIconGO = transform.GetChild(0);
+        inventory.GetComponent<Inventory>();
     }
 
     public void UpdateSlot()
@@ -40,8 +41,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void RemoveItem()
     {
-        inventory.RemoveItem();
+        item.GetComponent<Item>().RemoveItem();
     }
-    
-
 }

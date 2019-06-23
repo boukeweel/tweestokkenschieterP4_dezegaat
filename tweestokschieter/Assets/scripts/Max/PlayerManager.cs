@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        Time.timeScale = 1f;
     }
 
     #endregion

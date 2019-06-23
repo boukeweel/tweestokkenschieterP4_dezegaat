@@ -12,7 +12,6 @@ public class HealthSystem : MonoBehaviour
     public int takingDamage;
     //public GameObject DroppedItem;
     
-
     public void Health(int damges)
     {
 

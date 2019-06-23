@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c4755482896424d87b3b22eab4563e, type: 3}
+  m_Name: Pistole
+  m_EditorClassIdentifier: 
+  ammo: 10
+  magSize: 50
+  AmmoAlloudInClip: 10
+  ammotext: {fileID: 0}
+  magsizetext: {fileID: 0}
+  bullet: {fileID: 4536572452385403512, guid: 512ff0d6bf8a8c142bc885148d5af932, type: 3}
+  reloadTime: 2
+  reloadTimer: 0
+  timetowait: 0.5
+  ReloadTimer_: {fileID: 0}
+  Switchtoshotgun: 0
+  Switchtoautofire: 0
+  weaponStatus: 0
+  vuurtype: 0
+  weaponPrefab: {fileID: 7246025192710158327, guid: be5ac1a33a5064b4b91c98cf1895329d,
+    type: 3}
+  parent: {fileID: 0}
+  weapon2: {fileID: 0}
+  Weapon: {fileID: 7219990963708262801, guid: be5ac1a33a5064b4b91c98cf1895329d, type: 3}

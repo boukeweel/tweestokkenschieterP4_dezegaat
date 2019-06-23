@@ -22,11 +22,12 @@ public class Player : HealthSystem
     private bool haveweapeon;
 
     public Animator fText;
-    
+
+    public GameObject Crosshair;
+
+    public Animator walkAnim;
 
     [SerializeField] GameObject hand;
-    [SerializeField] AmmoSystem weapon;
-
 
    /// <summary>
    /// set rigidbody 
@@ -36,7 +37,7 @@ public class Player : HealthSystem
         
         rig = GetComponent<Rigidbody>();
       
-       // FillHealthBar.fillAmount = (health / 100);
+        FillHealthBar.fillAmount = (health / 100);
         //FillArmorbar.fillAmount = (Armor / 100);
         
     }
@@ -67,13 +68,13 @@ public class Player : HealthSystem
             if (Physics.Raycast(_ray, out _hit))
             {
                 transform.LookAt(_hit.point);
-
+                //Crosshair.transform.position = _hit.point; 
             }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
         //set fillamount of health and armor bar
 
-        //FillHealthBar.fillAmount = (health / 100);
+        FillHealthBar.fillAmount = (health / 100);
         // FillArmorbar.fillAmount = (Armor / 100);
 
         if (Input.GetKeyDown(KeyCode.I))
@@ -82,8 +83,19 @@ public class Player : HealthSystem
             Armor = 10000;
         }
     }
-    
-    
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            walkAnim.SetBool("active", true);
+        }
+        else
+        {
+            walkAnim.SetBool("active", false);
+        }
+    }
+
     /// <summary>
     /// set input of movement
     /// </summary>
@@ -149,8 +161,7 @@ public class Player : HealthSystem
 
     public void SetWeapon(AmmoSystem a)
     {
-        weapon = a;
-        weapon.SetParent(hand);
-        weapon.Awake();
+        a.SetParent(hand);
+        a.Awake();
     }
 }
