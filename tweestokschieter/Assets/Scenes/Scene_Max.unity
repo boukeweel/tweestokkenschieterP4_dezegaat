@@ -1650,9 +1650,7 @@ MonoBehaviour:
   allSlots: 0
   slotHolder: {fileID: 0}
   health: {fileID: 0}
-  ingredient1: 0
-  ingredient2: 0
-  ingredient3: 0
+  scraps: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1701,9 +1699,7 @@ MonoBehaviour:
   allSlots: 0
   slotHolder: {fileID: 0}
   health: {fileID: 0}
-  ingredient1: 0
-  ingredient2: 0
-  ingredient3: 0
+  scraps: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -2874,7 +2870,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5d162cbea0a677d4b904aed70916a75a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7297034
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5d162cbea0a677d4b904aed70916a75a,
         type: 3}
@@ -2920,6 +2916,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5d162cbea0a677d4b904aed70916a75a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5029743
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5d162cbea0a677d4b904aed70916a75a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5029743
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5d162cbea0a677d4b904aed70916a75a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5029743
       objectReference: {fileID: 0}
     - target: {fileID: -4212916686629878199, guid: 5d162cbea0a677d4b904aed70916a75a,
         type: 3}
@@ -6100,13 +6111,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835179486}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -9.40009, y: 8.15, z: -13.56}
+  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.7071069}
+  m_LocalPosition: {x: -9.40009, y: 10.51, z: -12.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 62.037003, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!4 &836844825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2508458903625423661, guid: a0c75c3f20be89940a6da6af3a8c1961,
@@ -6279,7 +6290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 7.4202957, z: 0.68747616}
+  m_FollowOffset: {x: 0, y: 9.83, z: 1.2874765}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -7569,7 +7580,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 5
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 601545511}
   m_Follow: {fileID: 601545511}
@@ -7597,14 +7608,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340971371}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -9.40009, y: 8.15, z: -13.56}
+  m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: -9.40009, y: 10.51, z: -12.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 845469358}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!1 &1383658617
 GameObject:
   m_ObjectHideFlags: 0
@@ -9192,11 +9203,13 @@ MonoBehaviour:
   droppedItem: {fileID: 0}
   scrapSpawner: {fileID: 0}
   animator: {fileID: 0}
-  Player: {fileID: 5290060144674867215}
+  Player: {fileID: 601545511}
+  isInFov: 0
   points: []
   Speed: 0
   IsPatroling: 1
   bullet: {fileID: 5335007311529013147, guid: 476c077e3f88e114fa85c6e3cccb434d, type: 3}
+  cameraAnim: {fileID: 134774205}
 --- !u!65 &1655091531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11317,7 +11330,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 5290060144674867215}
+      objectReference: {fileID: 601545511}
     - target: {fileID: 2939066465555753639, guid: 3177e27a1caa1234a93d50a43f4638f0,
         type: 3}
       propertyPath: curve.m_Curve.Array.data[1].time
@@ -12410,9 +12423,7 @@ MonoBehaviour:
   allSlots: 14
   slotHolder: {fileID: 2054849862}
   health: {fileID: 7152501028047017323, guid: 0a0cf7ef060cb7e48951744c63adb12e, type: 3}
-  ingredient1: 0
-  ingredient2: 0
-  ingredient3: 0
+  scraps: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 0

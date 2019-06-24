@@ -7,7 +7,9 @@ public class PlayerManager : MonoBehaviour
     #region Singleton
 
     public static PlayerManager instance;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+    public GameObject scrap;
+
     private void Awake()
     {
         instance = this;
@@ -15,6 +17,7 @@ public class PlayerManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+   
     #endregion
 
     public GameObject player;

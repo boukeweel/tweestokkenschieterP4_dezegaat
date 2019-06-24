@@ -12,6 +12,7 @@ public class OpenRegularDoor : MonoBehaviour
     public LayerMask layerMask2;
     public LayerMask layerMask3;
     public LayerMask layerMask4;
+    public AudioSource doorSound;
     public Animator[] animator;
     public int[] IsOpen;
     int current = 0;
@@ -52,6 +53,7 @@ public class OpenRegularDoor : MonoBehaviour
         {
             IsOpen[_index] = IsOpen[_index] == 1 ? 0 : 1;
             animator[_index].SetBool("active", IsOpen[_index] == 1 ? true : false);
+            doorSound.Play();
             return true;
         }
         return false;
