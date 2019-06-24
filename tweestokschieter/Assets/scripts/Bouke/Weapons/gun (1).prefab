@@ -2396,8 +2396,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7246025192710158327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.505042, y: 1.805958, z: -9.981188}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.5069, y: 1.7814, z: -10.13}
+  m_LocalScale: {x: 0.46964, y: 0.46964, z: 0.46964}
   m_Children:
   - {fileID: 8869123369281875544}
   - {fileID: 2103026822483860946}
@@ -3060,6 +3060,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: muzzleflash
       objectReference: {fileID: 0}
+    - target: {fileID: 7871142629490931132, guid: 457b3b5e5c6ddf0478e6df6b2c11bd78,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7871142629490931131, guid: 457b3b5e5c6ddf0478e6df6b2c11bd78,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3129,11 +3134,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.25648555
-      objectReference: {fileID: 0}
-    - target: {fileID: 7871142629490931132, guid: 457b3b5e5c6ddf0478e6df6b2c11bd78,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 457b3b5e5c6ddf0478e6df6b2c11bd78, type: 3}
