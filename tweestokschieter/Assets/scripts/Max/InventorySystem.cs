@@ -31,7 +31,7 @@ public class InventorySystem : Inventory
         {
             for (int i = 0; i < allSlots; i++)
             {
-                if (ingredient1 >= 3 && ingredient2 >= 1 && ingredient3 >= 2 )
+                if (scraps >= 1)
                 {
                     button.SetActive(true);
                 }
