@@ -22,7 +22,7 @@ public class EnemySight1 : HealthSystem
 
     public Transform Player;
 
-    private bool isInFov = false;
+    public bool isInFov = false;
 
     [SerializeField] private Transform[] points;
 
@@ -179,9 +179,8 @@ public class EnemySight1 : HealthSystem
 
     private void OnDestroy()
     {
-
         droppedItem = Instantiate(droppedItem, transform.position, droppedItem.transform.rotation);
-
-        //animator.SetBool("active", true);
     }
+
+   
 }

@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class CameraEnemy : EnemySight1
 {
-    void Start()
+
+    public Animator cameraAnim;
+
+    private void Update()
     {
         
     }
 
-    void Update()
+    public void PlayerInCameraSight()
     {
-        
+        if(isInFov == true)
+        {
+            cameraAnim.StopPlayback();
+        }
     }
+
 }
