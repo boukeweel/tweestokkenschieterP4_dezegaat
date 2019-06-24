@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6391797501632144135}
   - component: {fileID: 2257003208322925941}
   - component: {fileID: 4648735343479810150}
+  - component: {fileID: 5747540331772664677}
   m_Layer: 0
   m_Name: Scrap
   m_TagString: Item
@@ -106,8 +107,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6
+  itemUsed: 0
   type: Scrap
   description: used to upgrade gun
   icon: {fileID: 21300000, guid: 60388ba5c4f70bf419d308e9c40e50b3, type: 3}
   pickedUp: 0
   player: {fileID: 0}
+  temp: {fileID: 0}
+--- !u!114 &5747540331772664677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737391492105379636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901fbed3fcdd5a44ebf3ac4f1969ce4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
