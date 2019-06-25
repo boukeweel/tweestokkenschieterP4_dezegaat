@@ -52,21 +52,7 @@ public class weapen : MonoBehaviour
  
     private void Start()
     {
-        ammo = weapontype.ammo;
-        ammoalloudinclip = weapontype.AmmoAlloudInClip;
-        magSize = weapontype.magSize;
-        reloadtimer = weapontype.reloadTime;
-        ReloadTimer = weapontype.reloadTimer;
-        timetowait = weapontype.timetowait;
-        Switchtoshotgun = weapontype.Switchtoshotgun;
-        Switchtoautofire = weapontype.Switchtoautofire;
-        ammotext = weapontype.ammotext;
-        magsizetext = weapontype.magsizetext;
-        ReloadTimer_ = weapontype.ReloadTimer_;
-        bullet = weapontype.bullet;
-        weaponPrefab = weapontype.weaponPrefab;
-        parent = weapontype.parent;
-        weapon = weapontype.weapon2;
+        setallfabriale();
 
         //Debug.LogWarning("de enum is nu " + firetype);
         //Debug.Log("zoveel ammo" + magSize);
