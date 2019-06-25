@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/tutorial level 2.unity
     guid: d4050fe532967b9499b1bab9e35eea9a
   - enabled: 1
+    path: Assets/Scenes/level 2.unity
+    guid: e6b911190c0fe5f48882c9b40bf22ad3
+  - enabled: 1
     path: Assets/Scenes/states_scene.unity
     guid: 89ec299f81a0d74438fb2a14c4869dd9
-  - enabled: 1
-    path: Assets/Scenes/Loading Scene.unity
-    guid: 55ccf0f3f8244c7448f0a7cf71dbcfcb
   m_configObjects: {}
