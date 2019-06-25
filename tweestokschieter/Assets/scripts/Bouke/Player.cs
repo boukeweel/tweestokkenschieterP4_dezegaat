@@ -88,11 +88,11 @@ public class Player : HealthSystem
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            walkAnim.SetBool("active", true);
+            //walkAnim.SetBool("active", true);
         }
         else
         {
-            walkAnim.SetBool("active", false);
+            //walkAnim.SetBool("active", false);
         }
     }
 
@@ -124,11 +124,12 @@ public class Player : HealthSystem
         {
             Health(20);
         }
-        if(collision.collider.CompareTag("lift"))   
-        {
-            animator.SetBool("active", true);
-            SceneManager.LoadScene("Loading Scene");
-        }
+        //if (collision.collider.CompareTag("Lift"))
+        //{
+        //    //animator.SetBool("active", true);
+        //    SceneManager.LoadScene(2);
+        //}
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -146,6 +147,7 @@ public class Player : HealthSystem
             fText.SetBool("active", false);
         }
     }
+    
 
     public void usingcontrols()
     {
