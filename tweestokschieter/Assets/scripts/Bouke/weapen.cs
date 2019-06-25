@@ -52,21 +52,7 @@ public class weapen : MonoBehaviour
  
     private void Start()
     {
-        ammo = weapontype.ammo;
-        ammoalloudinclip = weapontype.AmmoAlloudInClip;
-        magSize = weapontype.magSize;
-        reloadtimer = weapontype.reloadTime;
-        ReloadTimer = weapontype.reloadTimer;
-        timetowait = weapontype.timetowait;
-        Switchtoshotgun = weapontype.Switchtoshotgun;
-        Switchtoautofire = weapontype.Switchtoautofire;
-        ammotext = weapontype.ammotext;
-        magsizetext = weapontype.magsizetext;
-        ReloadTimer_ = weapontype.ReloadTimer_;
-        bullet = weapontype.bullet;
-        weaponPrefab = weapontype.weaponPrefab;
-        parent = weapontype.parent;
-        weapon = weapontype.weapon2;
+        setallfabriale();
 
         //Debug.LogWarning("de enum is nu " + firetype);
         //Debug.Log("zoveel ammo" + magSize);
@@ -146,6 +132,7 @@ public class weapen : MonoBehaviour
         {
             if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
             {
+                
                 Shoot();
             }
 
@@ -154,6 +141,7 @@ public class weapen : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
             {
+                
                 Shoot();
             }            
 
@@ -229,7 +217,6 @@ public class weapen : MonoBehaviour
     public void ReloadSystem()
     {
         reloadAudio.Play();
-        particleSystem.Play();
         for (float i = ammo; i < magSize; i++)
         {
             if (magSize <= 0) break;
@@ -241,6 +228,8 @@ public class weapen : MonoBehaviour
 
     public void shotgun()
     {
+        
+        
         for (int i = 0; i < 8; i++)
         {
             //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
@@ -257,7 +246,7 @@ public class weapen : MonoBehaviour
 
     public void Shootautofire()
     {
-
+        
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
@@ -269,6 +258,7 @@ public class weapen : MonoBehaviour
     public void SHootSIMIFIRE()
     {
 
+        
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
