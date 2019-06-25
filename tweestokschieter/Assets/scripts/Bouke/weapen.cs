@@ -132,6 +132,7 @@ public class weapen : MonoBehaviour
         {
             if (Input.GetMouseButton(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
             {
+                
                 Shoot();
             }
 
@@ -140,6 +141,7 @@ public class weapen : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || XCI.GetAxis(XboxAxis.RightTrigger, XboxController.First) > 0.1)
             {
+                
                 Shoot();
             }            
 
@@ -227,6 +229,8 @@ public class weapen : MonoBehaviour
 
     public void shotgun()
     {
+        
+        
         for (int i = 0; i < 8; i++)
         {
             //Quaternion projectilerotation = Quaternion.Euler(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0));
@@ -243,7 +247,7 @@ public class weapen : MonoBehaviour
 
     public void Shootautofire()
     {
-
+        
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
@@ -255,6 +259,7 @@ public class weapen : MonoBehaviour
     public void SHootSIMIFIRE()
     {
 
+        
         Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
         ammo--;
         stadesmanger.shootcount();
