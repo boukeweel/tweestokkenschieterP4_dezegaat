@@ -28848,8 +28848,8 @@ MonoBehaviour:
   speed: 5
   animator: {fileID: 0}
   Usingcontroler: 0
-  FillHealthBar: {fileID: 0}
-  FillArmorbar: {fileID: 1168179103}
+  FillHealthBar: {fileID: 1168179103}
+  FillArmorbar: {fileID: 0}
   fText: {fileID: 0}
   Crosshair: {fileID: 0}
   walkAnim: {fileID: 0}
