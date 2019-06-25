@@ -48,7 +48,7 @@ public class upgrades : MonoBehaviour
 
     public void autofirenow()
     {
-        if(inventory.scraps >= 1)
+        if(inventory.scraps >= 3)
         {
             if (weapen.firetype == weaponfiretype.autofire)
             {
