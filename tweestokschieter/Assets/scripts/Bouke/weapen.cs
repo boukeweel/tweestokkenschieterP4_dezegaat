@@ -217,7 +217,6 @@ public class weapen : MonoBehaviour
     public void ReloadSystem()
     {
         reloadAudio.Play();
-        particleSystem.Play();
         for (float i = ammo; i < magSize; i++)
         {
             if (magSize <= 0) break;

@@ -37,8 +37,6 @@ public class CameraEnemy : MonoBehaviour
     private void Start()
     {
         waitTilnextFire = Time.time;
-
-
     }
 
     /// <summary>
