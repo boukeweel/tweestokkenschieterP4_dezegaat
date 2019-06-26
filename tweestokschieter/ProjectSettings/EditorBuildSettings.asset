@@ -12,8 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/tutorial level 2.unity
     guid: d4050fe532967b9499b1bab9e35eea9a
   - enabled: 1
-    path: Assets/Scenes/level 2.unity
-    guid: e6b911190c0fe5f48882c9b40bf22ad3
+    path: Assets/Scenes/bouke/Hier is niet lvl 2/echt niet je moet naar andere folder/ga
+      nou weg/je vind hem niet hier/ga nou weg/lvl 2/level 3.unity
+    guid: aa6f55575d395ea4f980dd5ab2aed02a
   - enabled: 1
     path: Assets/Scenes/states_scene.unity
     guid: 89ec299f81a0d74438fb2a14c4869dd9

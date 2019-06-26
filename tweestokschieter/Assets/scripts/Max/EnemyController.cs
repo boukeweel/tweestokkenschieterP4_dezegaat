@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : HealthSystem
+public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
 

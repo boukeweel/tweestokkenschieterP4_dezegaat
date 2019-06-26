@@ -28,6 +28,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(collision.collider.CompareTag("mutant"))
+        {
+            damages = Damages;
+            Destroy(gameObject);
+        }
     }
     
 }

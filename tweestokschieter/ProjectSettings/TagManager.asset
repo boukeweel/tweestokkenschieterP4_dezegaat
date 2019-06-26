@@ -23,6 +23,7 @@ TagManager:
   - Item
   - door
   - Lift
+  - mutant
   layers:
   - Default
   - TransparentFX
