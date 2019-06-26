@@ -19,10 +19,15 @@ public class UImanger : MonoBehaviour
     public TMP_Dropdown Grapichshold;
 
     private static int holdnumber;
+    //[Range(0.0f, 1.0f)]
+    public static float maxvolume;
+
 
 
     private void Start()
     {
+
+        
         // hold value
         Grapichshold.value = holdnumber;
         //mainmenu set true
@@ -127,7 +132,12 @@ public class UImanger : MonoBehaviour
     //set vulume
     public void setvolume(float volume)
     {
-        audiomixer.SetFloat("Volume", volume);
+        maxvolume = volume;
+        
+    }
+    private void Update()
+    {
+        AudioListener.volume = maxvolume;
     }
 
     //set Graphics
