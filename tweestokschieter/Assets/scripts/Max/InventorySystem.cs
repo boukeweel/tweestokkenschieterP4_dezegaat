@@ -8,9 +8,7 @@ public class InventorySystem : Inventory
     
     public LayerMask layerMask;
 
-    public TextMeshProUGUI Item1Text;
-    public TextMeshProUGUI Item2Text;
-    public TextMeshProUGUI Item3Text;
+ 
     public TextMeshProUGUI potionText;
 
     public GameObject text;

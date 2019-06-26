@@ -59,7 +59,7 @@ public class UImanger : MonoBehaviour
     public void StartGame()
     {
         //start game
-        SceneManager.LoadScene("Loading Scene");
+        SceneManager.LoadScene(1);
         
     }
     /// <summary>
@@ -111,7 +111,7 @@ public class UImanger : MonoBehaviour
     public void gotostatics()
     {
         //go to states
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     //quit the game 
