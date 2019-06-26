@@ -17,7 +17,7 @@ public class HealthSystem : MonoBehaviour
 
         Damage = damges;
         health = Mathf.Clamp(health, 0, 100);
-        Armor = Mathf.Clamp(Armor, 0, 100);
+        Armor = Mathf.Clamp(Armor, 0, 20);
 
         if (Armor == 0)
         {

@@ -96,7 +96,7 @@ MonoBehaviour:
   itemUsed: 0
   type: Scrap
   description: used to upgrade gun
-  icon: {fileID: 21300000, guid: 60388ba5c4f70bf419d308e9c40e50b3, type: 3}
+  icon: {fileID: 21300000, guid: 72b0dd8ae2cb8e741ab04925fc1aaf59, type: 3}
   pickedUp: 0
   player: {fileID: 0}
   temp: {fileID: 0}
