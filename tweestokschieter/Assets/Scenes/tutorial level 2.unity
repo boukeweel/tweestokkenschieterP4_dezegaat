@@ -11631,9 +11631,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  Item1Text: {fileID: 0}
-  Item2Text: {fileID: 0}
-  Item3Text: {fileID: 0}
   potionText: {fileID: 0}
   text: {fileID: 0}
   textAnimation: {fileID: 0}
@@ -12151,9 +12148,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  Item1Text: {fileID: 0}
-  Item2Text: {fileID: 0}
-  Item3Text: {fileID: 0}
   potionText: {fileID: 0}
   text: {fileID: 523971485}
   textAnimation: {fileID: 523971486}
@@ -29281,6 +29275,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5220403274787605315, guid: f1786a1efaecf8c4ca5520dbb4907db2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f264be366c2c3534aaf595f53766b2ea, type: 2}
     - target: {fileID: 6178228163239921142, guid: f1786a1efaecf8c4ca5520dbb4907db2,
         type: 3}
       propertyPath: m_Layer
@@ -49997,6 +49996,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5220403274787605315, guid: f1786a1efaecf8c4ca5520dbb4907db2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f264be366c2c3534aaf595f53766b2ea, type: 2}
     - target: {fileID: 6178228163239921142, guid: f1786a1efaecf8c4ca5520dbb4907db2,
         type: 3}
       propertyPath: m_Layer

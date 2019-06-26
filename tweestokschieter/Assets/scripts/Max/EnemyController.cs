@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : HealthSystem
 {
     public float lookRadius = 10f;
 
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
             agent.SetDestination(target.position);
             if(distance <= agent.stoppingDistance)
             {
-
+                FaceTarget();
             }
         }
     }
