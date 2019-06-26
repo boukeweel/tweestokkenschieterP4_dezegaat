@@ -124,6 +124,10 @@ public class Player : HealthSystem
         {
             Health(20);
         }
+        if(collision.collider.CompareTag("mutant"))
+        {
+            Health(30);
+        }
         //if (collision.collider.CompareTag("Lift"))
         //{
         //    //animator.SetBool("active", true);
