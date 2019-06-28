@@ -8,13 +8,13 @@ using TMPro;
 
 public class UImanger : MonoBehaviour
 {
-    public GameObject mainmenu, credits, options, controls;
+    public GameObject mainmenu, credits, options;
 
     public AudioMixer audiomixer;
 
     Resolution[] resolutions;
 
-    public TMP_Dropdown ResolutionDropDown;
+    
 
     public TMP_Dropdown Grapichshold;
 
@@ -33,29 +33,8 @@ public class UImanger : MonoBehaviour
         //mainmenu set true
         MainMenu();
 
-        //set resultion
-         resolutions = Screen.resolutions;
-            
-        ResolutionDropDown.ClearOptions();
-
-        List<string> Options = new List<string>();
-
-        int currentresolutions = 0;
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + "X" + resolutions[i].height;
-
-            Options.Add(option);
-
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentresolutions = i;
-            }
-        }
-
-        ResolutionDropDown.AddOptions(Options);
-        ResolutionDropDown.value = currentresolutions;
-        ResolutionDropDown.RefreshShownValue();
+     
+        
 
     }
     /// <summary>
@@ -75,7 +54,7 @@ public class UImanger : MonoBehaviour
         //credits to true
         mainmenu.SetActive(false);
         options.SetActive(false);
-        controls.SetActive(false);
+        
         credits.SetActive(true);
 
     }
@@ -87,7 +66,7 @@ public class UImanger : MonoBehaviour
         //options to true
         mainmenu.SetActive(false);
         options.SetActive(true);
-        controls.SetActive(false);
+        
         credits.SetActive(false);
     }
     /// <summary>
@@ -98,20 +77,13 @@ public class UImanger : MonoBehaviour
         //mainmenu to true
         mainmenu.SetActive(true);
         options.SetActive(false);
-        controls.SetActive(false);
+        
         credits.SetActive(false);
     }
     /// <summary>
     /// go to the control scherm
     /// </summary>
-   public void Controls()
-   {
-        //controls to true
-        mainmenu.SetActive(false);
-        options.SetActive(false);
-        controls.SetActive(true);
-        credits.SetActive(false);
-   }
+   
     // go to statics scene
     public void gotostatics()
     {
