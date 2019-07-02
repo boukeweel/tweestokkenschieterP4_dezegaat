@@ -38,11 +38,6 @@ public class EnemyPath : MonoBehaviour
 
     }
 
-    void PathFinding()
-    {
-     
-    }
-
     void ReachedTarget()
     {
         float distanceToTarget = Vector3.Distance(transform.position, point2.position);
