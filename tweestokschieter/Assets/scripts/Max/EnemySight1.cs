@@ -13,11 +13,16 @@ public class EnemySight1 : HealthSystem
     private bool Timer = true;
     public float fireSpeed;
 
+    public GameObject droppedItem;
+    public GameObject scrapSpawner;
+
+    public Animator animator;
+
     private NavMeshAgent nav;
 
     public Transform Player;
 
-    private bool isInFov = false;
+    public bool isInFov = false;
 
     [SerializeField] private Transform[] points;
 
@@ -38,8 +43,13 @@ public class EnemySight1 : HealthSystem
     private void Start()
     {
         waitTilnextFire = Time.time;
+
+
     }
 
+    /// <summary>
+    /// laat de angle en radisu zien van de enemy in de scene 
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -61,9 +71,17 @@ public class EnemySight1 : HealthSystem
 
     }
 
+    /// <summary>
+    /// checked of the speler in the field of view van de enemy is
+    /// </summary>
+    /// <param name="CheckingObject"></param>
+    /// <param name="target"></param>
+    /// <param name="maxAngle"></param>
+    /// <param name="maxRadius"></param>
+    /// <returns></returns>
     public static bool inFov(Transform CheckingObject, Transform target, float maxAngle, float maxRadius)
     {
-        Collider[] overlaps = new Collider[150];
+        Collider[] overlaps = new Collider[200];
         int count = Physics.OverlapSphereNonAlloc(CheckingObject.position, maxRadius, overlaps);
 
         for (int i = 0; i < count + 1; i++)
@@ -89,12 +107,10 @@ public class EnemySight1 : HealthSystem
                                 return true;
                             }
                         }
-
                     }
                 }
             }
         }
-
         return false;
     }
 
@@ -105,20 +121,16 @@ public class EnemySight1 : HealthSystem
         if (isInFov == true || takingDamage > 0)
         {
             FacePlayer();
-            Speed = 3f;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Time.deltaTime * Speed);
             shoot();
         }
 
-        if(isInFov == false)
+        if (isInFov == false)
         {
             Speed = 1f;
             EnemyPath();
             FaceTarget();
         }
-
-    
-
     }
 
     public void EnemyPath()
@@ -136,18 +148,23 @@ public class EnemySight1 : HealthSystem
 
     void FaceTarget()
     {
-            Vector3 direction = (points[current].transform.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        Vector3 direction = (points[current].transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    void FacePlayer()
+    {
+        transform.LookAt(Player);
     }
 
     void shoot()
     {
-         if(Time.time > waitTilnextFire)
-         {
-            Instantiate(bullet, transform.position - (transform.forward), transform.rotation);
+        if (Time.time > waitTilnextFire)
+        {
+            Instantiate(bullet, transform.position + (transform.forward), transform.rotation);
             waitTilnextFire = Time.time + fireSpeed;
-         }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -157,13 +174,13 @@ public class EnemySight1 : HealthSystem
             stadesmanger.shothitcount();
             EnemyHealth(Bullet.damages);
         }
+
     }
 
-    void FacePlayer()
+    private void OnDestroy()
     {
-        Vector3 direction = (Player.transform.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        droppedItem = Instantiate(droppedItem, transform.position, droppedItem.transform.rotation);
     }
 
+   
 }

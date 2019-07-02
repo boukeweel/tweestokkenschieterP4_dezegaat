@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2375251599074925338}
   - component: {fileID: 565096702460622969}
   - component: {fileID: 9127747323312869779}
+  - component: {fileID: 2341511881594133607}
   m_Layer: 0
   m_Name: bullet
   m_TagString: bullet
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4536572452385403512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.93178177, y: 4.02, z: 1.1954403}
-  m_LocalScale: {x: 0.16478701, y: 0.16478701, z: 0.16478701}
+  m_LocalScale: {x: 0.2413717, y: 0.2413717, z: 0.2413717}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,4 +106,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  Damages: 10
+  Damages: 20
+  timetilldestory: 2
+--- !u!54 &2341511881594133607
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4536572452385403512}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

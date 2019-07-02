@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
             agent.SetDestination(target.position);
             if(distance <= agent.stoppingDistance)
             {
-
+                FaceTarget();
             }
         }
     }

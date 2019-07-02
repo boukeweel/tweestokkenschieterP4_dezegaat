@@ -15,6 +15,15 @@ TagManager:
   - enemyBullet
   - keycard2
   - lift
+  - pickup
+  - item1
+  - item2
+  - item3
+  - desk
+  - Item
+  - door
+  - Lift
+  - mutant
   layers:
   - Default
   - TransparentFX
@@ -34,7 +43,7 @@ TagManager:
   - EnemyBullet
   - keycardDoor2
   - door5
-  - 
+  - weapon
   - 
   - 
   - 

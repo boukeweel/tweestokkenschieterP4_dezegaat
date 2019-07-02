@@ -49,6 +49,7 @@ public class stadesmanger : MonoBehaviour
         acuraty = ShotHit * 100 / shotfired;
         //pie diagram
 
+        
         Values = new float[4];
         Values[0] = shotfired;
         Values[1] = ShotHit;
@@ -86,7 +87,7 @@ public class stadesmanger : MonoBehaviour
         //to text
         ShotfiredAmount.text = shotfired.ToString();
         ShotHitAmount.text = ShotHit.ToString();
-        Acuraty.text = acuraty.ToString() + ("%");
+        Acuraty.text = acuraty.ToString() + ("%"); // string.Format("{0}%", acuraty);
 
         Enemyskilled.text = EnemysKilled.ToString();
         DamegesTaken.text = DammageTaken.ToString();
@@ -107,26 +108,48 @@ public class stadesmanger : MonoBehaviour
     {
         ShotHit++;
     }
+    /// <summary>
+    /// set enemy kil count
+    /// </summary>
     public static void EnemysKilledcount()
     {
         EnemysKilled++;
     }
+    /// <summary>
+    ///  set Damgas taken count
+    /// </summary>
+    /// <param name="damegstaken"></param>
     public static void DamgesTakenCount(float damegstaken)
     {
         DammageTaken += damegstaken;
     }
+    /// <summary>
+    /// set shoot count
+    /// </summary>
     public static void shootcount()
     {
         shotfired++;
     }
+    /// <summary>
+    /// set ammo pickt up ammount
+    /// </summary>
+    /// <param name="AmmoPickUps"></param>
     public static void AmmoPickUpcount(int AmmoPickUps)
     {
         AmmoPickup += AmmoPickUps;
     }
+    /// <summary>
+    ///  set health pickup ammount
+    /// </summary>
+    /// <param name="Healthpickups"></param>
     public static void HealthPickUpcount(int Healthpickups)
     {
         Healthpickup += Healthpickups;
     }
+    /// <summary>
+    /// set armor pickup ammount 
+    /// </summary>
+    /// <param name="ArmorPickUps"></param>
     public static void ArmorPickUpcount(int ArmorPickUps)
     {
         ArmorPickUp += ArmorPickUps;

@@ -12,6 +12,7 @@ public class OpenRegularDoor : MonoBehaviour
     public LayerMask layerMask2;
     public LayerMask layerMask3;
     public LayerMask layerMask4;
+    public AudioSource doorSound;
     public Animator[] animator;
     public int[] IsOpen;
     int current = 0;
@@ -40,12 +41,19 @@ public class OpenRegularDoor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// raycast checked of the layermask en doet steeds 1 erbij deur staat op een toggle waardoor je hem open en dicht kan doen
+    /// </summary>
+    /// <param name="_hit"></param>
+    /// <param name="_index"></param>
+    /// <returns></returns>
     private bool CheckDoor(out RaycastHit _hit, int _index)
     {
         if (Physics.Raycast(Player.transform.position, Player.transform.forward, out _hit, range, _index == 0 ? 1 << LayerMask.NameToLayer("door") : 1 << LayerMask.NameToLayer("door" + _index)))
         {
             IsOpen[_index] = IsOpen[_index] == 1 ? 0 : 1;
             animator[_index].SetBool("active", IsOpen[_index] == 1 ? true : false);
+            doorSound.Play();
             return true;
         }
         return false;

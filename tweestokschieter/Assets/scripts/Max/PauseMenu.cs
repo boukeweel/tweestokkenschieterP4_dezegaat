@@ -4,29 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using XboxCtrlrInput;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : InventorySystem
 {
     public GameObject UI;
     public static bool isPaused = false;
     public Player player;
-    private void Start()
-    {
-        
-    }
+
+    public InventorySystem inventory;
+
     void Update()
     {
-        if (XCI.GetButtonDown(XboxButton.Start, XboxController.First) || Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            if (isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                paused();
-            }
-
-        }
+         if (XCI.GetButtonDown(XboxButton.Start, XboxController.First) || Input.GetKeyDown(KeyCode.Escape))
+         {
+                if (isPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    paused();
+                }
+         }
     } 
 
     void paused()
